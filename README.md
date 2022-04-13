@@ -1,3 +1,3 @@
 # java_IS216.M21_6
-![ERD_XEKHACH-Page-1](https://user-images.githubusercontent.com/87002579/162982220-1f76d109-54c0-4dce-9fc5-a08f27630137.jpg)
-![ClassDiagram](https://user-images.githubusercontent.com/87002579/162982230-590906cc-2571-4dd2-99c1-f0eaaa3f5dbe.jpeg)
+![ERD_XEKHACH](https://user-images.githubusercontent.com/87002579/163143108-c4d73273-12fe-4906-848e-71a9d196c2ea.jpg)
+![ClassDiagram](https://user-images.githubusercontent.com/87002579/163142687-f2253fe2-f690-4e2a-890b-2d96dd0f7f18.jpeg)
