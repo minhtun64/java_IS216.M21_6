@@ -4,39 +4,39 @@
 <p> Ngày nay khi mà công nghệ thông tin phát triển mạnh, mạng Internet về tận từng hộ gia đình, người dân thường xuyên tiếp xúc với máy tính và Internet thì hệ thống ra đời là rất phù hợp với tình hình thực tiễn. Nhu cầu đi đi xe khách ngày càng tăng đi kèm với các thao tác giao dịch mua bán trên các hệ thống cần phải đảm bảo tốc độ nhanh chóng, đáp ứng đầy đủ nhu cầu sử dụng dịch vụ khách hàng. Chính vì lẽ đó, đồ án lần này của nhóm chúng tôi hướng đến việc phân tích, thiết kế và triển khai hệ thống mua bán vé xe khách, với những tính năng đa dạng và giao diện dễ dàng sử dụng đối với tất cả mọi người.</p>
 
 <details>
-  <summary>Chức năng</summary>
+  <summary>Chức năng.</summary>
   <ol>
     <li>
-      <a>Khách hàng</a>
+      <a>Khách hàng.</a>
       <ul>
-        <li><a>Đặt mua vé xe</a></li>
-        <li><a>Xem các chuyến xe, giờ xe khách đi</a></li>
-        <li><a>Xem thông tin khuyến mãi</a></li>
-        <li><a>Xem các thông tin quy định của xe</a></li>
+        <li><a>Đặt mua vé xe.</a></li>
+        <li><a>Xem các chuyến xe, giờ xe khách đi.</a></li>
+        <li><a>Xem thông tin khuyến mãi.</a></li>
+        <li><a>Xem các thông tin quy định của xe.</a></li>
       </ul>
     </li>
     <li>
-      <a>Nhân viên</a>
+      <a>Nhân viên.</a>
       <ul>
-        <li><a>Quản lý vé</a></li>
-        <li><a>Quản lý hoàn vé</a></li>
-        <li><a>Quản lý khách hàng</a></li>
-        <li><a>Quản lý khuyến mãi</a></li>
-        <li><a>Tất cả chức năng của khách hàng</a></li>
+        <li><a>Quản lý vé.</a></li>
+        <li><a>Quản lý hoàn vé.</a></li>
+        <li><a>Quản lý khách hàng.</a></li>
+        <li><a>Quản lý khuyến mãi.</a></li>
+        <li><a>Tất cả chức năng của khách hàng.</a></li>
       </ul>
     </li>
     <li>
-      <a>Ban quản lý</a>
+      <a>Ban quản lý.</a>
       <ul>
-        <li><a>Quản lý tuyến xe</a></li>
-        <li><a>Quảy lý chuyến xe </a></li>
-        <li><a>Quản lý xe</a></li>
-        <li><a>Quản lý loại xe</a></li>
-        <li><a>Quản lý ghế</a></li>
-        <li><a>Quản lý giá vé</a></li>
-        <li><a>Quản lý nhân viên</a></li>
-        <li><a>Thống kê doanh thu</a></li>
-        <li><a>Tất cả các chức năng của nhân viên trừ các chức năng đã phân quyền</a></li>
+        <li><a>Quản lý tuyến xe.</a></li>
+        <li><a>Quảy lý chuyến xe.</a></li>
+        <li><a>Quản lý xe.</a></li>
+        <li><a>Quản lý loại xe.</a></li>
+        <li><a>Quản lý ghế.</a></li>
+        <li><a>Quản lý giá vé.</a></li>
+        <li><a>Quản lý nhân viên.</a></li>
+        <li><a>Thống kê doanh thu.</a></li>
+        <li><a>Tất cả các chức năng của nhân viên trừ các chức năng đã phân quyền.</a></li>
       <ul>
     </li>
   </ol>
@@ -46,7 +46,7 @@
 </details>
 ##Mô Hình Dữ Liệu
 <img src="https://user-images.githubusercontent.com/87002579/167473609-39d7c9a5-67bb-46fb-808e-79aeb5747894.jpg"/>
-![ClassDiagram (1)](https://user-images.githubusercontent.com/87002579/167472249-9f6545fe-a6dd-4136-b08f-c811cfa3e0f2.jpeg)
+<img src="https://user-images.githubusercontent.com/87002579/167472249-9f6545fe-a6dd-4136-b08f-c811cfa3e0f2.jpeg"/>
 
 ##Công Nghệ Sử Dụng
 + Apache NetBeans
