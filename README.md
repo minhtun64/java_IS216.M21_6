@@ -48,6 +48,10 @@
 <img src="https://user-images.githubusercontent.com/87002579/167473609-39d7c9a5-67bb-46fb-808e-79aeb5747894.jpg"/>
 <img src="https://user-images.githubusercontent.com/87002579/167472249-9f6545fe-a6dd-4136-b08f-c811cfa3e0f2.jpeg"/>
 
-##Công Nghệ Sử Dụng
-+ Apache NetBeans
-+ Oracle database
+<details>
+  <summary>Công nghệ sử dụng</summary>
+  <ol>
+    <li><a>Apache NetBeans</a></li>
+    <li><a>Oracle database</a></li>
+  </ol>
+</details>
