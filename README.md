@@ -70,8 +70,9 @@
 <details>
      <summary>Mô hình dữ liệu</summary>
 </details>
-##Mô Hình Dữ Liệu
+
 ![ERD (8)](https://user-images.githubusercontent.com/87002579/169641988-cba59992-bed1-4344-a8e6-068ba52a5b75.jpg)
+
 
 
 <details>
