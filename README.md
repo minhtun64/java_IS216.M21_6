@@ -71,8 +71,8 @@
      <summary>Mô hình dữ liệu</summary>
 </details>
 ##Mô Hình Dữ Liệu
-<img src="https://user-images.githubusercontent.com/87002579/167473609-39d7c9a5-67bb-46fb-808e-79aeb5747894.jpg"/>
-<img src="https://user-images.githubusercontent.com/87002579/167472249-9f6545fe-a6dd-4136-b08f-c811cfa3e0f2.jpeg"/>
+![ERD (8)](https://user-images.githubusercontent.com/87002579/169641988-cba59992-bed1-4344-a8e6-068ba52a5b75.jpg)
+
 
 <details>
   <summary>Công nghệ sử dụng</summary>
