@@ -71,7 +71,8 @@
      <summary>Mô hình dữ liệu</summary>
 </details>
 
-![ERD (8)](https://user-images.githubusercontent.com/87002579/169641988-cba59992-bed1-4344-a8e6-068ba52a5b75.jpg)
+
+![ERD (9)](https://user-images.githubusercontent.com/87002579/169676294-8dbcfa5a-9d69-400b-a202-a51824cd2841.jpg)
 
 
 
