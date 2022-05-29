@@ -72,7 +72,8 @@
 </details>
 
 
-![ERD (9)](https://user-images.githubusercontent.com/87002579/169676294-8dbcfa5a-9d69-400b-a202-a51824cd2841.jpg)
+![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)
+
 
 
 
