@@ -75,7 +75,7 @@ BEGIN
     WHERE ID_Ve = MAVE;
     
     UPDATE GHE
-    SET TinhTrang = 'Trong'
+    SET TinhTrang = 'Trống'
     WHERE ID_Ghe = MAGHE;
     
     SELECT ID_HanhKhach INTO MAHK
