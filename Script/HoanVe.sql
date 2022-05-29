@@ -1,55 +1,95 @@
 --------------------------------------------------------
---  File created - T4-04-13-2022   
+--  DDL for Sequence HOANVE_ID
+-------------------------------------------------------
+CREATE SEQUENCE HOANVE_ID
+INCREMENT BY 1
+MINVALUE 11011
+MAXVALUE 9999999999999999999999999999
+NOCYCLE;
 --------------------------------------------------------
---  DDL for Sequence HOANVEXE_ID
+--  DDL for Table HOANVE
 --------------------------------------------------------
-
-   CREATE SEQUENCE  "DB_XEKHACH"."HOANVEXE_ID"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 301 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
---------------------------------------------------------
---  DDL for Table BKHUYENMAI
---------------------------------------------------------
-
-  CREATE TABLE "DB_XEKHACH"."BKHUYENMAI" 
-   (	"ID" NUMBER(*,0), 
-	"NGAYBD" DATE, 
-	"NGAYKT" DATE, 
-	"NOIDUNG" VARCHAR2(100 BYTE), 
-	"PHANTRAMKM" NUMBER(1,1)
-   ) SEGMENT CREATION IMMEDIATE 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
-  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
---------------------------------------------------------
-REM INSERTING into DB_XEKHACH.HOANVEXE
-SET DEFINE OFF;
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (311,1107,'b?nh',to_date('09-JUL-21 09:06:16','DD-MON-RR HH24:MI:SS'),257000,1028000,108);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (312,1113,'có công vi?c ??t xu?t',to_date('09-JUL-21 10:56:22','DD-MON-RR HH24:MI:SS'),240000,960000,108);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (301,1001,'Có vi?c b?n ??t xu?t',to_date('12-JAN-20 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,108);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (302,1002,'Gia ?ình có ng??i m?t',to_date('01-JAN-20 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,108);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (303,1003,'Có vi?c b?n ??t xu?t',to_date('24-JAN-20 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,108);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (304,1004,'B? tai n?n giao thông',to_date('15-JAN-20 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,108);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (305,1005,'Có vi?c b?n ??t xu?t',to_date('16-NOV-20 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,109);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (306,1006,'Có vi?c b?n ??t xu?t',to_date('31-JAN-21 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,109);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (307,1007,'B? tai n?n giao thông',to_date('29-JAN-21 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,109);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (308,1008,'Gia ?ình có ng??i m?t',to_date('19-JAN-20 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,108);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (309,1009,'Gia ?ình có ng??i m?t',to_date('10-FEB-20 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,109);
-Insert into DB_XEKHACH.HOANVEXE (ID,DATVEXE_ID,LIDO,NGAYHOAN,PHIHV,TIENHV,NHANVIEN_ID) values (310,1010,'Có vi?c b?n ??t xu?t',to_date('21-FEB-21 00:00:00','DD-MON-RR HH24:MI:SS'),0.2,0,110);
---------------------------------------------------------
---  DDL for Index HOANVE_UK
+  CREATE TABLE HOANVE
+(	ID_HoanVe NUMBER, 
+    ID_Ve NUMBER NOT NULL, 
+	ID_NhanVien NUMBER NOT NULL, 
+    NgayHoan DATE NOT NULL, 
+	PhiHV NUMBER NOT NULL,
+    TienHV NUMBER NOT NULL
+) SEGMENT CREATION IMMEDIATE 
+PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+NOCOMPRESS LOGGING
+STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+TABLESPACE USERS ;
 --------------------------------------------------------
 
-  CREATE UNIQUE INDEX "DB_XEKHACH"."HOANVE_UK" ON "DB_XEKHACH"."HOANVEXE" ("ID") 
+--  DDL for Index HOANVE_PK
+--------------------------------------------------------
+  CREATE UNIQUE INDEX HV_PK ON HOANVE (ID_HoanVe) 
   PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
   STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
   PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
   BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
-  --------------------------------------------------------
---  Constraints for Table HOANVEXE
+  TABLESPACE USERS ;
 --------------------------------------------------------
 
-  ALTER TABLE "DB_XEKHACH"."HOANVEXE" ADD CONSTRAINT "HOANVE_PK" PRIMARY KEY ("ID")
-  USING INDEX "DB_XEKHACH"."HOANVE_UK"  ENABLE;
+--  Constraints for Table HOANVE
+--------------------------------------------------------
+  ALTER TABLE HOANVE ADD CONSTRAINT HV_PK PRIMARY KEY (ID_HoanVe)
+  USING INDEX HV_PK  ENABLE;
+--------------------------------------------------------
+
+--  Ref Constraints for Table HOANVE
+--------------------------------------------------------
+  ALTER TABLE HOANVE ADD CONSTRAINT HV_VE_FK FOREIGN KEY (ID_Ve)
+	  REFERENCES VE (ID_Ve) ON DELETE CASCADE ENABLE;
+      
+  ALTER TABLE HOANVE ADD CONSTRAINT HV_NV_FK FOREIGN KEY (ID_NhanVien)
+	  REFERENCES NHANVIEN (ID_NhanVien) ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
+
+SET SERVEROUTPUT  ON;
+--  PROCEDURE for table HOANVE
+--------------------------------------------------------
+-----Pro_themhoanve
+CREATE OR REPLACE PROCEDURE Pro_themhoanve (
+                                            MAVE  HOANVE.ID_Ve%TYPE,
+                                            MANV HOANVE.ID_NhanVien %TYPE,
+                                            PHV  HOANVE.PhiHV %TYPE,
+                                            THV  HOANVE.TienHV %TYPE)
+AS
+    MAGHE VE.ID_Ghe%TYPE;
+    MAHK VE.ID_HanhKhach%TYPE;
+BEGIN
+    Insert into HOANVE (ID_HoanVe, ID_Ve, ID_NhanVien, NgayHoan , PhiHV, TienHV) 
+        values (HoanVe_ID.NEXTVAL, MAVE, MANV, current_date, PHV,THV);
+        
+    UPDATE VE
+    SET TinhTrang = 'Đã hoàn'
+    WHERE ID_Ve = MAVE;
+    
+    SELECT ID_Ghe INTO MAGHE
+    FROM VE
+    WHERE ID_Ve = MAVE;
+    
+    UPDATE GHE
+    SET TinhTrang = 'Trong'
+    WHERE ID_Ghe = MAGHE;
+    
+    SELECT ID_HanhKhach INTO MAHK
+    FROM VE
+    WHERE ID_Ve = MAVE;
+    
+    UPDATE HANHKHACH
+    SET TinhTrang = 'Đã hủy'
+    WHERE ID_HanhKhach = MAHK;
+    
+    DBMS_OUTPUT.PUT_LINE('Them thanh cong');
+    EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Loi!');
+END;
+/
+--------------------------------------------------------
