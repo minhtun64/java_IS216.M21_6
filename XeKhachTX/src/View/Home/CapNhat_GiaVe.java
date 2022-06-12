@@ -5,7 +5,6 @@
 package View.Home;
 
 import Connect_DB.CheckOracleConnection;
-import Process.SGiaVe;
 import Process.Ve;
 import java.sql.PreparedStatement;
 import java.util.logging.Level;
@@ -53,9 +52,9 @@ public class CapNhat_GiaVe extends javax.swing.JFrame {
             conn.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
@@ -76,9 +75,9 @@ public class CapNhat_GiaVe extends javax.swing.JFrame {
             conn.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
@@ -599,7 +598,7 @@ public class CapNhat_GiaVe extends javax.swing.JFrame {
     public void fillTable() {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##DB_XEKHACHTHANHXUAN", "userpass");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
             java.sql.Statement st = conn.createStatement();
             String sql = "SELECT ID_LOAIXE, ID_TUYENXE, GIAVE FROM GIAVE";
             ResultSet rs = st.executeQuery(sql);

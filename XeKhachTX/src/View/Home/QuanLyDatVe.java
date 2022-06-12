@@ -459,7 +459,7 @@ public class QuanLyDatVe extends javax.swing.JFrame {
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
-        ThemDatVe themdatve = new ThemDatVe();
+        Them_DatVe themdatve = new Them_DatVe();
         themdatve.setVisible(true);
         CloseFrame();
 
@@ -557,7 +557,7 @@ public class QuanLyDatVe extends javax.swing.JFrame {
         } else {
             try {
                 Class.forName("oracle.jdbc.OracleDriver");
-                conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "DB_XEKHACH", "userpass");
+                conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
                 pst = conn.prepareStatement("SELECT * FROM DATVE WHERE ID_DATVE=?");
                 pst.setString(1, iddve);
                 ResultSet rs = pst.executeQuery();

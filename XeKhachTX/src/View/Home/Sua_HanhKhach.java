@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View.Home;
-
 import Process.HanhKhach;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -11,13 +10,11 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
-
 /**
  *
  * @author DUNG
  */
 public class Sua_HanhKhach extends javax.swing.JFrame {
-
     /**
      * Creates new form Edithanhkhach
      */
@@ -26,13 +23,11 @@ public class Sua_HanhKhach extends javax.swing.JFrame {
         fillTable();
     }
 // hàm đóng Jframe 
-
     public void CloseFrame() {
         super.dispose();
     }
     Connection conn;
 // gọi hàm Jtable
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -597,7 +592,7 @@ public class Sua_HanhKhach extends javax.swing.JFrame {
     public void fillTable() {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "NHANVIEN", "nhanvien");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "DB_XEKHACH", "userpass");
             java.sql.Statement st = conn.createStatement();
             String sql = "SELECT ID_HANHKHACH, TENHK, CMND, SDT, EMAIL, TINHTRANG FROM HANHKHACH";
             ResultSet rs = st.executeQuery(sql);

@@ -56,9 +56,9 @@ public class QuanLyGiaVe extends javax.swing.JFrame {
             pstmt.close();
             conn.close();
         } catch (SQLException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
@@ -84,9 +84,9 @@ public class QuanLyGiaVe extends javax.swing.JFrame {
             conn.close();
 
         } catch (SQLException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Them_GiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
@@ -585,7 +585,7 @@ public class QuanLyGiaVe extends javax.swing.JFrame {
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
-        ThemGiaVe themgiave = new ThemGiaVe();
+        Them_GiaVe themgiave = new Them_GiaVe();
         themgiave.setVisible(true);
         CloseFrame();
 

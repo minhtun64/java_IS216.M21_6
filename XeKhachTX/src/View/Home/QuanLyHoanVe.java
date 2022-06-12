@@ -402,7 +402,7 @@ public class QuanLyHoanVe extends javax.swing.JFrame {
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
-        ThemHoanVe themhoanve = new ThemHoanVe();
+        Them_HoanVe themhoanve = new Them_HoanVe();
         themhoanve.setVisible(true);
         CloseFrame();
 

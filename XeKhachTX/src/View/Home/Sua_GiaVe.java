@@ -5,21 +5,21 @@
 package View.Home;
 
 import Connect_DB.CheckOracleConnection;
-import Process.SGiaVe;
 import Process.Ve;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.text.SimpleDateFormat;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author DUNG
- */
+import javax.swing.table.TableRowSorter;
+
 public class Sua_GiaVe extends javax.swing.JFrame {
 
     /**
@@ -48,11 +48,6 @@ public class Sua_GiaVe extends javax.swing.JFrame {
             rs.close();
             pstmt.close();
             conn.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
@@ -70,11 +65,6 @@ public class Sua_GiaVe extends javax.swing.JFrame {
             rs.close();
             pstmt.close();
             conn.close();
-
-        } catch (SQLException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(ThemGiaVe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
             e.printStackTrace();
@@ -555,7 +545,7 @@ public class Sua_GiaVe extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new SGiaVe().setVisible(true);
+                new Sua_GiaVe().setVisible(true);
             }
         });
 
@@ -563,9 +553,9 @@ public class Sua_GiaVe extends javax.swing.JFrame {
 public void fillTable() {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##DB_XEKHACHTHANHXUAN", "userpass");
+            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
             java.sql.Statement st = conn.createStatement();
-            String sql = "SELECT ID_LOAIXE, ID_TUYENXE, GIAVE FROM GIAVE";
+            String sql = "SELECT * FROM GIAVE";
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
