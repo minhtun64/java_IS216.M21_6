@@ -752,6 +752,9 @@
               <Color blue="ee" green="fa" red="fb" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QuanLyHanhKhachMouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -802,6 +805,9 @@
               <Color blue="ee" green="fa" red="fb" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QuanLyDatVeMouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">
@@ -852,6 +858,9 @@
               <Color blue="ee" green="fa" red="fb" type="rgb"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="QuanLyHoanVeMouseClicked"/>
+          </Events>
 
           <Layout>
             <DimensionLayout dim="0">

@@ -27,7 +27,7 @@ public class ChuyenXe {
 //                    +maDoi+"','"+tenDoi+"','"+quocGia+"')";
 //            String query = "INSERT INTO TUYENXE VALUES(?,?,?,?,?,?,?)";
 //            PreparedStatement ps = con.prepareStatement(query);
-            String strCall = "{call Pro_themchuyenxe (?,?,?,?,?,?,?,?,?)}";
+            String strCall = "{call Pro_themchuyenxe (?,?,?,?,?,to_date(?, 'DD-MM-YYYY HH24:MI:SS'),to_date(?, 'DD-MM-YYYY HH24:MI:SS'),?,?)}";
             CallableStatement caSt = con.prepareCall(strCall);
 
             caSt.setString(1, maTuyenXe);
@@ -66,7 +66,7 @@ public class ChuyenXe {
 //                    +maDoi+"','"+tenDoi+"','"+quocGia+"')";
 //            String query = "INSERT INTO TUYENXE VALUES(?,?,?,?,?,?,?)";
 //            PreparedStatement ps = con.prepareStatement(query);
-            String strCall = "{call Pro_capnhatchuyenxe (?,?,?,?,?,?,?,?,?,?)}";
+            String strCall = "{call Pro_capnhatchuyenxe (?,?,?,?,?,?,to_date(?, 'DD-MM-YYYY HH24:MI:SS'),to_date(?, 'DD-MM-YYYY HH24:MI:SS'),?,?)}";
             CallableStatement caSt = con.prepareCall(strCall);
 
             caSt.setString(1, maChuyenXe);

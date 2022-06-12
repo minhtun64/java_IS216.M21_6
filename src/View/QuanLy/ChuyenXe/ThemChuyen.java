@@ -5,20 +5,20 @@
 package View.QuanLy.ChuyenXe;
 
 import Process.QuanLy.TuyenXe.ChuyenXe;
-import View.KhachHang.ChonChuyen;
+import View.Home.Login_Form;
+import View.QuanLy.GiaVe.Homepage_QuanLyGiaVe;
+import View.QuanLy.Homepage_NguoiQuanLy;
+import View.QuanLy.LoaiXe.Homepage_QuanLyLoaiXe;
+import View.QuanLy.NhanVien.Homepage_QuanLyNhanVien;
+import View.QuanLy.TuyenXe.Homepage_QuanLyTuyenXe;
+import View.QuanLy.Xe.Homepage_QuanLyXe;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
-import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
-import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -38,6 +38,9 @@ public class ThemChuyen extends javax.swing.JFrame {
 //        loadcbbdiemden();
     }
 
+    public void CloseFrame() {
+        super.dispose();
+    }
     Connection con;
     PreparedStatement pst;
 
@@ -90,7 +93,7 @@ public class ThemChuyen extends javax.swing.JFrame {
         tenxe_themchuyen = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         tenquanly_themchuyen = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
+        A = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         trangChu_homepage8 = new javax.swing.JPanel();
         jLabel52 = new javax.swing.JLabel();
@@ -441,7 +444,7 @@ public class ThemChuyen extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel13.setBackground(new java.awt.Color(205, 247, 247));
+        A.setBackground(new java.awt.Color(205, 247, 247));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/HÃNG XE KHÁCH (200 × 200 px).png"))); // NOI18N
 
@@ -479,6 +482,11 @@ public class ThemChuyen extends javax.swing.JFrame {
         );
 
         jPanel16.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyTuyenXeMouseClicked(evt);
+            }
+        });
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_map_pinpoint_20px_1.png"))); // NOI18N
 
@@ -507,6 +515,11 @@ public class ThemChuyen extends javax.swing.JFrame {
         );
 
         jPanel17.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyChuyenXeMouseClicked(evt);
+            }
+        });
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_windows_calendar_20px.png"))); // NOI18N
 
@@ -535,6 +548,11 @@ public class ThemChuyen extends javax.swing.JFrame {
         );
 
         jPanel18.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyXeMouseClicked(evt);
+            }
+        });
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_Shuttle_bus_20px.png"))); // NOI18N
 
@@ -563,6 +581,11 @@ public class ThemChuyen extends javax.swing.JFrame {
         );
 
         jPanel19.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyLoaiXeMouseClicked(evt);
+            }
+        });
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_public_transportation_20px_1.png"))); // NOI18N
 
@@ -591,6 +614,11 @@ public class ThemChuyen extends javax.swing.JFrame {
         );
 
         jPanel21.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyNhanVienMouseClicked(evt);
+            }
+        });
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_management_20px_1.png"))); // NOI18N
 
@@ -619,6 +647,11 @@ public class ThemChuyen extends javax.swing.JFrame {
         );
 
         jPanel22.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyGiaVeMouseClicked(evt);
+            }
+        });
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_ticket_20px_1.png"))); // NOI18N
 
@@ -679,15 +712,15 @@ public class ThemChuyen extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        javax.swing.GroupLayout ALayout = new javax.swing.GroupLayout(A);
+        A.setLayout(ALayout);
+        ALayout.setHorizontalGroup(
+            ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ALayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel13Layout.createSequentialGroup()
-                        .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALayout.createSequentialGroup()
+                        .addGroup(ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -697,13 +730,13 @@ public class ThemChuyen extends javax.swing.JFrame {
                             .addComponent(dangXuat_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(trangChu_homepage8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(11, 11, 11))
-                    .addGroup(jPanel13Layout.createSequentialGroup()
+                    .addGroup(ALayout.createSequentialGroup()
                         .addComponent(jLabel12)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
+        ALayout.setVerticalGroup(
+            ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ALayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -731,13 +764,13 @@ public class ThemChuyen extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
-                .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 688, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -746,34 +779,64 @@ public class ThemChuyen extends javax.swing.JFrame {
 
     private void themchuyenxe_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themchuyenxe_chuyenxeActionPerformed
         // TODO add your handling code here:
-        
+
         String matuyen = cbbtuyenxe_themchuyen.getSelectedItem().toString().trim();
         String maxe = cbbmaxe_themchuyen.getSelectedItem().toString().trim();
         String maquanly = cbbmaquanly_themchuyen.getSelectedItem().toString().trim();
 
         String tenTuyen = noilenxe_themchuyen.getText();
         String diemDau = noixuongxe_themchuyen.getText();
-        String ngaykhoihanh = new SimpleDateFormat("dd-MMM-yyyy").format(thoigiankhoihanh_themchuyen.getDate());
-        System.out.println(ngaykhoihanh);
-        String ngayden = new SimpleDateFormat("dd-MMM-yyyy").format(thoigianden_themchuyen.getDate());
+        String ngaykhoihanh = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss" ).format(thoigiankhoihanh_themchuyen.getDate());
+
+        String ngayden = new SimpleDateFormat("dd-MMM-yyyy  HH:mm:ss").format(thoigianden_themchuyen.getDate());
         String tentaixe = tentaixe_themchuyen.getText();
         String tenphuxe = tenphuxe_themchuyen.getText();
         System.out.println(ngaykhoihanh);
-        ChuyenXe db = new ChuyenXe();
+        boolean flag = true;
+            if (tenTuyen.equals("")) {
+
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập nơi lên xe\n");
+                flag = false;
+            } else if (diemDau.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập nơi xuống xe\n");
+                flag = false;
+            }else if (ngaykhoihanh.equals(""))
+            {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập thời gian khởi hành\n");
+                flag = false;
+            } 
+            else if (ngayden.equals(""))
+            {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập thời gian khởi hành\n");
+                flag = false;
+            } 
+            else if (tentaixe.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tài xế\n");
+                flag = false;
+            } else if (tenphuxe.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập phụ xe");
+                flag = false;
+            }
+            if(flag == true){
+                        ChuyenXe db = new ChuyenXe();
 
         //Lay ket qua tu CSDL
         int countRecord = db.themChuyenXe(matuyen, maxe, maquanly, tenTuyen,
-                diemDau,ngaykhoihanh,ngayden,tentaixe ,tenphuxe   );
+                diemDau, ngaykhoihanh, ngayden, tentaixe, tenphuxe);
 
         if (countRecord > 0) {
             JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
                     JOptionPane.INFORMATION_MESSAGE, null);
             hide();
 
-            ThemChuyen themchuyen = new ThemChuyen();
+            Homepage_QuanLyChuyenXe themchuyen = new Homepage_QuanLyChuyenXe();
             themchuyen.setVisible(true);
+            this.setVisible(false);
+            }
+            }
 
-        }
+
+        
     }//GEN-LAST:event_themchuyenxe_chuyenxeActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -785,10 +848,16 @@ public class ThemChuyen extends javax.swing.JFrame {
 
     private void dangXuat_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuat_homepageMouseClicked
         // TODO add your handling code here:
+        Login_Form login = new Login_Form();
+        login.setVisible(true);
+        CloseFrame();
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
 
     private void trangChu_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepageMouseClicked
         // TODO add your handling code here:
+        Homepage_NguoiQuanLy nguoiquanly = new Homepage_NguoiQuanLy();
+        nguoiquanly.setVisible(true);
+        CloseFrame();
     }//GEN-LAST:event_trangChu_homepageMouseClicked
 
     private void tentaixe_themchuyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentaixe_themchuyenActionPerformed
@@ -807,6 +876,51 @@ public class ThemChuyen extends javax.swing.JFrame {
         // TODO add your handling code here:
 
     }//GEN-LAST:event_cbbtuyenxe_themchuyenMouseClicked
+
+    private void QuanLyTuyenXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyTuyenXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyTuyenXe quanlytuyenxe = new Homepage_QuanLyTuyenXe();
+        quanlytuyenxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyTuyenXeMouseClicked
+
+    private void QuanLyChuyenXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyChuyenXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyChuyenXe quanlychuyenxe = new Homepage_QuanLyChuyenXe();
+        quanlychuyenxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyChuyenXeMouseClicked
+
+    private void QuanLyXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyXe quanlyxe = new Homepage_QuanLyXe();
+        quanlyxe.setVisible(true);
+        CloseFrame();
+
+    }//GEN-LAST:event_QuanLyXeMouseClicked
+
+    private void QuanLyLoaiXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyLoaiXeMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        Homepage_QuanLyLoaiXe quanlyloaixe = new Homepage_QuanLyLoaiXe();
+        quanlyloaixe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyLoaiXeMouseClicked
+
+    private void QuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyNhanVienMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyNhanVien quanlynhanvien = new Homepage_QuanLyNhanVien();
+        quanlynhanvien.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyNhanVienMouseClicked
+
+    private void QuanLyGiaVeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyGiaVeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyGiaVe quanlygiave = new Homepage_QuanLyGiaVe();
+        quanlygiave.setVisible(true);
+        CloseFrame();
+
+    }//GEN-LAST:event_QuanLyGiaVeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -881,6 +995,7 @@ public class ThemChuyen extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel A;
     private javax.swing.JComboBox<String> cbbmaquanly_themchuyen;
     private javax.swing.JComboBox<String> cbbmaxe_themchuyen;
     private javax.swing.JComboBox<String> cbbtuyenxe_themchuyen;
@@ -923,7 +1038,6 @@ public class ThemChuyen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;

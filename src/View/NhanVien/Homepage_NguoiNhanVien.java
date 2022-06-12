@@ -5,6 +5,9 @@
 package View.NhanVien;
 
 import View.Home.Login_Form;
+import View.NhanVien.DatVe.Homepage_QuanLyDatVe;
+import View.NhanVien.HanhKhach.QuanLyHanhKhach;
+import View.NhanVien.HoanVe.Homepage_QuanLyHoanVe;
 import View.QuanLy.*;
 
 /**
@@ -19,7 +22,9 @@ public class Homepage_NguoiNhanVien extends javax.swing.JFrame {
     public Homepage_NguoiNhanVien() {
         initComponents();
     }
-
+    public void CloseFrame() {
+        super.dispose();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -455,6 +460,11 @@ public class Homepage_NguoiNhanVien extends javax.swing.JFrame {
         );
 
         jPanel16.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyHanhKhachMouseClicked(evt);
+            }
+        });
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_management_20px_1.png"))); // NOI18N
 
@@ -483,6 +493,11 @@ public class Homepage_NguoiNhanVien extends javax.swing.JFrame {
         );
 
         jPanel17.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyDatVeMouseClicked(evt);
+            }
+        });
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/NhanVien/icons8_ticket_confirmed_20px.png"))); // NOI18N
 
@@ -511,6 +526,11 @@ public class Homepage_NguoiNhanVien extends javax.swing.JFrame {
         );
 
         jPanel18.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyHoanVeMouseClicked(evt);
+            }
+        });
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/NhanVien/icons8_transaction_20px.png"))); // NOI18N
 
@@ -641,6 +661,27 @@ public class Homepage_NguoiNhanVien extends javax.swing.JFrame {
         dangnhap.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
+
+    private void QuanLyHanhKhachMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyHanhKhachMouseClicked
+        // TODO add your handling code here:
+                QuanLyHanhKhach quanlyhanhkhach = new QuanLyHanhKhach();
+        quanlyhanhkhach.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyHanhKhachMouseClicked
+
+    private void QuanLyDatVeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyDatVeMouseClicked
+        // TODO add your handling code here:
+                Homepage_QuanLyDatVe quanlydatve = new Homepage_QuanLyDatVe();
+        quanlydatve.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyDatVeMouseClicked
+
+    private void QuanLyHoanVeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyHoanVeMouseClicked
+        // TODO add your handling code here:
+                Homepage_QuanLyHoanVe quanlyhoanve = new Homepage_QuanLyHoanVe();
+        quanlyhoanve.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyHoanVeMouseClicked
 
     /**
      * @param args the command line arguments

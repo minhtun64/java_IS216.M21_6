@@ -4,15 +4,20 @@
  */
 package View.NhanVien.DatVe;
 
-import View.QuanLy.*;
-import View.QuanLy.TuyenXe.ThemTuyen;
+import Process.NhanVien.Ve;
+import View.Home.Login_Form;
+import View.NhanVien.HanhKhach.QuanLyHanhKhach;
+import View.NhanVien.HoanVe.Homepage_QuanLyHoanVe;
+import View.NhanVien.Homepage_NguoiNhanVien;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -33,6 +38,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
     }
     Connection con;
     PreparedStatement pst;
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,7 +74,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
         jScrollPane5 = new javax.swing.JScrollPane();
         danhsachdatve = new javax.swing.JTable();
         jLabel26 = new javax.swing.JLabel();
-        nhaptuyenxe = new javax.swing.JTextField();
+        IDDve = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         nuttimkiem_tuyenxe = new javax.swing.JButton();
         jLabel51 = new javax.swing.JLabel();
@@ -105,10 +111,10 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(251, 250, 238));
 
-        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/QuanLy/Icon/QuanLyTuyenXe/icons8_edit_30px_3.png"))); // NOI18N
+        jLabel45.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/NhanVien/icons8_cash_30px.png"))); // NOI18N
 
         nutsua_quanlytuyenxe.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
-        nutsua_quanlytuyenxe.setText("Sửa");
+        nutsua_quanlytuyenxe.setText("Thanh toán");
         nutsua_quanlytuyenxe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nutsua_quanlytuyenxeActionPerformed(evt);
@@ -220,17 +226,17 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/QuanLy/Icon/QuanLyTuyenXe/icons8_search_30px_3.png"))); // NOI18N
 
-        nhaptuyenxe.setFont(new java.awt.Font("Comfortaa", 0, 12)); // NOI18N
-        nhaptuyenxe.setToolTipText("");
-        nhaptuyenxe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(205, 247, 247)));
-        nhaptuyenxe.addActionListener(new java.awt.event.ActionListener() {
+        IDDve.setFont(new java.awt.Font("Comfortaa", 0, 12)); // NOI18N
+        IDDve.setToolTipText("");
+        IDDve.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(205, 247, 247)));
+        IDDve.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nhaptuyenxeActionPerformed(evt);
+                IDDveActionPerformed(evt);
             }
         });
-        nhaptuyenxe.addKeyListener(new java.awt.event.KeyAdapter() {
+        IDDve.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                nhaptuyenxeKeyPressed(evt);
+                IDDveKeyPressed(evt);
             }
         });
 
@@ -282,12 +288,12 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(116, 116, 116)
+                                .addGap(93, 93, 93)
                                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                 .addComponent(jLabel26)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(nhaptuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(IDDve, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, Short.MAX_VALUE)
                                 .addComponent(nuttimkiem_tuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -349,15 +355,16 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
                                         .addGap(1, 1, 1)
                                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(nhaptuyenxe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(IDDve, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.TRAILING))))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 62, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 2, Short.MAX_VALUE))
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(0, 0, 0)
@@ -418,6 +425,11 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
         );
 
         jPanel16.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel16MouseClicked(evt);
+            }
+        });
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_management_20px_1.png"))); // NOI18N
 
@@ -474,6 +486,11 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
         );
 
         jPanel18.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel18MouseClicked(evt);
+            }
+        });
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/NhanVien/icons8_transaction_20px.png"))); // NOI18N
 
@@ -592,53 +609,92 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
     private void trangChu_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepageMouseClicked
         // TODO add your handling code here:
+        Homepage_NguoiNhanVien nguoinhanvien = new Homepage_NguoiNhanVien();
+        nguoinhanvien.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_trangChu_homepageMouseClicked
 
     private void dangXuat_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuat_homepageMouseClicked
         // TODO add your handling code here:
+        Login_Form login = new Login_Form();
+        login.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
 
     private void nutsua_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsua_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel tblModel = (DefaultTableModel) danhsachdatve.getModel();
+        int i = danhsachdatve.getSelectedRow();
+
+        if (danhsachdatve.getSelectedRowCount() == 1) {
+            String iD = (String) danhsachdatve.getValueAt(i, 0);
+            int ret = JOptionPane.showConfirmDialog(this, "Bạn có muốn thanh toán vé có mã vé này ?", "Thanh toán dữ liệu",
+                    JOptionPane.YES_NO_OPTION);
+            if (ret == JOptionPane.YES_OPTION) {
+                tblModel.removeRow(danhsachdatve.getSelectedRow());
+                Ve xoa = new Ve();
+                int sodongxoa = 0;
+                sodongxoa = xoa.ThanhToanDatVe(iD);
+
+                if (sodongxoa > 0) {
+                    JOptionPane.showMessageDialog(this, "Thanh toán thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
+            }
+
+        } else {
+            if (danhsachdatve.getRowCount() == 0) {
+
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 giá vé cần thanh toán!",
+                        "Lỗi", JOptionPane.WARNING_MESSAGE, null);
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 giá vé cần thanh toán!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+            }
+        }
+
     }//GEN-LAST:event_nutsua_quanlytuyenxeActionPerformed
 
     private void nutxoa_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutxoa_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
 
-//        DefaultTableModel tblModel = (DefaultTableModel) danhsachtuyenxe.getModel();
-//        int i = danhsachtuyenxe.getSelectedRow();
-//        String iD = (String) danhsachtuyenxe.getValueAt(i, 0);
-//
-//        if (danhsachtuyenxe.getSelectedRowCount() == 1) {
-//            tblModel.removeRow(danhsachtuyenxe.getSelectedRow());
-//            TuyenXe bienxoatuyenxe = new TuyenXe();
-//            int sodongxoatuyenxe = bienxoatuyenxe.xoaTuyenXe(iD);
-//
-//            if (sodongxoatuyenxe > 0) {
-//                JOptionPane.showMessageDialog(this, "Xóa thành công!", "Thông báo",
-//                    JOptionPane.INFORMATION_MESSAGE, null);
-//                Homepage_QuanLyTuyenXe homepage = new Homepage_QuanLyTuyenXe();
-//                homepage.setVisible(true);
-//                this.setVisible(false);
-//            } else {
-//                JOptionPane.showMessageDialog(null, "Error");
-//            }
-//        } else {
-//            if (danhsachtuyenxe.getSelectedRowCount() == 0) {
-//
-//                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 tuyến xe cần xóa!",
-//                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-//                Homepage_QuanLyTuyenXe homepage = new Homepage_QuanLyTuyenXe();
-//                homepage.setVisible(true);
-//                this.setVisible(false);
-//            } else {
-//                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 tuyến xe cần xóa!",
-//                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-//                Homepage_QuanLyTuyenXe homepage = new Homepage_QuanLyTuyenXe();
-//                homepage.setVisible(true);
-//                this.setVisible(false);
-//            }
-//        }
+        DefaultTableModel tblModel = (DefaultTableModel) danhsachdatve.getModel();
+        int i = danhsachdatve.getSelectedRow();
+
+        if (danhsachdatve.getSelectedRowCount() == 1) {
+            String iD = (String) danhsachdatve.getValueAt(i, 0);
+            int ret = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa?", "Xóa dữ liệu",
+                    JOptionPane.YES_NO_OPTION);
+            if (ret == JOptionPane.YES_OPTION) {
+                tblModel.removeRow(danhsachdatve.getSelectedRow());
+                Ve xoa = new Ve();
+                int sodongxoa = 0;
+                try {
+                    sodongxoa = xoa.XoaDatVe(iD);
+                } catch (SQLException ex) {
+                } catch (ClassNotFoundException ex) {
+                }
+
+                if (sodongxoa > 0) {
+                    JOptionPane.showMessageDialog(this, "Xóa thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
+            }
+
+        } else {
+            if (danhsachdatve.getRowCount() == 0) {
+
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 giá vé cần xóa!",
+                        "Lỗi", JOptionPane.WARNING_MESSAGE, null);
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 giá vé cần xóa!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+            }
+        }
 
     }//GEN-LAST:event_nutxoa_quanlytuyenxeActionPerformed
 
@@ -648,26 +704,76 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
     private void nutthem_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutthem_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
-        ThemTuyen themtuyen = new ThemTuyen();
-        themtuyen.setVisible(true);
+        Them_DatVe themdatve = new Them_DatVe();
+        themdatve.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_nutthem_quanlytuyenxeActionPerformed
 
-    private void nhaptuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhaptuyenxeActionPerformed
+    private void IDDveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDDveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nhaptuyenxeActionPerformed
+    }//GEN-LAST:event_IDDveActionPerformed
 
-    private void nhaptuyenxeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nhaptuyenxeKeyPressed
+    private void IDDveKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_IDDveKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_nhaptuyenxeKeyPressed
+    }//GEN-LAST:event_IDDveKeyPressed
 
     private void nuttimkiem_tuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttimkiem_tuyenxeActionPerformed
         // TODO add your handling code here:
+        String iddve = IDDve.getText();
         DefaultTableModel model = (DefaultTableModel) danhsachdatve.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
         danhsachdatve.setRowSorter(tr);
-        tr.setRowFilter(RowFilter.regexFilter(nhaptuyenxe.getText().trim()));
+        if (iddve.equals("")) {
+            JOptionPane.showMessageDialog(this, "Vui lòng nhập ID Đặt vé!",
+                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+        } else {
+            try {
+                Class.forName("oracle.jdbc.OracleDriver");
+                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+                pst = con.prepareStatement("SELECT * FROM DATVE WHERE ID_DATVE=?");
+                pst.setString(1, iddve);
+                ResultSet rs = pst.executeQuery();
+                ResultSetMetaData rsm = rs.getMetaData();
+                int c;
+                c = rsm.getColumnCount();
+                DefaultTableModel Df = (DefaultTableModel) danhsachdatve.getModel();
+                Df.setRowCount(0);
+                while (rs.next()) {
+                    Vector v2 = new Vector();
+                    for (int i = 1; i <= c; i++) {
+                        v2.add(rs.getInt("ID_DATVE"));
+                        v2.add(rs.getString("ID_HANHKHACH"));
+                        v2.add(rs.getString("ID_VE"));
+                        v2.add(rs.getString("ID_NHANVIEN"));
+                        v2.add(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("NGAYTHEM"))));
+                        v2.add(rs.getString("TONGTIEN"));
+                        v2.add(rs.getString("TINHTRANG"));
+                    }
+                    Df.addRow(v2);
+                }
+            } catch (ClassNotFoundException e) {
+                JOptionPane.showMessageDialog(null, e);
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+        }
     }//GEN-LAST:event_nuttimkiem_tuyenxeActionPerformed
+
+    private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked
+        // TODO add your handling code here:
+        QuanLyHanhKhach quanlyhanhkhach = new QuanLyHanhKhach();
+        quanlyhanhkhach.setVisible(true);
+        this.setVisible(false);
+
+
+    }//GEN-LAST:event_jPanel16MouseClicked
+
+    private void jPanel18MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel18MouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyHoanVe quanlyhoanve = new Homepage_QuanLyHoanVe();
+        quanlyhoanve.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jPanel18MouseClicked
 
     /**
      * @param args the command line arguments
@@ -726,7 +832,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
                 String tongtien = rs.getString("TONGTIEN");
                 String tinhtrang = rs.getString("TINHTRANG");
 
-                String tbData[] = {iddatve, idhanhkhach, idve, idnhanvien, ngay, tongtien,tinhtrang };
+                String tbData[] = {iddatve, idhanhkhach, idve, idnhanvien, ngay, tongtien, tinhtrang};
                 //               String tbData[] = {diemdi, diemden};
                 DefaultTableModel tblModel = (DefaultTableModel) danhsachdatve.getModel();
 
@@ -741,6 +847,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField IDDve;
     private javax.swing.JPanel dangXuat_homepage;
     private javax.swing.JTable danhsachdatve;
     private javax.swing.JPanel gioiThieu_homepage;
@@ -783,7 +890,6 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField nhaptuyenxe;
     private javax.swing.JButton nutsua_quanlytuyenxe;
     private javax.swing.JButton nutthem_quanlytuyenxe;
     private javax.swing.JButton nuttimkiem_tuyenxe;

@@ -7,6 +7,13 @@ package View.QuanLy.TuyenXe;
 import View.QuanLy.TuyenXe.Homepage_QuanLyTuyenXe;
 import ConnectDB.CheckOracleConnection;
 import Process.QuanLy.TuyenXe.TuyenXe;
+import View.Home.Login_Form;
+import View.QuanLy.ChuyenXe.Homepage_QuanLyChuyenXe;
+import View.QuanLy.GiaVe.Homepage_QuanLyGiaVe;
+import View.QuanLy.Homepage_NguoiQuanLy;
+import View.QuanLy.LoaiXe.Homepage_QuanLyLoaiXe;
+import View.QuanLy.NhanVien.Homepage_QuanLyNhanVien;
+import View.QuanLy.Xe.Homepage_QuanLyXe;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -37,6 +44,10 @@ public class SuaTuyen extends javax.swing.JFrame {
 //    
     Connection con;
     PreparedStatement pst;
+
+    public void CloseFrame() {
+        super.dispose();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,11 +88,11 @@ public class SuaTuyen extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         nhaptuyenxe = new javax.swing.JTextField();
         nuttimkiem_tuyenxe = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        trangChu_homepage = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        A = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        trangChu_homepage8 = new javax.swing.JPanel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
         jPanel16 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -107,6 +118,7 @@ public class SuaTuyen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         gioiThieu_homepage.setBackground(new java.awt.Color(251, 250, 238));
+        gioiThieu_homepage.setPreferredSize(new java.awt.Dimension(680, 500));
 
         jSeparator1.setForeground(new java.awt.Color(205, 247, 247));
 
@@ -349,7 +361,7 @@ public class SuaTuyen extends javax.swing.JFrame {
                 .addContainerGap())
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                .addGap(0, 24, Short.MAX_VALUE)
+                .addGap(0, 15, Short.MAX_VALUE)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
@@ -386,7 +398,7 @@ public class SuaTuyen extends javax.swing.JFrame {
                             .addComponent(nhaptuyenxe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -402,44 +414,50 @@ public class SuaTuyen extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        jPanel1.setBackground(new java.awt.Color(205, 247, 247));
+        A.setBackground(new java.awt.Color(205, 247, 247));
+        A.setPreferredSize(new java.awt.Dimension(220, 500));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/HÃNG XE KHÁCH (200 × 200 px).png"))); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/HÃNG XE KHÁCH (200 × 200 px).png"))); // NOI18N
 
-        trangChu_homepage.setBackground(new java.awt.Color(251, 250, 238));
-        trangChu_homepage.addMouseListener(new java.awt.event.MouseAdapter() {
+        trangChu_homepage8.setBackground(new java.awt.Color(251, 250, 238));
+        trangChu_homepage8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                trangChu_homepageMouseClicked(evt);
+                trangChu_homepage8trangChu_homepageMouseClicked(evt);
             }
         });
 
-        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_home_page_20px_1.png"))); // NOI18N
+        jLabel52.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_home_page_20px_1.png"))); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-        jLabel14.setText("Trang chủ");
+        jLabel53.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+        jLabel53.setText("Trang chủ");
 
-        javax.swing.GroupLayout trangChu_homepageLayout = new javax.swing.GroupLayout(trangChu_homepage);
-        trangChu_homepage.setLayout(trangChu_homepageLayout);
-        trangChu_homepageLayout.setHorizontalGroup(
-            trangChu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(trangChu_homepageLayout.createSequentialGroup()
+        javax.swing.GroupLayout trangChu_homepage8Layout = new javax.swing.GroupLayout(trangChu_homepage8);
+        trangChu_homepage8.setLayout(trangChu_homepage8Layout);
+        trangChu_homepage8Layout.setHorizontalGroup(
+            trangChu_homepage8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(trangChu_homepage8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel15)
+                .addComponent(jLabel52)
                 .addGap(30, 30, 30)
-                .addComponent(jLabel14)
+                .addComponent(jLabel53)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        trangChu_homepageLayout.setVerticalGroup(
-            trangChu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(trangChu_homepageLayout.createSequentialGroup()
+        trangChu_homepage8Layout.setVerticalGroup(
+            trangChu_homepage8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(trangChu_homepage8Layout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(trangChu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel14))
+                .addGroup(trangChu_homepage8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel52)
+                    .addComponent(jLabel53))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         jPanel16.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel16QuanLyTuyenXeMouseClicked(evt);
+            }
+        });
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_map_pinpoint_20px_1.png"))); // NOI18N
 
@@ -468,6 +486,11 @@ public class SuaTuyen extends javax.swing.JFrame {
         );
 
         jPanel17.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel17QuanLyChuyenXeMouseClicked(evt);
+            }
+        });
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_windows_calendar_20px.png"))); // NOI18N
 
@@ -496,6 +519,11 @@ public class SuaTuyen extends javax.swing.JFrame {
         );
 
         jPanel18.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel18QuanLyXeMouseClicked(evt);
+            }
+        });
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_Shuttle_bus_20px.png"))); // NOI18N
 
@@ -524,6 +552,11 @@ public class SuaTuyen extends javax.swing.JFrame {
         );
 
         jPanel19.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel19QuanLyLoaiXeMouseClicked(evt);
+            }
+        });
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_public_transportation_20px_1.png"))); // NOI18N
 
@@ -552,6 +585,11 @@ public class SuaTuyen extends javax.swing.JFrame {
         );
 
         jPanel21.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel21QuanLyNhanVienMouseClicked(evt);
+            }
+        });
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_management_20px_1.png"))); // NOI18N
 
@@ -580,6 +618,11 @@ public class SuaTuyen extends javax.swing.JFrame {
         );
 
         jPanel22.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel22QuanLyGiaVeMouseClicked(evt);
+            }
+        });
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_ticket_20px_1.png"))); // NOI18N
 
@@ -640,15 +683,15 @@ public class SuaTuyen extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout ALayout = new javax.swing.GroupLayout(A);
+        A.setLayout(ALayout);
+        ALayout.setHorizontalGroup(
+            ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ALayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ALayout.createSequentialGroup()
+                        .addGroup(ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jPanel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel17, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -656,19 +699,19 @@ public class SuaTuyen extends javax.swing.JFrame {
                             .addComponent(jPanel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dangXuat_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(trangChu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(trangChu_homepage8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(11, 11, 11))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addContainerGap(11, Short.MAX_VALUE))))
+                    .addGroup(ALayout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addContainerGap(14, Short.MAX_VALUE))))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+        ALayout.setVerticalGroup(
+            ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ALayout.createSequentialGroup()
+                .addContainerGap(22, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(trangChu_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(trangChu_homepage8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -683,7 +726,7 @@ public class SuaTuyen extends javax.swing.JFrame {
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dangXuat_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -691,27 +734,19 @@ public class SuaTuyen extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(A, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, 674, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void trangChu_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepageMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_trangChu_homepageMouseClicked
-
-    private void dangXuat_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuat_homepageMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dangXuat_homepageMouseClicked
 
     private void tentuyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentuyenActionPerformed
         // TODO add your handling code here:
@@ -746,7 +781,40 @@ public class SuaTuyen extends javax.swing.JFrame {
             suatuyenxe.setValueAt(diemcuoi.getText(), i, 3);
             suatuyenxe.setValueAt(sokm.getText(), i, 4);
             suatuyenxe.setValueAt(sogiodi.getText(), i, 5);
+            boolean flag = true;
+            if (tenTuyen.equals("")) {
 
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên tuyến\n");
+                flag = false;
+            } else if (diemDau.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập điểm đầu\n");
+                flag = false;
+            } else if (diemCuoi.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập điểm cuối");
+                flag = false;
+            } else if (soKm.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập số KM");
+                flag = false;
+            } else if (soGioDi.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập số giờ đi");
+                flag = false;
+            }
+            if (flag == true) {
+                String a = "\\d{1,20}";
+                boolean flag2 = soKm.matches(a);
+                if (flag2 == false) {
+                    JOptionPane.showMessageDialog(this, "Số KM không hợp lệ");
+                    flag = false;
+                }
+            }
+            if (flag == true) {
+                String b = "\\d{1,10}";
+                boolean flag4 = soGioDi.matches(b);
+                if (flag4 == false) {
+                    JOptionPane.showMessageDialog(this, "số giờ đi không hợp lệ");
+                    flag = false;
+                }
+            }
             TuyenXe biensuatuyenxe = new TuyenXe();
 
             //Lay ket qua tu CSDL
@@ -754,8 +822,8 @@ public class SuaTuyen extends javax.swing.JFrame {
                     diemCuoi, soKm, soGioDi);
 
             if (sodongsuatuyenxe > 0) {
-                JOptionPane.showMessageDialog(this, "Sửa thành công!","Thông báo",
-                    JOptionPane.INFORMATION_MESSAGE,null);
+                JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
+                        JOptionPane.INFORMATION_MESSAGE, null);
                 hide();
 
                 SuaTuyen classsuatuyenxe = new SuaTuyen();
@@ -811,6 +879,63 @@ public class SuaTuyen extends javax.swing.JFrame {
         danhsachtuyenxe.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(nhaptuyenxe.getText().trim()));
     }//GEN-LAST:event_nuttimkiem_tuyenxeActionPerformed
+
+    private void trangChu_homepage8trangChu_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepage8trangChu_homepageMouseClicked
+        // TODO add your handling code here:
+        Homepage_NguoiQuanLy nguoiquanly = new Homepage_NguoiQuanLy();
+        nguoiquanly.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_trangChu_homepage8trangChu_homepageMouseClicked
+
+    private void jPanel16QuanLyTuyenXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16QuanLyTuyenXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyTuyenXe quanlytuyenxe = new Homepage_QuanLyTuyenXe();
+        quanlytuyenxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_jPanel16QuanLyTuyenXeMouseClicked
+
+    private void jPanel17QuanLyChuyenXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17QuanLyChuyenXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyChuyenXe quanlychuyenxe = new Homepage_QuanLyChuyenXe();
+        quanlychuyenxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_jPanel17QuanLyChuyenXeMouseClicked
+
+    private void jPanel18QuanLyXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel18QuanLyXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyXe quanlyxe = new Homepage_QuanLyXe();
+        quanlyxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_jPanel18QuanLyXeMouseClicked
+
+    private void jPanel19QuanLyLoaiXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel19QuanLyLoaiXeMouseClicked
+        // TODO add your handling code here:
+        // TODO add your handling code here:
+        Homepage_QuanLyLoaiXe quanlyloaixe = new Homepage_QuanLyLoaiXe();
+        quanlyloaixe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_jPanel19QuanLyLoaiXeMouseClicked
+
+    private void jPanel21QuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel21QuanLyNhanVienMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyNhanVien quanlynhanvien = new Homepage_QuanLyNhanVien();
+        quanlynhanvien.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_jPanel21QuanLyNhanVienMouseClicked
+
+    private void jPanel22QuanLyGiaVeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel22QuanLyGiaVeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyGiaVe quanlygiave = new Homepage_QuanLyGiaVe();
+        quanlygiave.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_jPanel22QuanLyGiaVeMouseClicked
+
+    private void dangXuat_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuat_homepageMouseClicked
+        // TODO add your handling code here:
+        Login_Form login = new Login_Form();
+        login.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_dangXuat_homepageMouseClicked
 
     /**
      * @param args the command line arguments
@@ -913,14 +1038,13 @@ public class SuaTuyen extends javax.swing.JFrame {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel A;
     private javax.swing.JPanel dangXuat_homepage;
     private javax.swing.JTable danhsachtuyenxe;
     private javax.swing.JTextField diemcuoi;
     private javax.swing.JTextField diemdau;
     private javax.swing.JPanel gioiThieu_homepage;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -942,12 +1066,13 @@ public class SuaTuyen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
@@ -968,6 +1093,6 @@ public class SuaTuyen extends javax.swing.JFrame {
     private javax.swing.JTextField sogiodi;
     private javax.swing.JTextField sokm;
     private javax.swing.JTextField tentuyen;
-    private javax.swing.JPanel trangChu_homepage;
+    private javax.swing.JPanel trangChu_homepage8;
     // End of variables declaration//GEN-END:variables
 }

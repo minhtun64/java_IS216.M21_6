@@ -5,23 +5,30 @@
 package View.QuanLy.ChuyenXe;
 
 import Process.QuanLy.TuyenXe.ChuyenXe;
-import Process.QuanLy.TuyenXe.TuyenXe;
-import View.KhachHang.ChonChuyen;
+import View.Home.Login_Form;
+import View.QuanLy.GiaVe.Homepage_QuanLyGiaVe;
+import View.QuanLy.Homepage_NguoiQuanLy;
+import View.QuanLy.LoaiXe.Homepage_QuanLyLoaiXe;
+import View.QuanLy.NhanVien.Homepage_QuanLyNhanVien;
+import View.QuanLy.TuyenXe.Homepage_QuanLyTuyenXe;
 import View.QuanLy.TuyenXe.SuaTuyen;
+import View.QuanLy.Xe.Homepage_QuanLyXe;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.ResultSetMetaData;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 import java.lang.String;
+import java.text.ParseException;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -36,10 +43,13 @@ public class SuaChuyen extends javax.swing.JFrame {
         this.setResizable(false);
         initComponents();
         fillTable();
-//        loadcbbdiemdi();
-//        loadcbbdiemden();
+        loadcbbdiemdi();
+        loadcbbdiemden();
     }
 
+    public void CloseFrame() {
+        super.dispose();
+    }
     Connection con;
     PreparedStatement pst;
 
@@ -61,6 +71,7 @@ public class SuaChuyen extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
+        nutsua_chuyenxe = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
@@ -77,9 +88,26 @@ public class SuaChuyen extends javax.swing.JFrame {
         phuxe = new javax.swing.JTextField();
         noilenxe = new javax.swing.JTextField();
         noixuongxe = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        cbbdiemdi_chuyenxe = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        cbbdiemden_chuyenxe = new javax.swing.JComboBox<>();
+        jLabel5 = new javax.swing.JLabel();
+        ngay_chuyenxe = new com.toedter.calendar.JDateChooser();
+        jLabel6 = new javax.swing.JLabel();
+        nuttim_chuyenxe = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
-        dschuyenxe_homepage = new javax.swing.JTable();
-        nutsua_chuyenxe = new javax.swing.JButton();
+        dschuyenxe_chuyenxe = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        machuyenxe_chuyenxe = new javax.swing.JLabel();
+        manql_chuyenxe = new javax.swing.JLabel();
+        matuyenxe_chuyenxe = new javax.swing.JLabel();
+        maxe_chuyenxe = new javax.swing.JLabel();
+        slve_chuyenxe = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         trangChu_homepage8 = new javax.swing.JPanel();
@@ -110,6 +138,7 @@ public class SuaChuyen extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         gioiThieu_homepage.setBackground(new java.awt.Color(251, 250, 238));
+        gioiThieu_homepage.setPreferredSize(new java.awt.Dimension(680, 500));
 
         jSeparator1.setForeground(new java.awt.Color(205, 247, 247));
 
@@ -129,6 +158,14 @@ public class SuaChuyen extends javax.swing.JFrame {
 
         jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/QuanLy/Icon/QuanLyTuyenXe/icons8_edit_30px_3.png"))); // NOI18N
 
+        nutsua_chuyenxe.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
+        nutsua_chuyenxe.setText("Sửa");
+        nutsua_chuyenxe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nutsua_chuyenxeActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -136,14 +173,18 @@ public class SuaChuyen extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel39)
-                .addGap(84, 84, 84))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(nutsua_chuyenxe)
+                .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel39)
-                .addGap(28, 28, 28))
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(nutsua_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel39))
+                .addGap(27, 27, 27))
         );
 
         jPanel9.setBackground(new java.awt.Color(251, 250, 238));
@@ -225,30 +266,87 @@ public class SuaChuyen extends javax.swing.JFrame {
         noixuongxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         noixuongxe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(205, 247, 247)));
 
-        dschuyenxe_homepage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(205, 247, 247)));
-        dschuyenxe_homepage.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        dschuyenxe_homepage.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/QuanLy/Icon/QuanLyTuyenXe/icons8_search_30px_3.png"))); // NOI18N
+
+        cbbdiemdi_chuyenxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        cbbdiemdi_chuyenxe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbdiemdi_chuyenxeActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel3.setText("Chọn diểm đi");
+
+        cbbdiemden_chuyenxe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbdiemden_chuyenxeActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel5.setText("Chọn diểm đến");
+
+        ngay_chuyenxe.setDateFormatString("dd, MM, yyyy ");
+        ngay_chuyenxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel6.setText("Chọn ngày khởi hành");
+
+        nuttim_chuyenxe.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
+        nuttim_chuyenxe.setText("Tìm kiếm");
+        nuttim_chuyenxe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuttim_chuyenxeActionPerformed(evt);
+            }
+        });
+
+        dschuyenxe_chuyenxe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(205, 247, 247)));
+        dschuyenxe_chuyenxe.setFont(new java.awt.Font("Lora", 0, 8)); // NOI18N
+        dschuyenxe_chuyenxe.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã chuyến xe", "Điểm lên xe", "Điểm xuống xe", "Thời gian khởi hành", "Thời gian đến ", "Tài xế", "Phụ xe", "SL vé còn lại "
+                "Mã chuyến xe", "Mã tuyến xe", "Mã xe", "Mã người quản lý", "Điểm lên xe", "Điểm xuống xe", "Thời gian khởi hành", "Thời gian đến ", "Tài xế", "Phụ xe", "SL vé còn lại "
             }
         ));
-        dschuyenxe_homepage.addMouseListener(new java.awt.event.MouseAdapter() {
+        dschuyenxe_chuyenxe.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dschuyenxe_homepageMouseClicked(evt);
+                dschuyenxe_chuyenxeMouseClicked(evt);
             }
         });
-        jScrollPane5.setViewportView(dschuyenxe_homepage);
+        jScrollPane5.setViewportView(dschuyenxe_chuyenxe);
 
-        nutsua_chuyenxe.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
-        nutsua_chuyenxe.setText("Sửa");
-        nutsua_chuyenxe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutsua_chuyenxeActionPerformed(evt);
-            }
-        });
+        jLabel16.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel16.setText("Mã chuyến xe");
+
+        jLabel28.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel28.setText("Mã tuyến xe");
+
+        jLabel29.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel29.setText("Mã xe");
+
+        jLabel36.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel36.setText("Mã người quản lý");
+
+        jLabel38.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel38.setText("SL vé còn lại");
+
+        machuyenxe_chuyenxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        machuyenxe_chuyenxe.setText("Mã chuyến xe");
+
+        manql_chuyenxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        manql_chuyenxe.setText("Mã người quản lý");
+
+        matuyenxe_chuyenxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        matuyenxe_chuyenxe.setText("Mã tuyến xe");
+
+        maxe_chuyenxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        maxe_chuyenxe.setText("Mã xe");
+
+        slve_chuyenxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        slve_chuyenxe.setText("SL vé còn lại");
 
         javax.swing.GroupLayout gioiThieu_homepageLayout = new javax.swing.GroupLayout(gioiThieu_homepage);
         gioiThieu_homepage.setLayout(gioiThieu_homepageLayout);
@@ -261,50 +359,84 @@ public class SuaChuyen extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jSeparator3)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addComponent(jLabel51)
-                                        .addGap(236, 236, 236))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addComponent(jLabel18)
-                                        .addGap(122, 122, 122))))
                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                .addGap(80, 80, 80)
-                                                .addComponent(nutsua_chuyenxe)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addGap(155, 155, 155)
                                                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(90, 90, 90)
+                                                .addGap(94, 94, 94)
                                                 .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                .addGap(106, 106, 106)
+                                                .addGap(54, 54, 54)
                                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel14)
-                                                    .addComponent(jLabel17)
+                                                    .addComponent(jLabel36)
+                                                    .addComponent(jLabel16)
+                                                    .addComponent(jLabel28)
+                                                    .addComponent(jLabel29)
+                                                    .addComponent(jLabel38))
+                                                .addGap(18, 18, 18)
+                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(slve_chuyenxe)
+                                                    .addComponent(maxe_chuyenxe)
+                                                    .addComponent(machuyenxe_chuyenxe)
+                                                    .addComponent(manql_chuyenxe)
+                                                    .addComponent(matuyenxe_chuyenxe))
+                                                .addGap(30, 30, 30)
+                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                     .addComponent(jLabel4)
                                                     .addComponent(jLabel19)
                                                     .addComponent(jLabel13)
-                                                    .addComponent(jLabel15))
-                                                .addGap(25, 25, 25)
-                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addComponent(noixuongxe, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(noilenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addComponent(phuxe)
-                                                    .addComponent(taixe, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(jLabel15)
                                                     .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(thoigiankhoihanh, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(thoigianden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                        .addGap(124, 124, 124)
+                                                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.TRAILING)
+                                                        .addComponent(jLabel17)))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addComponent(taixe)
+                                                    .addComponent(noixuongxe)
+                                                    .addComponent(noilenxe)
+                                                    .addComponent(phuxe)
+                                                    .addComponent(thoigianden, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+                                                    .addComponent(thoigiankhoihanh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                        .addGap(73, 73, 73)
                                         .addComponent(jLabel10))
-                                    .addComponent(jLabel54)
-                                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 675, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))))
+                                    .addComponent(jLabel54))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(14, 14, 14)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addComponent(cbbdiemdi_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cbbdiemden_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addGap(30, 30, 30)
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jLabel5)
+                                        .addGap(54, 54, 54)))
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addGap(171, 171, 171))
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nuttim_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jScrollPane5)))
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addGap(130, 130, 130)
+                        .addComponent(jLabel18)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                .addGap(250, 250, 250)
+                .addComponent(jLabel51)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         gioiThieu_homepageLayout.setVerticalGroup(
             gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -315,52 +447,92 @@ public class SuaChuyen extends javax.swing.JFrame {
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGap(0, 189, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel10)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(noilenxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel15))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(noixuongxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(thoigiankhoihanh, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(thoigianden, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(taixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(phuxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(cbbdiemdi_chuyenxe)
+                                        .addComponent(cbbdiemden_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel2)))
                             .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(nutsua_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6)
+                                .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                    .addGap(23, 23, 23)
+                                    .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(nuttim_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel16)
+                                    .addComponent(machuyenxe_chuyenxe))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel28)
+                                    .addComponent(matuyenxe_chuyenxe))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel29)
+                                    .addComponent(maxe_chuyenxe))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel36)
+                                    .addComponent(manql_chuyenxe))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel38)
+                                    .addComponent(slve_chuyenxe)))
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(noilenxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(noixuongxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel13))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(thoigiankhoihanh, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(thoigianden, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel17))
+                                .addGap(10, 10, 10)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(taixe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(phuxe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel19))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel51)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
-                .addGap(19, 19, 19))
+                .addContainerGap())
         );
 
         jPanel13.setBackground(new java.awt.Color(205, 247, 247));
+        jPanel13.setPreferredSize(new java.awt.Dimension(220, 500));
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/HÃNG XE KHÁCH (200 × 200 px).png"))); // NOI18N
 
@@ -398,6 +570,11 @@ public class SuaChuyen extends javax.swing.JFrame {
         );
 
         jPanel16.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel16.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyTuyenXeMouseClicked(evt);
+            }
+        });
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_map_pinpoint_20px_1.png"))); // NOI18N
 
@@ -426,6 +603,11 @@ public class SuaChuyen extends javax.swing.JFrame {
         );
 
         jPanel17.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyChuyenXeMouseClicked(evt);
+            }
+        });
 
         jLabel22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_windows_calendar_20px.png"))); // NOI18N
 
@@ -454,6 +636,11 @@ public class SuaChuyen extends javax.swing.JFrame {
         );
 
         jPanel18.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyXeMouseClicked(evt);
+            }
+        });
 
         jLabel24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_Shuttle_bus_20px.png"))); // NOI18N
 
@@ -482,6 +669,11 @@ public class SuaChuyen extends javax.swing.JFrame {
         );
 
         jPanel19.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel19.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyLoaiXeMouseClicked(evt);
+            }
+        });
 
         jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_public_transportation_20px_1.png"))); // NOI18N
 
@@ -510,6 +702,11 @@ public class SuaChuyen extends javax.swing.JFrame {
         );
 
         jPanel21.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel21.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyNhanVienMouseClicked(evt);
+            }
+        });
 
         jLabel30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_management_20px_1.png"))); // NOI18N
 
@@ -538,6 +735,11 @@ public class SuaChuyen extends javax.swing.JFrame {
         );
 
         jPanel22.setBackground(new java.awt.Color(251, 250, 238));
+        jPanel22.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                QuanLyGiaVeMouseClicked(evt);
+            }
+        });
 
         jLabel32.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_ticket_20px_1.png"))); // NOI18N
 
@@ -618,7 +820,7 @@ public class SuaChuyen extends javax.swing.JFrame {
                         .addGap(11, 11, 11))
                     .addGroup(jPanel13Layout.createSequentialGroup()
                         .addComponent(jLabel12)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(14, Short.MAX_VALUE))))
         );
         jPanel13Layout.setVerticalGroup(
             jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -651,9 +853,9 @@ public class SuaChuyen extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(jPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 682, Short.MAX_VALUE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -666,93 +868,97 @@ public class SuaChuyen extends javax.swing.JFrame {
 
     private void nutsua_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsua_chuyenxeActionPerformed
         // TODO add your handling code here:
-        DefaultTableModel suachuyenxe = (DefaultTableModel) dschuyenxe_homepage.getModel();
-        int i = dschuyenxe_homepage.getSelectedRow();
-        System.out.println(i);
-        System.out.println(i);
-        
+        DefaultTableModel suachuyenxe = (DefaultTableModel) dschuyenxe_chuyenxe.getModel();
+        int i = dschuyenxe_chuyenxe.getSelectedRow();
 
-        if (dschuyenxe_homepage.getSelectedRowCount()==1) {
-            String idtuyenxe = null;
-            String idnql = null;
-            String idxe = null;
-
-            String idchuyenxe = suachuyenxe.getValueAt(i, 0).toString();
-
-            try {
-                Class.forName("oracle.jdbc.OracleDriver");
-                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-
-                pst = con.prepareStatement("Select T.ID_TUYENXE, N.ID_NQL, X.ID_XE\n"
-                        + "from ((TUYENXE T JOIN CHUYENXE C ON T.ID_TUYENXE = C.ID_TUYENXE)JOIN XE X ON X.ID_XE=C.ID_XE) JOIN NGUOIQUANLY N ON N.ID_NQL = C.ID_NQL\n"
-                        + "WHERE ID_CHUYENXE=?");
-
-                pst.setString(1, idchuyenxe);
-
-                ResultSet rs = pst.executeQuery();
-
-                while (rs.next()) {
-                    idtuyenxe = rs.getString("ID_TUYENXE");
-                    idnql = rs.getString("ID_NQL");
-                    idxe = rs.getString("ID_XE");
-                }
-
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(null, e);
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+        if (dschuyenxe_chuyenxe.getSelectedRowCount() == 1) {
+            String maChuyenXe = machuyenxe_chuyenxe.getText();
+            String maTuyenXe = matuyenxe_chuyenxe.getText();
+            String maXe = maxe_chuyenxe.getText();
+            String maNQL = manql_chuyenxe.getText();
 
             String noiLenXe = noilenxe.getText();
             String noiXuongXe = noixuongxe.getText();
 
-            String thoiGianKhoiHanh = new SimpleDateFormat("dd-MMM-yyyy").format(thoigiankhoihanh.getDate());
-            String thoiGianDen = new SimpleDateFormat("dd-MMM-yyyy").format(thoigiankhoihanh.getDate());
+            String thoiGianDen = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss").format(thoigianden.getDate());
+            String thoiGianKhoiHanh = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(thoigiankhoihanh.getDate());
             String taiXe = taixe.getText();
             String phuXe = phuxe.getText();
+            String slVe = slve_chuyenxe.getText();
 
-            suachuyenxe.setValueAt(noilenxe.getText(), i, 1);
-            suachuyenxe.setValueAt(noixuongxe.getText(), i, 2);
-            suachuyenxe.setValueAt(new SimpleDateFormat("dd-MMM-yyyy").format(thoigiankhoihanh.getDate()), i, 3);
-            suachuyenxe.setValueAt(new SimpleDateFormat("dd-MMM-yyyy").format(thoigiankhoihanh.getDate()), i, 4);
-            suachuyenxe.setValueAt(taixe.getText(), i, 5);
-            suachuyenxe.setValueAt(phuxe.getText(), i, 6);
+            suachuyenxe.setValueAt(noiLenXe, i, 4);
+            suachuyenxe.setValueAt(noiXuongXe, i, 5);
+            suachuyenxe.setValueAt(thoiGianKhoiHanh, i, 6);
+            suachuyenxe.setValueAt(thoiGianDen, i, 7);
 
-            ChuyenXe db = new ChuyenXe();
+            suachuyenxe.setValueAt(taiXe, i, 8);
+            suachuyenxe.setValueAt(phuXe, i, 9);
+            suachuyenxe.setValueAt(slVe, i, 9);
+            boolean flag = true;
+            if (noiLenXe.equals("")) {
 
-            //Lay ket qua tu CSDL
-            int countrecord = db.suaChuyenXe(idchuyenxe, idtuyenxe, idxe,
-                    idnql, noiLenXe, noiXuongXe, thoiGianKhoiHanh, thoiGianDen, taiXe, phuXe);
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập nơi lên xe\n");
+                flag = false;
+            } else if (noiXuongXe.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập nơi xuống xe\n");
+                flag = false;
+            } else if (thoiGianDen.equals(""))
+            {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập thời gian khởi hành\n");
+                flag = false;
+            }
+            else if (taiXe.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tài xế\n");
+                flag = false;
+            } else if (phuXe.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập phụ xe");
+                flag = false;
+            }
+//            else if (thoigiankhoihanh.getDate()==null) {
+//                JOptionPane.showMessageDialog(null, "Vui lòng nhập phụ xe");
+//                flag = false;
+//            }else if (thoigianden.getDate()==null) {
+//                JOptionPane.showMessageDialog(null, "Vui lòng nhập phụ xe");
+//                flag = false;
+//            }
+            if (flag == true) {
+                ChuyenXe db = new ChuyenXe();
 
-            if (countrecord > 0) {
-                JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
-                        JOptionPane.INFORMATION_MESSAGE, null);
-                hide();
+                //Lay ket qua tu CSDL
+                int countrecord = db.suaChuyenXe(maChuyenXe, maTuyenXe, maXe,
+                        maNQL, noiLenXe, noiXuongXe, thoiGianKhoiHanh, thoiGianDen, taiXe, phuXe);
 
-                SuaTuyen classsuatuyenxe = new SuaTuyen();
-                classsuatuyenxe.setVisible(true);
-                this.setVisible(false);
+                if (countrecord > 0) {
+                    JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Error");
+                    Homepage_QuanLyChuyenXe classsuachuyenxe = new Homepage_QuanLyChuyenXe();
+                    classsuachuyenxe.setVisible(true);
+                    this.setVisible(false);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
             }
         } else {
-            if (dschuyenxe_homepage.getRowCount() == 0) {
+            if (dschuyenxe_chuyenxe.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Danh sách trống!",
                         "Lỗi dữ liệu ", JOptionPane.WARNING_MESSAGE, null);
-                SuaChuyen classsuachuyenxe = new SuaChuyen();
-                classsuachuyenxe.setVisible(true);
-                this.setVisible(false);
+//                    SuaChuyen classsuachuyenxe = new SuaChuyen();
+//                    classsuachuyenxe.setVisible(true);
+//                    this.setVisible(false);
 
             } else {
                 JOptionPane.showMessageDialog(this, "Vui lòng chỉ chọn 1 tuyến xe cần sửa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-                SuaChuyen classsuachuyenxe = new SuaChuyen();
-                classsuachuyenxe.setVisible(true);
-                this.setVisible(false);
+//                    SuaChuyen classsuachuyenxe = new SuaChuyen();
+//                    classsuachuyenxe.setVisible(true);
+//                    this.setVisible(false);
             }
         }
-        
+
+
     }//GEN-LAST:event_nutsua_chuyenxeActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -761,10 +967,16 @@ public class SuaChuyen extends javax.swing.JFrame {
 
     private void dangXuat_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuat_homepageMouseClicked
         // TODO add your handling code here:
+        Login_Form login = new Login_Form();
+        login.setVisible(true);
+        CloseFrame();
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
 
     private void trangChu_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepageMouseClicked
         // TODO add your handling code here:
+        Homepage_NguoiQuanLy nguoiquanly = new Homepage_NguoiQuanLy();
+        nguoiquanly.setVisible(true);
+        CloseFrame();
     }//GEN-LAST:event_trangChu_homepageMouseClicked
 
     private void taixeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_taixeActionPerformed
@@ -775,21 +987,149 @@ public class SuaChuyen extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_phuxeActionPerformed
 
-    private void dschuyenxe_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dschuyenxe_homepageMouseClicked
+    private void QuanLyTuyenXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyTuyenXeMouseClicked
         // TODO add your handling code here:
-        int selectedRow = dschuyenxe_homepage.getSelectedRow();
-        DefaultTableModel model = (DefaultTableModel) dschuyenxe_homepage.getModel();
-        noilenxe.setText(model.getValueAt(selectedRow, 1).toString());
-        noixuongxe.setText(model.getValueAt(selectedRow, 2).toString());
-        thoigiankhoihanh.setDateFormatString(model.getValueAt(selectedRow, 3).toString());
-//        thoigiankhoihanh.setString(model.getValueAt(selectedRow, 3));
-//        thoigiankhoihanh.setTimestamp(2, java.sql.Timestamp.valueOf(model.getValueAt(selectedRow, 3).toString()));
+        Homepage_QuanLyTuyenXe quanlytuyenxe = new Homepage_QuanLyTuyenXe();
+        quanlytuyenxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyTuyenXeMouseClicked
 
-        thoigianden.setDateFormatString(model.getValueAt(selectedRow, 4).toString());
-        taixe.setText(model.getValueAt(selectedRow, 5).toString());
-        phuxe.setText(model.getValueAt(selectedRow, 6).toString());
+    private void QuanLyChuyenXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyChuyenXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyChuyenXe quanlychuyenxe = new Homepage_QuanLyChuyenXe();
+        quanlychuyenxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyChuyenXeMouseClicked
 
-    }//GEN-LAST:event_dschuyenxe_homepageMouseClicked
+    private void QuanLyXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyXe quanlyxe = new Homepage_QuanLyXe();
+        quanlyxe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyXeMouseClicked
+
+    private void QuanLyLoaiXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyLoaiXeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyLoaiXe quanlyloaixe = new Homepage_QuanLyLoaiXe();
+        quanlyloaixe.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyLoaiXeMouseClicked
+
+    private void QuanLyNhanVienMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyNhanVienMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyNhanVien quanlynhanvien = new Homepage_QuanLyNhanVien();
+        quanlynhanvien.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyNhanVienMouseClicked
+
+    private void QuanLyGiaVeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_QuanLyGiaVeMouseClicked
+        // TODO add your handling code here:
+        Homepage_QuanLyGiaVe quanlygiave = new Homepage_QuanLyGiaVe();
+        quanlygiave.setVisible(true);
+        CloseFrame();
+    }//GEN-LAST:event_QuanLyGiaVeMouseClicked
+
+    private void cbbdiemdi_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbdiemdi_chuyenxeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbdiemdi_chuyenxeActionPerformed
+
+    private void cbbdiemden_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbdiemden_chuyenxeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbdiemden_chuyenxeActionPerformed
+
+    private void nuttim_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttim_chuyenxeActionPerformed
+
+        String diemdi = cbbdiemdi_chuyenxe.getSelectedItem().toString().trim();
+        String diemden = cbbdiemden_chuyenxe.getSelectedItem().toString().trim();
+        String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_chuyenxe.getDate());
+
+        if (ngaykhoihanh.equals(null)) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày khởi hành!",
+                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+            SuaChuyen chonchuyen = new SuaChuyen();
+            chonchuyen.setVisible(true);
+            this.setVisible(false);
+
+        } else {
+            //            DefaultTableModel model = (DefaultTableModel) dschuyenxe_homepage.getModel();
+            //            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+            //            dschuyenxe_homepage.setRowSorter(tr);
+            //            tr.setRowFilter(RowFilter.regexFilter(ngaykhoihanh.trim()));
+
+            try {
+                Class.forName("oracle.jdbc.OracleDriver");
+                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+                pst = con.prepareStatement("SELECT c.id_chuyenxe, c.diemdi, c.diemden, c.thoigiankh, c.thoigianden, c.taixe, c.phuxe, c.slvecon\n"
+                        + "FROM TUYENXE T JOIN CHUYENXE C ON T.ID_TUYENXE = C.ID_TUYENXE\n"
+                        + "WHERE T.DIEMDAU=? AND T.DIEMCUOI=? AND TO_CHAR(THOIGIANKH, 'DD-MM-YYYY') =?");
+
+                //                pst = con.prepareStatement("SELECT * from employee WHERE  userID = '" + userID + "'");
+                pst.setString(1, diemdi);
+                pst.setString(2, diemden);
+                pst.setString(3, ngaykhoihanh);
+
+                ResultSet rs = pst.executeQuery();
+
+                ResultSetMetaData rsm = rs.getMetaData();
+                int c;
+                c = rsm.getColumnCount();
+
+                DefaultTableModel Df = (DefaultTableModel) dschuyenxe_chuyenxe.getModel();
+                Df.setRowCount(0);
+
+                while (rs.next()) {
+                    Vector v2 = new Vector();
+
+                    for (int i = 1; i <= c; i++) {
+                        v2.add(rs.getString("id_chuyenxe"));
+                        v2.add(rs.getString("diemdi"));
+                        v2.add(rs.getString("diemden"));
+                        v2.add(rs.getString("diemdi"));
+
+                        v2.add(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("THOIGIANKH"))));
+                        v2.add(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("thoigianden"))));
+                        v2.add(rs.getString("taixe"));
+                        v2.add(rs.getString("phuxe"));
+                        v2.add(rs.getInt("slvecon"));
+                    }
+
+                    Df.addRow(v2);
+
+                }
+            } catch (ClassNotFoundException e) {
+                JOptionPane.showMessageDialog(null, e);
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e);
+            }
+
+        }
+    }//GEN-LAST:event_nuttim_chuyenxeActionPerformed
+
+    private void dschuyenxe_chuyenxeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dschuyenxe_chuyenxeMouseClicked
+        // TODO add your handling code here:
+        int selectedRow = dschuyenxe_chuyenxe.getSelectedRow();
+        DefaultTableModel model = (DefaultTableModel) dschuyenxe_chuyenxe.getModel();
+        machuyenxe_chuyenxe.setText(model.getValueAt(selectedRow, 0).toString());
+        matuyenxe_chuyenxe.setText(model.getValueAt(selectedRow, 1).toString());
+        maxe_chuyenxe.setText(model.getValueAt(selectedRow, 2).toString());
+        manql_chuyenxe.setText(model.getValueAt(selectedRow, 3).toString());
+        noilenxe.setText(model.getValueAt(selectedRow, 4).toString());
+        noixuongxe.setText(model.getValueAt(selectedRow, 5).toString());
+        try {
+            Date ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse((String) model.getValueAt(selectedRow, 6));
+            Date ngayden = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").parse((String) model.getValueAt(selectedRow, 7));
+            thoigiankhoihanh.setDate(ngaykhoihanh);
+            thoigianden.setDate(ngayden);
+        } catch (ParseException ex) {
+            Logger.getLogger(SuaChuyen.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        taixe.setText(model.getValueAt(selectedRow, 8).toString());
+        phuxe.setText(model.getValueAt(selectedRow, 9).toString());
+        slve_chuyenxe.setText(model.getValueAt(selectedRow, 10).toString());
+
+
+    }//GEN-LAST:event_dschuyenxe_chuyenxeMouseClicked
 
     /**
      * @param args the command line arguments
@@ -850,17 +1190,21 @@ public class SuaChuyen extends javax.swing.JFrame {
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
-                String id = String.valueOf(rs.getInt("ID_CHUYENXE"));
+                String idchuyenxe = String.valueOf(rs.getInt("ID_CHUYENXE"));
+                String idtuyenxe = String.valueOf(rs.getInt("ID_TUYENXE"));
+                String idxe = String.valueOf(rs.getInt("ID_XE"));
+                String idnql = String.valueOf(rs.getInt("ID_NQL"));
                 String diemdi = rs.getString("DIEMDI");
                 String diemden = rs.getString("DIEMDEN");
+
                 String thoigiankhoihanh = String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("THOIGIANKH")));;
 
                 String thoigianden = String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("THOIGIANDEN")));
                 String taixe = String.valueOf(rs.getString("TAIXE"));
                 String phuxe = String.valueOf(rs.getString("PHUXE"));
                 String slve = String.valueOf(rs.getInt("SLVECON"));
-                String tbData[] = {id, diemdi, diemden, thoigiankhoihanh, thoigianden, taixe, phuxe, slve};
-                DefaultTableModel tblModel = (DefaultTableModel) dschuyenxe_homepage.getModel();
+                String tbData[] = {idchuyenxe, idtuyenxe, idxe, idnql, diemdi, diemden, thoigiankhoihanh, thoigianden, taixe, phuxe, slve};
+                DefaultTableModel tblModel = (DefaultTableModel) dschuyenxe_chuyenxe.getModel();
 
                 tblModel.addRow(tbData);
             }
@@ -871,46 +1215,48 @@ public class SuaChuyen extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
+    public void loadcbbdiemdi() {
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                cbbdiemdi_chuyenxe.addItem(rs.getString(1));
 
-//    public void loadcbbdiemdi() {
-//        try {
-//            Class.forName("oracle.jdbc.OracleDriver");
-//            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-//            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE");
-//            ResultSet rs = pst.executeQuery();
-//            while (rs.next()) {
-//                cbbdiemdi_chuyenxe.addItem(rs.getString(1));
-//
-//            }
-//
-//        } catch (ClassNotFoundException e1) {
-//            e1.printStackTrace();
-//        } catch (SQLException e1) {
-//            e1.printStackTrace();
-//        }
-//    }
-//
-//    void loadcbbdiemden() {
-//        try {
-//            Class.forName("oracle.jdbc.OracleDriver");
-//            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-//            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE");
-//            ResultSet rs = pst.executeQuery();
-//            while (rs.next()) {
-//                cbbdiemden_chuyenxe.addItem(rs.getString(1));
-//
-//            }
-//
-//        } catch (ClassNotFoundException e1) {
-//            e1.printStackTrace();
-//        } catch (SQLException e1) {
-//            e1.printStackTrace();
-//        }
-//    }
+            }
+
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    void loadcbbdiemden() {
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                cbbdiemden_chuyenxe.addItem(rs.getString(1));
+
+            }
+
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbbdiemden_chuyenxe;
+    private javax.swing.JComboBox<String> cbbdiemdi_chuyenxe;
     private javax.swing.JPanel dangXuat_homepage;
-    private javax.swing.JTable dschuyenxe_homepage;
+    private javax.swing.JTable dschuyenxe_chuyenxe;
     private javax.swing.JPanel gioiThieu_homepage;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel10;
@@ -918,9 +1264,11 @@ public class SuaChuyen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -929,19 +1277,26 @@ public class SuaChuyen extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
@@ -955,10 +1310,17 @@ public class SuaChuyen extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
     private com.toedter.calendar.JSpinnerDateEditor jSpinnerDateEditor2;
+    private javax.swing.JLabel machuyenxe_chuyenxe;
+    private javax.swing.JLabel manql_chuyenxe;
+    private javax.swing.JLabel matuyenxe_chuyenxe;
+    private javax.swing.JLabel maxe_chuyenxe;
+    private com.toedter.calendar.JDateChooser ngay_chuyenxe;
     private javax.swing.JTextField noilenxe;
     private javax.swing.JTextField noixuongxe;
     private javax.swing.JButton nutsua_chuyenxe;
+    private javax.swing.JButton nuttim_chuyenxe;
     private javax.swing.JTextField phuxe;
+    private javax.swing.JLabel slve_chuyenxe;
     private javax.swing.JTextField taixe;
     private com.toedter.calendar.JSpinnerDateEditor thoigianden;
     private com.toedter.calendar.JSpinnerDateEditor thoigiankhoihanh;
