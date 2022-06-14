@@ -3,11 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View.NhanVien.HoanVe;
+
 import View.Home.Login_Form;
 import View.NhanVien.DatVe.Homepage_QuanLyDatVe;
 import View.NhanVien.HanhKhach.QuanLyHanhKhach;
 import View.NhanVien.Homepage_NguoiNhanVien;
-import View.QuanLy.Homepage_NguoiQuanLy;
+import View.QuanLy.*;
+import View.QuanLy.TuyenXe.ThemTuyen;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -546,9 +548,9 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
 
     private void nutthem_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutthem_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
-        Them_HoanVe nguoiquanly = new Them_HoanVe();
-        nguoiquanly.setVisible(true);
-        CloseFrame();
+        Them_HoanVe themhoanve = new Them_HoanVe();
+        themhoanve.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_nutthem_quanlytuyenxeActionPerformed
 
     private void nhaptuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhaptuyenxeActionPerformed

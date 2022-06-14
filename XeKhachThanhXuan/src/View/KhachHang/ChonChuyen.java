@@ -55,6 +55,7 @@ public class ChonChuyen extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        jCalendarDemo1 = new com.toedter.calendar.demo.JCalendarDemo();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         trangChu_homepage = new javax.swing.JPanel();
@@ -92,12 +93,12 @@ public class ChonChuyen extends javax.swing.JFrame {
         jLabel25 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         nuttimkiem_datve = new javax.swing.JButton();
+        ngay_datve = new com.toedter.calendar.JDateChooser();
         panelnutchon_datve = new javax.swing.JPanel();
         nutchonchuyen_datve = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         cbbdiemden_datve = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
-        ngay_datve = new com.toedter.calendar.JDateChooser();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -108,6 +109,17 @@ public class ChonChuyen extends javax.swing.JFrame {
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jCalendarDemo1Layout = new javax.swing.GroupLayout(jCalendarDemo1.getContentPane());
+        jCalendarDemo1.getContentPane().setLayout(jCalendarDemo1Layout);
+        jCalendarDemo1Layout.setHorizontalGroup(
+            jCalendarDemo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jCalendarDemo1Layout.setVerticalGroup(
+            jCalendarDemo1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -301,6 +313,8 @@ public class ChonChuyen extends javax.swing.JFrame {
             }
         });
 
+        ngay_datve.setDateFormatString("dd-MM-yyyy");
+
         panelnutchon_datve.setBackground(new java.awt.Color(251, 250, 238));
 
         nutchonchuyen_datve.setFont(new java.awt.Font("Lora SemiBold", 1, 14)); // NOI18N
@@ -426,9 +440,9 @@ public class ChonChuyen extends javax.swing.JFrame {
                                             .addGap(31, 31, 31)
                                             .addComponent(jLabel25))
                                         .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                            .addGap(18, 18, 18)
-                                            .addComponent(ngay_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(27, 27, 27)
+                                            .addGap(12, 12, 12)
+                                            .addComponent(ngay_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(nuttimkiem_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGap(139, 139, 139)))
                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
@@ -452,21 +466,24 @@ public class ChonChuyen extends javax.swing.JFrame {
                                         .addComponent(jLabel23)
                                         .addComponent(jLabel16))
                                     .addComponent(jLabel25, javax.swing.GroupLayout.Alignment.TRAILING))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                .addGap(1, 1, 1)
+                                                .addGap(7, 7, 7)
                                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                                     .addComponent(cbbdiemdi_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                     .addComponent(cbbdiemden_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                            .addComponent(ngay_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(ngay_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(paneldschuyenxe_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(panelnutchon_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(nuttimkiem_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(nuttimkiem_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -567,8 +584,8 @@ public class ChonChuyen extends javax.swing.JFrame {
         String diemden = cbbdiemden_datve.getSelectedItem().toString().trim();
         String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_datve.getDate());
 
-        if (ngay_datve.getDate()==null) {
-            JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày khởi hành!",
+        if (ngaykhoihanh.equals(null)) {
+            JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày khởi hành!",
                     "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             ChonChuyen chonchuyen = new ChonChuyen();
             chonchuyen.setVisible(true);
@@ -930,6 +947,7 @@ public class ChonChuyen extends javax.swing.JFrame {
     public javax.swing.JTable danhsachchuyenxe;
     private javax.swing.JPanel datVe_Homepage;
     private javax.swing.JPanel gioiThieu_homepage;
+    private com.toedter.calendar.demo.JCalendarDemo jCalendarDemo1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

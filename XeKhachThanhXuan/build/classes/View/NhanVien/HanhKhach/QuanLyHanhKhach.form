@@ -435,12 +435,10 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="IDHanhkhach" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="Timkiem" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
                       <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="IDHanhkhach" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="Timkiem" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" pref="0" max="32767" attributes="0"/>
