@@ -3,10 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View.KhachHang;
-
-import java.awt.Color;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,9 +13,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.RowFilter;
-
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -560,8 +555,6 @@ public class ChonChuyen extends javax.swing.JFrame {
         Homepage_KhachHang khach = new Homepage_KhachHang();
         khach.setVisible(true);
         this.setVisible(false);
-
-
     }//GEN-LAST:event_trangChu_homepageMouseClicked
 
     private void datVe_HomepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datVe_HomepageMouseClicked
