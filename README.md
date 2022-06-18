@@ -1,28 +1,38 @@
-# java_IS216.M21_6
+# <h1 align="center">java_IS216.M21_6<h1>
+  
 <table>
 <tr>
-  <th colspan="2"><b>Thành viên trong nhóm</b></th>
+  <th colspan="4"><b>Thông tin thành viên trong nhóm</b></th>
 
 </tr>
 <tr>
   <td>Họ Và Tên</td>
   <td>MSSV</td>
+  <td>Facebook</td>
+  <td>SĐT</td>
 </tr>
 <tr>
   <td>Đặng Minh Tuấn</td>
   <td>20522106</td>
+  <td><a href="https://www.facebook.com/minhtuan644">Minh Tuấn</a></td>
+  <td>0949385911</td>
 </tr>
   <tr>
   <td>Nông Tiến Dũng</td>
   <td>20521212</td>
+  <td><a href="https://www.facebook.com/nongtiendung.2309/">Tiến Dũng</a></td>
+  <td>0335594771</td>
 </tr>
   <tr>
   <td>Nguyễn Đức Thuần</td>
   <td>20521993</td>
+  <td><a href="https://www.facebook.com/profile.php?id=100014732828317">Đức Thuần</a></td>
 </tr>
   <tr>
   <td>Nguyễn Duy Tài</td>
   <td>20520299</td>
+  <td><a href="https://www.facebook.com/duytai800">Duy Tài</a></td>
+  <td>0335586347</td>
 </tr>
 </table>
 #Hệ Thống Quản Lý Mua Bán Vé Xe Khách
