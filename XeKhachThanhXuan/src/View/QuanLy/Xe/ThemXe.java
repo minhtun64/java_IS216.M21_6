@@ -12,6 +12,11 @@ import View.QuanLy.GiaVe.Homepage_QuanLyGiaVe;
 import View.QuanLy.Homepage_NguoiQuanLy;
 import View.QuanLy.LoaiXe.Homepage_QuanLyLoaiXe;
 import View.QuanLy.NhanVien.Homepage_QuanLyNhanVien;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Connection;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,14 +30,15 @@ public class ThemXe extends javax.swing.JFrame {
      */
     public ThemXe() {
         initComponents();
+        loadcbbmaloaixe();
 //        autoID();
     }
 
     public void CloseFrame() {
         super.dispose();
     }
-//    Connection con;
-//    PreparedStatement pst;
+    Connection con;
+    PreparedStatement pst;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,7 +60,6 @@ public class ThemXe extends javax.swing.JFrame {
         them_quanlytuyenxe = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        maloaixe_xe = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -63,6 +68,7 @@ public class ThemXe extends javax.swing.JFrame {
         bienso_xe = new javax.swing.JTextField();
         hangsanxuat_xe = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jComboBox1_maloaixe_xe = new javax.swing.JComboBox<>();
         jPanel8 = new javax.swing.JPanel();
         quaylai_quanlytuyenxe = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
@@ -150,13 +156,6 @@ public class ThemXe extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
         jLabel4.setText("Mã loại xe");
 
-        maloaixe_xe.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
-        maloaixe_xe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maloaixe_xeActionPerformed(evt);
-            }
-        });
-
         jLabel5.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
         jLabel5.setText("Tên xe");
 
@@ -183,6 +182,8 @@ public class ThemXe extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
         jLabel9.setText("Biển số");
 
+        jComboBox1_maloaixe_xe.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -197,20 +198,22 @@ public class ThemXe extends javax.swing.JFrame {
                     .addComponent(jLabel9))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bienso_xe, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
-                    .addComponent(maloaixe_xe)
-                    .addComponent(tenxe_xe)
-                    .addComponent(mauxe_xe)
-                    .addComponent(hangsanxuat_xe))
-                .addGap(0, 0, 0))
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(bienso_xe, javax.swing.GroupLayout.DEFAULT_SIZE, 360, Short.MAX_VALUE)
+                        .addComponent(tenxe_xe)
+                        .addComponent(mauxe_xe)
+                        .addComponent(hangsanxuat_xe))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jComboBox1_maloaixe_xe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(maloaixe_xe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1_maloaixe_xe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -316,7 +319,7 @@ public class ThemXe extends javax.swing.JFrame {
                 .addComponent(jLabel51)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel18)
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         A.setBackground(new java.awt.Color(205, 247, 247));
@@ -614,7 +617,7 @@ public class ThemXe extends javax.swing.JFrame {
         ALayout.setVerticalGroup(
             ALayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(ALayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
                 .addComponent(trangChu_homepage8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -647,8 +650,8 @@ public class ThemXe extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(A, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
+            .addComponent(A, javax.swing.GroupLayout.DEFAULT_SIZE, 501, Short.MAX_VALUE)
         );
 
         pack();
@@ -657,7 +660,8 @@ public class ThemXe extends javax.swing.JFrame {
     private void them_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_them_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
 
-        String maLoaiXe = maloaixe_xe.getText();
+        String maLoaiXe = jComboBox1_maloaixe_xe.getSelectedItem().toString().trim();
+
         String tenXe = tenxe_xe.getText();
         String mauXe = mauxe_xe.getText();
         String hangSanXuat = hangsanxuat_xe.getText();
@@ -699,10 +703,6 @@ public class ThemXe extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_them_quanlytuyenxeActionPerformed
-
-    private void maloaixe_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maloaixe_xeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maloaixe_xeActionPerformed
 
     private void mauxe_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mauxe_xeActionPerformed
         // TODO add your handling code here:
@@ -843,8 +843,24 @@ public class ThemXe extends javax.swing.JFrame {
 //			JOptionPane.showMessageDialog(null, e);
 //        }
 //    }
-    public void kiemtrahople() {
+    public void loadcbbmaloaixe() {
+       
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            PreparedStatement pst = con.prepareStatement("Select DISTINCT ID_LOAIXE from LOAIXE where tinhtrang ='Hoạt động'");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                jComboBox1_maloaixe_xe.addItem(rs.getString(1));
 
+            }
+
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel A;
@@ -852,6 +868,7 @@ public class ThemXe extends javax.swing.JFrame {
     private javax.swing.JPanel dangXuat_homepage;
     private javax.swing.JPanel gioiThieu_homepage;
     private javax.swing.JTextField hangsanxuat_xe;
+    private javax.swing.JComboBox<String> jComboBox1_maloaixe_xe;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel20;
@@ -890,7 +907,6 @@ public class ThemXe extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField maloaixe_xe;
     private javax.swing.JTextField mauxe_xe;
     private javax.swing.JButton quaylai_quanlytuyenxe;
     private javax.swing.JTextField tenxe_xe;

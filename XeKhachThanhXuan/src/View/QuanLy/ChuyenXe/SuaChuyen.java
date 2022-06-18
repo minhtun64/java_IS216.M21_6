@@ -150,7 +150,7 @@ public class SuaChuyen extends javax.swing.JFrame {
 
         jLabel54.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px_3.png"))); // NOI18N
-        jLabel54.setText("Chào mừng đến với Quản lý chuyến xe!");
+        jLabel54.setText("Mời sửa chuyến xe!");
 
         jSeparator3.setForeground(new java.awt.Color(205, 247, 247));
 

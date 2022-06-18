@@ -27,6 +27,7 @@ public class OracleConnection {
         String connectionURL ="jdbc:oracle:thin:@"+hostName+":1521:"+sid;
         Connection conn = DriverManager.getConnection(connectionURL, userName, password);
         return conn;
+        //jdbc:oracle:thin:@localhost:1521:orcl
 
             
     }

@@ -114,8 +114,8 @@
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-                      <Component id="Ve" min="-2" pref="555" max="-2" attributes="0"/>
-                      <EmptySpace pref="1116" max="32767" attributes="0"/>
+                      <Component id="Ve" min="-2" pref="577" max="-2" attributes="0"/>
+                      <EmptySpace pref="1011" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -161,7 +161,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="62" max="-2" attributes="0"/>
                       <Component id="Ve" min="-2" pref="297" max="-2" attributes="0"/>
-                      <EmptySpace pref="141" max="32767" attributes="0"/>
+                      <EmptySpace pref="165" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -349,23 +349,33 @@
                                           </Group>
                                           <Component id="jLabel53" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" alignment="0" attributes="0">
-                                                  <Component id="giave" min="-2" pref="90" max="-2" attributes="0"/>
-                                                  <EmptySpace max="-2" attributes="0"/>
-                                                  <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                                      <Group type="102" alignment="0" attributes="0">
+                                                          <Component id="giave" min="-2" pref="90" max="-2" attributes="0"/>
+                                                          <EmptySpace max="-2" attributes="0"/>
+                                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                                      </Group>
+                                                      <Component id="biensoxe" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="diemxuongxe" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="diemlenxe" alignment="0" max="32767" attributes="0"/>
+                                                      <Component id="tuyenxe" alignment="0" max="32767" attributes="0"/>
+                                                  </Group>
+                                                  <Component id="loaixe" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
+                                                  <Component id="vitrighe" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="biensoxe" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="diemxuongxe" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="diemlenxe" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="tuyenxe" alignment="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="loaixe" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
-                                          <Component id="vitrighe" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
-                                          <Component id="thoigianden" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
-                                          <Component id="thoigiankhoihanh" alignment="1" min="-2" pref="121" max="-2" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                              <Component id="thoigianden" min="-2" pref="157" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="thoigiankhoihanh" min="-2" pref="157" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -374,7 +384,7 @@
                                       <Component id="hoten1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="42" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="email6" min="-2" max="-2" attributes="0"/>
@@ -401,9 +411,9 @@
                                       </Group>
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="email" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                                           <Component id="sdt" alignment="0" min="-2" pref="115" max="-2" attributes="0"/>
                                           <Component id="cmnd" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
+                                          <Component id="email" min="-2" pref="152" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="0" attributes="0">
@@ -417,10 +427,10 @@
                                       <Component id="GiaVe" min="-2" pref="114" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace min="0" pref="46" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="9" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

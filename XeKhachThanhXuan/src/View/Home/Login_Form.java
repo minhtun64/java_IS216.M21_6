@@ -273,7 +273,7 @@ public class Login_Form extends javax.swing.JFrame {
     private void jButton_dangnhapActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_dangnhapActionPerformed
         // TODO add your handling code here:
         String username = textTenDN.getText();
-        String password = textTenDN1.getText();
+        String password = textMK.getText();
         DangNhap ur = new DangNhap();
         if (username.equals("")) {
             JOptionPane.showMessageDialog(this, "Vui lòng nhập tên đăng nhập\n");
