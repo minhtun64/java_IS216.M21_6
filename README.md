@@ -1,8 +1,20 @@
 # <h1 align="center">java_IS216.M21_6<h1>
-  
+  <div align="center">
+  <a href="">
+  </a>
+
+  <h3 align="center">Thanh Xuân</h3>
+
+  <p align="center">
+    Hệ thống quản lý bán vé xe khách
+    <br />
+    <a href="https://github.com/minhtun64uit/java_IS216.M21_6/tree/main"><strong>Khám phá »</strong></a>
+    <br />
+  </p>
+</div>
 <table>
 <tr>
-  <th colspan="4"><b>Thông tin thành viên trong nhóm</b></th>
+  <th colspan="6"><b>Thông tin thành viên trong nhóm</b></th>
 
 </tr>
 <tr>
@@ -10,30 +22,40 @@
   <td>MSSV</td>
   <td>Facebook</td>
   <td>SĐT</td>
-  <td>SĐT</td>
+  <td>Nhiệm vụ</td>
+  <td>Đánh giá %<td>
 </tr>
 <tr>
   <td>Đặng Minh Tuấn</td>
   <td>20522106</td>
   <td><a href="https://www.facebook.com/minhtuan644">Minh Tuấn</a></td>
   <td>0949385911</td>
+  <td>Nhóm trưởng</td>
+  <td>------</td>
 </tr>
   <tr>
   <td>Nông Tiến Dũng</td>
   <td>20521212</td>
   <td><a href="https://www.facebook.com/nongtiendung.2309/">Tiến Dũng</a></td>
   <td>0335594771</td>
+  <td>------</td>
+    <td>------</td>
 </tr>
   <tr>
   <td>Nguyễn Đức Thuần</td>
   <td>20521993</td>
   <td><a href="https://www.facebook.com/profile.php?id=100014732828317">Đức Thuần</a></td>
+  <td>0886339784</td>
+  <td>Thiết kế database</td>
+   <td>------</td>
 </tr>
   <tr>
   <td>Nguyễn Duy Tài</td>
   <td>20520299</td>
   <td><a href="https://www.facebook.com/duytai800">Duy Tài</a></td>
   <td>0335586347</td>
+  <td>----------</td>
+  <td>------</td>
 </tr>
 </table>
 #Hệ Thống Quản Lý Mua Bán Vé Xe Khách
@@ -80,10 +102,13 @@
 </details>
 <details>
      <summary>Mô hình dữ liệu</summary>
+  <ol>
+  <li><img src="![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)"></li>
+  </ol>
 </details>
 
-
-![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)
+<!-- 
+![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg) -->
 
 
 
