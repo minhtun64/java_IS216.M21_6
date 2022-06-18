@@ -116,7 +116,7 @@
 <details>
   <summary>Công nghệ sử dụng</summary>
   <ol>
-    <li><a>Apache NetBeans</a></li>
-    <li><a>Oracle database</a></li>
+    <li><a href="https://netbeans.apache.org/">Apache NetBeans</a></li>
+    <li><a href="https://www.oracle.com/index.html">Oracle database</a></li>
   </ol>
 </details>
