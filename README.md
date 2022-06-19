@@ -50,9 +50,10 @@ Trang web phải đảm bảo được các mục tiêu:
 - Giúp khách hàng mua hàng được nhanh chóng và đúng sản phẩm mình cần.
 - Tiện lợi cho người bán hàng dễ dàng quản lý cửa hàng của mình.
 - Giao diện đơn giản, load nhanh.
+  <h2 id="dsthanhvien">Danh sách thành viên trong nhóm</h2>
 <table>
 <tr>
-  <th colspan="6"><b>Danh sách thành viên trong nhóm</b></th>
+  <b>Danh sách thành viên trong nhóm</b>
 
 </tr>
 <tr>
