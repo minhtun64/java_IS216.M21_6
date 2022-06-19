@@ -136,11 +136,13 @@ Phần mềm phải đảm bảo được các mục tiêu:
   + Xem thông tin đặt vé.
   + Xem các thông tin quy định của xe.
 - Nhân viên:<br/>
+  + Đăng nhập
   + Quản lý hoàn vé.
   + Quản lý khách hàng.
   + Quản lý Đặt vé.
   + Tất cả chức năng của khách hàng.
 - Ban quản lý:<br/>
+  + Đăng nhập
   + Quản lý tuyến xe.
   + Quản lý chuyến xe.
   + Quản lý xe.
