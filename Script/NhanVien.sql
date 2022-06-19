@@ -1,72 +1,169 @@
 --------------------------------------------------------
---  File created - T3-04-12-2022   
---------------------------------------------------------
---------------------------------------------------------
 --  DDL for Sequence NHANVIEN_ID
 --------------------------------------------------------
+CREATE SEQUENCE NHANVIEN_ID
+  INCREMENT BY 1
+  MINVALUE 10001009
+  MAXVALUE 9999999999999999999999999999
+  NOCYCLE;
+--------------------------------------------------------
 
-CREATE SEQUENCE  "DB_XEKHACH"."NHANVIEN_ID"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 101 CACHE 20 NOORDER  NOCYCLE  NOKEEP  NOSCALE  GLOBAL ;
---------------------------------------------------------
---------------------------------------------------------
 --  DDL for Table NHANVIEN
 --------------------------------------------------------
+CREATE TABLE NHANVIEN
+(	
+    ID_NhanVien NUMBER,
+    ID_NQL NUMBER NOT NULL,
+    ID_TaiKhoan NUMBER NOT NULL,
+    TenNV VARCHAR2(30) NOT NULL,
+    GioiTinh VARCHAR2(10) NOT NULL,
+    NgaySinh DATE NOT NULL,
+    NgayVaoLam DATE NOT NULL,
+    SDT VARCHAR2(20) NOT NULL,
+    Email VARCHAR2(100) NOT NULL,
+    TinhTrang VARCHAR2(20) NOT NULL
+) SEGMENT CREATION IMMEDIATE 
+PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
+NOCOMPRESS LOGGING
+STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+TABLESPACE USERS ;
+--------------------------------------------------------
 
-  CREATE TABLE "DB_XEKHACH"."NHANVIEN" 
-   (	"ID" NUMBER(*,0), 
-	"NGUOIQUANLY_ID" NUMBER(*,0), 
-	"HOTEN" VARCHAR2(20 BYTE), 
-	"NGAYSINH" DATE, 
-	"SDT" NUMBER(*,0), 
-	"EMAIL" VARCHAR2(20 BYTE), 
-	"NGAYVAOLAM" DATE, 
-	"NOICONGTAC" VARCHAR2(30 BYTE), 
-	"NHIEMVU" VARCHAR2(30 BYTE), 
-	"TENDANGNHAP" VARCHAR2(30 BYTE), 
-	"MATKHAU" VARCHAR2(30 BYTE)
-   ) SEGMENT CREATION IMMEDIATE 
-  PCTFREE 10 PCTUSED 40 INITRANS 1 MAXTRANS 255 
- NOCOMPRESS LOGGING
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
-  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
---------------------------------------------------------
-REM INSERTING into DB_XEKHACH.NHANVIEN
-SET DEFINE OFF;
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (101,201,'Tr?n V?n A',to_date('01-FEB-99 00:00:00','DD-MON-RR HH24:MI:SS'),213234,'LEA@GMAIL.COM',to_date('05-DEC-20 00:00:00','DD-MON-RR HH24:MI:SS'),'HCM','Bán Vé','nhanvienbanve1','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (102,201,'Tr?n V?n B',to_date('02-MAR-98 00:00:00','DD-MON-RR HH24:MI:SS'),236433,'LEB@GMAIL.COM',to_date('03-APR-21 00:00:00','DD-MON-RR HH24:MI:SS'),'HCM','Bán Vé','nhanvienbanve2','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (103,202,'Tr?n V?n C',to_date('03-JUL-97 00:00:00','DD-MON-RR HH24:MI:SS'),786322,'LEC@GMAIL.COM',to_date('12-MAY-21 00:00:00','DD-MON-RR HH24:MI:SS'),'Ha Noi','Bán Vé','nhanvienbanve3','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (104,202,'Tr?n Th? D',to_date('04-AUG-96 00:00:00','DD-MON-RR HH24:MI:SS'),846731,'LED@GMAIL.COM',to_date('10-JAN-21 00:00:00','DD-MON-RR HH24:MI:SS'),'Ha Noi','D?ch v? b? tr?','nhanviendvbt1','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (105,202,'Tr?n Lê E',to_date('05-NOV-95 00:00:00','DD-MON-RR HH24:MI:SS'),374637,'LEE@GMAIL.COM',to_date('08-SEP-21 00:00:00','DD-MON-RR HH24:MI:SS'),'HCM','D?ch v? b? tr?','nhanviendvbt2','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (106,203,'Tr?n Lê F',to_date('06-DEC-94 00:00:00','DD-MON-RR HH24:MI:SS'),387468,'LEF@GMAIL.COM',to_date('05-MAR-21 00:00:00','DD-MON-RR HH24:MI:SS'),'Ha Noi','Bán Vé','nhanvienbanve4
-','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (107,203,'Tr?n Th? G',to_date('07-SEP-93 00:00:00','DD-MON-RR HH24:MI:SS'),848932,'LEG@GMAIL.COM',to_date('03-MAR-21 00:00:00','DD-MON-RR HH24:MI:SS'),'HCM','Bán Vé','nhanvienbanve5','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (108,203,'Tr?n V?n H',to_date('08-MAY-92 00:00:00','DD-MON-RR HH24:MI:SS'),837468,'LEH@GMAIL.COM',to_date('01-JAN-21 00:00:00','DD-MON-RR HH24:MI:SS'),'HCM','Hoàn Vé','nhanvienhoanve1','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (109,201,'Tr?n Lê I',to_date('09-JUL-91 00:00:00','DD-MON-RR HH24:MI:SS'),783643,'LEI@GMAIL.COM',to_date('11-MAY-21 00:00:00','DD-MON-RR HH24:MI:SS'),'Kien Giang','Bán Vé','nhanvienbanve6','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (110,201,'Tr?n Th? K',to_date('10-SEP-90 00:00:00','DD-MON-RR HH24:MI:SS'),338763,'LEK@GMAIL.COM',to_date('08-FEB-21 00:00:00','DD-MON-RR HH24:MI:SS'),'Kien Giang','Hoàn Vé','nhanvienhoanve2','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (111,201,'Tr?n Th? L',to_date('11-FEB-89 00:00:00','DD-MON-RR HH24:MI:SS'),874367,'LEL@GMAIL.COM',to_date('06-JAN-21 00:00:00','DD-MON-RR HH24:MI:SS'),'Kien Giang','Hoàn Vé','nhanvienhoanve3','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (112,202,'Tr?n V?n L',to_date('11-SEP-00 00:00:00','DD-MON-RR HH24:MI:SS'),874367,'LEL@GMAIL.COM',to_date('23-OCT-17 00:00:00','DD-MON-RR HH24:MI:SS'),'Vung Tau','Hoàn Vé','nhanvienhoanve4','12345678');
-Insert into DB_XEKHACH.NHANVIEN (ID,NGUOIQUANLY_ID,HOTEN,NGAYSINH,SDT,EMAIL,NGAYVAOLAM,NOICONGTAC,NHIEMVU,TENDANGNHAP,MATKHAU) values (113,202,'Tr?n V?n L',to_date('11-SEP-00 00:00:00','DD-MON-RR HH24:MI:SS'),874367,'LEL@GMAIL.COM',to_date('23-OCT-16 00:00:00','DD-MON-RR HH24:MI:SS'),'Vung Tau','D?ch v? b? tr?','nhanviendvbt','12345678');
---------------------------------------------------------
 --  DDL for Index NV_PK
+CREATE UNIQUE INDEX NV_PK ON NHANVIEN (ID_NhanVien) 
+PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
+STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
+PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
+BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
+TABLESPACE USERS ;
 --------------------------------------------------------
 
-  CREATE UNIQUE INDEX "DB_XEKHACH"."NV_PK" ON "DB_XEKHACH"."NHANVIEN" ("ID") 
-  PCTFREE 10 INITRANS 2 MAXTRANS 255 COMPUTE STATISTICS 
-  STORAGE(INITIAL 65536 NEXT 1048576 MINEXTENTS 1 MAXEXTENTS 2147483645
-  PCTINCREASE 0 FREELISTS 1 FREELIST GROUPS 1
-  BUFFER_POOL DEFAULT FLASH_CACHE DEFAULT CELL_FLASH_CACHE DEFAULT)
-  TABLESPACE "USERS" ;
---------------------------------------------------------
 --  Constraints for Table NHANVIEN
 --------------------------------------------------------
-
-  ALTER TABLE "DB_XEKHACH"."NHANVIEN" ADD CONSTRAINT "NV_PK" PRIMARY KEY ("ID")
-  USING INDEX "DB_XEKHACH"."NV_PK"  ENABLE;
+ALTER TABLE NHANVIEN ADD CONSTRAINT NV_PK PRIMARY KEY (ID_NhanVien)
+USING INDEX NV_PK  ENABLE;
 --------------------------------------------------------
+
 --  Ref Constraints for Table NHANVIEN
 --------------------------------------------------------
+ALTER TABLE NHANVIEN ADD CONSTRAINT NV_TK_FK FOREIGN KEY (ID_TaiKhoan )
+	  REFERENCES TAIKHOAN (ID_TaiKhoan);
+ALTER TABLE NHANVIEN ADD CONSTRAINT NV_QL_FK FOREIGN KEY (ID_NQL)
+	  REFERENCES NGUOIQUANLY (ID_NQL) ON DELETE CASCADE ENABLE;
+--------------------------------------------------------
 
-  ALTER TABLE "DB_XEKHACH"."NHANVIEN" ADD CONSTRAINT "NV_QL_FK" FOREIGN KEY ("NGUOIQUANLY_ID")
-	  REFERENCES "DB_XEKHACH"."NGUOIQUANLY" ("ID") ON DELETE CASCADE ENABLE;
+--  TRIGGER for table NHANVIEN
+--------------------------------------------------------
+--  Trig_NV_NGVL_NGSINH
+CREATE OR REPLACE TRIGGER Trig_NV_NGVL_NGSINH
+BEFORE INSERT OR UPDATE ON NHANVIEN
+FOR EACH ROW
+BEGIN
+    IF (:new.NgaySinh > :new.NgayVaoLam) THEN
+        RAISE_APPLICATION_ERROR (-20987, 'Ngay vao lam phai lon hon ngay sinh!');
+    END IF;
+END;
+/
+------------------------------
+--  Trig_NV_18T
+CREATE OR REPLACE TRIGGER Trig_NV_18T
+BEFORE INSERT OR UPDATE ON NHANVIEN
+FOR EACH ROW
+DECLARE Tuoi INT :=0;
+BEGIN
+    Tuoi := months_between(:new.NgayVaoLam, :new.NgaySinh)/12;
+    IF (Tuoi < 18) THEN
+        RAISE_APPLICATION_ERROR (-20986, 'Nhan vien phai tu du 18 tuoi tro len!');
+    END IF;
+END;
+/
+------------------------------
+--  Trig_NV_GIOITINH
+CREATE OR REPLACE TRIGGER Trig_NV_GIOITINH
+BEFORE INSERT OR UPDATE ON NHANVIEN
+FOR EACH ROW
+BEGIN
+    IF (:new.GioiTinh NOT IN ('Nam', 'Nu')) THEN
+        RAISE_APPLICATION_ERROR (-20970, 'Gioi tinh cua nhan vien phai la nam hoac nu!');
+    END IF;
+END;
+/
+--------------------------------------------------------
+
+SET SERVEROUTPUT  ON;
+--  PROCEDURE for table NHANVIEN
+--------------------------------------------------------
+--  Pro_themnhanvien
+CREATE OR REPLACE PROCEDURE Pro_themnhanvien (
+                                            MANQL IN NHANVIEN.ID_NQL%TYPE,
+                                            TNV IN NHANVIEN.TenNV%TYPE,
+                                            GT IN NHANVIEN.GioiTinh%TYPE,
+                                            NGSINH IN NHANVIEN.NgaySinh%TYPE,
+                                            NGVL IN NHANVIEN.NgayVaoLam%TYPE,
+                                            SODIENTHOAI IN NHANVIEN.SDT%TYPE,
+                                            MAIL IN NHANVIEN.Email%TYPE,
+                                            TDN IN TAIKHOAN.TenDangNhap%TYPE,
+                                            MK IN TAIKHOAN.MatKhau%TYPE)
+AS
+BEGIN
+    Insert into TAIKHOAN (ID_TaiKhoan,TenDangNhap,MatKhau,Role,TinhTrang)
+        values (TAIKHOAN_ID.NEXTVAL,TDN,MK,1,'Hoạt động');
+        
+    Insert into NHANVIEN (ID_NhanVien,ID_NQL, ID_TaiKhoan, TenNV, GioiTinh, NgaySinh, NgayVaoLam, SDT, Email,TinhTrang)  
+        values (NHANVIEN_ID.NEXTVAL,MANQL,TAIKHOAN_ID.CURRVAL,TNV,GT,NGSINH,NGVL,SODIENTHOAI,MAIL,'Hoạt động');
+        
+    DBMS_OUTPUT.PUT_LINE('Them thanh cong');
+    EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE(' Khong xac dinh!');
+END;
+/
+------------------------------
+--  Pro_capnhatnhanvien
+CREATE OR REPLACE PROCEDURE Pro_capnhatnhanvien (
+                                            MANV IN NHANVIEN.ID_NhanVien%TYPE,
+                                            MANQL IN NHANVIEN.ID_NQL%TYPE,
+                                           TNV IN NHANVIEN.TenNV%TYPE,
+                                           GT IN NHANVIEN.GioiTinh%TYPE,
+                                           NGSINH IN NHANVIEN.NgaySinh%TYPE,
+                                           NGVL IN NHANVIEN.NgayVaoLam%TYPE,
+                                           SODIENTHOAI IN NHANVIEN.SDT%TYPE,
+                                           MAIL IN NHANVIEN.Email%TYPE)
+AS
+BEGIN
+    UPDATE NHANVIEN
+    SET    ID_NQL=MANQL, TenNV=TNV, GioiTinh=GT,
+                NgaySinh=NGSINH, NgayVaoLam=NGVL, SDT=SODIENTHOAI, Email=MAIL       
+    WHERE ID_NhanVien=MANV;
+    
+    DBMS_OUTPUT.PUT_LINE('Cap nhat thanh cong');
+    EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Loi!');
+END;
+/
+------------------------------
+--  Pro_huynhanvien
+CREATE OR REPLACE PROCEDURE Pro_huynhanvien(MANV IN NHANVIEN.ID_NhanVien%TYPE)
+AS
+    MaTK NHANVIEN.ID_TAIKHOAN%TYPE;
+BEGIN
+        UPDATE NHANVIEN SET TinhTrang='Đã hủy'
+        WHERE ID_NhanVien=MANV;
+        
+        SELECT ID_TAIKHOAN INTO MATK
+        FROM NHANVIEN
+        WHERE ID_NhanVien=MANV;
+        
+        UPDATE TAIKHOAN SET TinhTrang='Đã hủy'
+        WHERE ID_TaiKhoan=MATK;
+        
+        DBMS_OUTPUT.PUT_LINE('Huy thanh cong');
+    EXCEPTION
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Loi!');
+END;
+/
 --------------------------------------------------------
