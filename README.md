@@ -34,12 +34,12 @@
   
   <!-- ABOUT THE PROJECT -->
 # <h2 id="muctieu">Mục tiêu của đồ án</h2>
-Đây là project của môn học Xây dựng hệ thống thông tin trên các Framework - UIT. Nội dung là tạo một trang web quản lý chuỗi bán lẻ cà phê và sách
+Đây là project của môn học Lập trình Java. Nội dung là tạo một phần mềm quản lý mua bán vé xe khách.
 
-Trang web phải đảm bảo được các mục tiêu:
-- Giúp khách hàng mua hàng được nhanh chóng và đúng sản phẩm mình cần.
-- Tiện lợi cho người bán hàng dễ dàng quản lý cửa hàng của mình.
-- Giao diện đơn giản, load nhanh.
+Phần mềm phải đảm bảo được các mục tiêu:
+- Giúp hành khách mua vé được nhanh chóng và thuận tiện hơn.
+- Tiện lợi cho nhân viên, người quản lý dễ dàng kiểm soát và cập nhật thông tin.
+- Giao diện đơn giản, dễ sử dụng.
 # <h2 id="dsthanhvien">Danh sách thành viên trong nhóm</h2>
 <table>
 <tr>
@@ -67,7 +67,7 @@ Trang web phải đảm bảo được các mục tiêu:
   <td>20521212</td>
   <td><a href="https://www.facebook.com/nongtiendung.2309/">Tiến Dũng</a></td>
   <td>0335594771</td>
-  <td>------</td>
+  <td>sử lý </td>
     <td>------</td>
 </tr>
   <tr>
