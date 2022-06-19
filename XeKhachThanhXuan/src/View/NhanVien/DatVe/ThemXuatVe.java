@@ -28,8 +28,8 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import net.sf.jasperreports.engine.*; 
-import net.sf.jasperreports.view.*; 
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.view.*;
 
 /**
  *
@@ -48,7 +48,6 @@ public class ThemXuatVe extends javax.swing.JFrame {
     }
     Connection con;
     PreparedStatement pst;
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -755,14 +754,14 @@ public class ThemXuatVe extends javax.swing.JFrame {
                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel5)
                                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addGap(43, 43, 43)
-                                        .addComponent(jLabel4))
-                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                         .addGap(131, 131, 131)
                                         .addComponent(jLabel3))
                                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                         .addGap(72, 72, 72)
-                                        .addComponent(jLabel2)))
+                                        .addComponent(jLabel2))
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabel4)))
                                 .addGap(49, 49, 49)
                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel6)
@@ -977,7 +976,7 @@ public class ThemXuatVe extends javax.swing.JFrame {
         String localDir = System.getProperty("user.dir");
         ReportViewer viewer;
         try {
-            viewer = new ReportViewer(localDir+"\\src\\Resources\\Report\\Report_InVe.jrxml",hs);
+            viewer = new ReportViewer(localDir + "\\src\\Resources\\Report\\Report_ThemVe.jrxml", hs);
             viewer.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(ThemXuatVe.class.getName()).log(Level.SEVERE, null, ex);

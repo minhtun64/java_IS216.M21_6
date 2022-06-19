@@ -5,6 +5,8 @@
 package View.KhachHang;
 
 import Process.KhachHang.DatVe.DatVe;
+import View.NhanVien.DatVe.ThemXuatVe;
+import View.ReportViewer;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,6 +15,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -117,6 +122,7 @@ public class XuatVe extends javax.swing.JFrame {
         vitrighe = new javax.swing.JLabel();
         jSeparator5 = new javax.swing.JSeparator();
         nuttrangchu_datve = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -567,6 +573,15 @@ public class XuatVe extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Lora SemiBold", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/QuanLy/Icon/QuanLyTuyenXe/icons8_print_30px.png"))); // NOI18N
+        jButton1.setText("In");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout gioiThieu_homepageLayout = new javax.swing.GroupLayout(gioiThieu_homepage);
         gioiThieu_homepage.setLayout(gioiThieu_homepageLayout);
         gioiThieu_homepageLayout.setHorizontalGroup(
@@ -580,7 +595,14 @@ public class XuatVe extends javax.swing.JFrame {
                                 .addComponent(jLabel57))
                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                 .addGap(106, 106, 106)
-                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addGap(106, 106, 106)
+                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nuttrangchu_datve)
+                                        .addGap(53, 53, 53))
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(243, 243, 243)
                         .addComponent(jLabel56)
@@ -628,10 +650,6 @@ public class XuatVe extends javax.swing.JFrame {
                                         .addComponent(jLabel36))))))
                     .addComponent(jSeparator1))
                 .addContainerGap())
-            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                .addGap(260, 260, 260)
-                .addComponent(nuttrangchu_datve)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         gioiThieu_homepageLayout.setVerticalGroup(
             gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -639,7 +657,7 @@ public class XuatVe extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGap(0, 39, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(nuttrangchu_datve))
@@ -649,19 +667,25 @@ public class XuatVe extends javax.swing.JFrame {
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGap(98, 98, 98)
-                                .addComponent(jLabel55))
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel37)
-                                    .addComponent(jLabel38)
-                                    .addComponent(jLabel36))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel56)
-                                    .addComponent(jLabel57))))
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel10)))
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addGap(98, 98, 98)
+                                        .addComponent(jLabel55))
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel37)
+                                            .addComponent(jLabel38)
+                                            .addComponent(jLabel36))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel56)
+                                            .addComponent(jLabel57))))
+                                .addGap(0, 0, 0)
+                                .addComponent(jLabel10)
+                                .addGap(28, 28, 28))
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGap(450, 450, 450)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                         .addGap(26, 26, 26)
@@ -689,7 +713,7 @@ public class XuatVe extends javax.swing.JFrame {
                                 .addComponent(jLabel8)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12)))))
-                .addGap(0, 3, Short.MAX_VALUE))
+                .addGap(3, 3, 3))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -706,7 +730,6 @@ public class XuatVe extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, 0)
                 .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -737,6 +760,20 @@ public class XuatVe extends javax.swing.JFrame {
         khach.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_nuttrangchu_datveActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        HashMap hs = new HashMap();
+        String localDir = System.getProperty("user.dir");
+        ReportViewer viewer_inve;
+        try {
+            viewer_inve = new ReportViewer(localDir + "\\src\\Resources\\Report\\Report_InVeHanhKhach.jrxml", hs);
+            viewer_inve.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(XuatVe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -875,7 +912,7 @@ public class XuatVe extends javax.swing.JFrame {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
 
-            pst = con.prepareStatement("SELECT H.TENHK, T.TENTUYEN, T.DIEMDAU, T. DIEMCUOI, X.BIENSO, V.VITRIGHE,\n"
+            pst = con.prepareStatement("SELECT H.TENHK, T.TENTUYEN, C.DIEMDI, C.DIEMDEN, X.BIENSO, V.VITRIGHE,\n"
                     + "    C.THOIGIANKH, C.THOIGIANDEN, L.TENLOAIXE, D.TONGTIEN, H.SDT, H.CMND, H.EMAIL\n"
                     + "FROM (((((DATVE D JOIN VE v ON V.ID_VE=D.ID_VE)\n"
                     + "    JOIN HANHKHACH H ON D.ID_HANHKHACH=H.ID_HANHKHACH)\n"
@@ -892,8 +929,8 @@ public class XuatVe extends javax.swing.JFrame {
             while (rs.next()) {
                 hoTen = rs.getString("TENHK");
                 tenTuyen = rs.getString("TENTUYEN");
-                diemDau = rs.getString("DIEMDAU");
-                diemCuoi = rs.getString("DIEMCUOI");
+                diemDau = rs.getString("DIEMDI");
+                diemCuoi = rs.getString("DIEMDEN");
                 bienSo = rs.getString("BIENSO");
                 viTriGhe = rs.getString("VITRIGHE");
                 thoiGianKH = rs.getString("THOIGIANKH");
@@ -912,25 +949,22 @@ public class XuatVe extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
         }
-        
+
         tuyenxe.setText(tenTuyen);
         diemlenxe.setText(diemDau);
         diemxuongxe.setText(diemCuoi);
         biensoxe.setText(bienSo);
         vitrighe.setText(viTriGhe);
-        
-   
+
         loaixe.setText(tenLoaiXe);
         giave.setText(tongTien);
         hoten1.setText(hoTen);
         hoten2.setText(hoTen);
         sdt.setText(sDT);
         cmnd.setText(cMND);
-        email.setText(eMail);  
-        
-     
-        
-   }
+        email.setText(eMail);
+
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -944,6 +978,7 @@ public class XuatVe extends javax.swing.JFrame {
     private javax.swing.JPanel gioiThieu_homepage;
     public javax.swing.JLabel hoten1;
     public javax.swing.JLabel hoten2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

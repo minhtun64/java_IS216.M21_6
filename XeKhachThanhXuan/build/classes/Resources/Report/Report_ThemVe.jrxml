@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="618c9961-3fa8-4565-bd5e-bb4963596eaf">
-	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.zoom" value="0.9090909090909095"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
@@ -48,7 +48,7 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 				<text><![CDATA[XIN THÔNG BÁO]]></text>
 			</staticText>
 			<textField pattern="dd/MM/yyyy">
-				<reportElement x="497" y="30" width="100" height="20" uuid="693c7a47-5fb1-4edb-b182-e4d5eda81f8c"/>
+				<reportElement x="497" y="39" width="100" height="20" uuid="693c7a47-5fb1-4edb-b182-e4d5eda81f8c"/>
 				<textElement>
 					<font fontName="Lora"/>
 				</textElement>
@@ -58,6 +58,12 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 				<reportElement x="9" y="4" width="132" height="93" uuid="06d6b239-044f-413c-83cd-a4e55e222233"/>
 				<imageExpression><![CDATA["D:\\UIT\\II\\HK IV\\Programming with Java\\Project\\Project\\HÃNG XE KHÁCH logo.jpg"]]></imageExpression>
 			</image>
+			<componentElement>
+				<reportElement x="478" y="4" width="171" height="32" uuid="55ed8d48-eb6a-438a-a748-371f6d0b74f9"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="2of7" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA["1234"]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
 		</band>
 	</title>
 	<pageHeader>
@@ -100,9 +106,9 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 		</band>
 	</pageHeader>
 	<detail>
-		<band height="372" splitType="Stretch">
+		<band height="362" splitType="Stretch">
 			<textField>
-				<reportElement x="440" y="54" width="100" height="20" uuid="80ac00f5-f0f2-4970-af0c-1f136413be2a"/>
+				<reportElement x="415" y="54" width="140" height="20" uuid="80ac00f5-f0f2-4970-af0c-1f136413be2a"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
@@ -111,12 +117,12 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 			<textField>
 				<reportElement x="153" y="54" width="100" height="20" uuid="e4ebf9ef-8cb5-4f1f-92e7-a2bbe8528be7"/>
 				<textElement>
-					<font fontName="Lora" size="13"/>
+					<font fontName="Lora" size="13" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{TENTUYEN}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="330" y="54" width="100" height="20" uuid="0eb40729-f490-413f-acd8-9b188017c34a"/>
+				<reportElement x="305" y="54" width="100" height="20" uuid="0eb40729-f490-413f-acd8-9b188017c34a"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
@@ -167,7 +173,7 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 			<textField pattern="dd/MM/yyyy h.mm a">
 				<reportElement x="153" y="192" width="118" height="20" uuid="fceac836-1600-4826-a940-a6de945d6d63"/>
 				<textElement>
-					<font fontName="Lora" size="13"/>
+					<font fontName="Lora" size="13" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{THOIGIANKH}]]></textFieldExpression>
 			</textField>
@@ -181,7 +187,7 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 			<textField>
 				<reportElement x="153" y="265" width="100" height="20" uuid="36e9aafe-c89d-4dbe-a1ca-afe7ed520432"/>
 				<textElement>
-					<font fontName="Lora" size="13"/>
+					<font fontName="Lora" size="13" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{VITRIGHE}]]></textFieldExpression>
 			</textField>
@@ -242,64 +248,107 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 				<text><![CDATA[Điểm cuối:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="440" y="88" width="100" height="20" uuid="4bc8589d-b2c8-4471-a39f-b557bb380476"/>
+				<reportElement x="415" y="88" width="100" height="20" uuid="4bc8589d-b2c8-4471-a39f-b557bb380476"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{SDT}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="440" y="123" width="100" height="20" uuid="1a23bc76-5603-42e1-ba25-1831875cc987"/>
+				<reportElement x="415" y="123" width="140" height="20" uuid="1a23bc76-5603-42e1-ba25-1831875cc987"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{CMND}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="440" y="158" width="100" height="20" uuid="3be48018-5079-4d58-b242-53b845644f49"/>
+				<reportElement x="415" y="158" width="140" height="20" uuid="3be48018-5079-4d58-b242-53b845644f49"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{EMAIL}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="330" y="158" width="100" height="20" uuid="dd839935-b464-4618-8063-ebcc44bc3ee9"/>
+				<reportElement x="305" y="158" width="100" height="20" uuid="dd839935-b464-4618-8063-ebcc44bc3ee9"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
 				<text><![CDATA[Email:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="330" y="123" width="100" height="20" uuid="f9217d42-2050-45f6-890a-1679f221e635"/>
+				<reportElement x="305" y="123" width="100" height="20" uuid="f9217d42-2050-45f6-890a-1679f221e635"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
 				<text><![CDATA[CMND:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="330" y="88" width="100" height="20" uuid="3cdbd172-76b4-4860-bf6f-dcb752d61b8a"/>
+				<reportElement x="305" y="88" width="100" height="20" uuid="3cdbd172-76b4-4860-bf6f-dcb752d61b8a"/>
 				<textElement>
 					<font fontName="Lora" size="13"/>
 				</textElement>
 				<text><![CDATA[Số điện thoại: ]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="72" y="28" width="100" height="20" uuid="701b631d-7a3c-499f-9058-90693114a02c"/>
-				<textFieldExpression><![CDATA[Thông tin chuyến xe]]></textFieldExpression>
-			</textField>
 			<staticText>
-				<reportElement x="379" y="28" width="152" height="20" uuid="645be28c-a494-4e22-b388-6a14db32ec7f"/>
-				<text><![CDATA[Thông tin hành khách]]></text>
+				<reportElement x="71" y="18" width="159" height="20" uuid="ad47b927-44c0-49be-8459-ad913c93a936"/>
+				<textElement>
+					<font fontName="Lora" size="13" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Thông tin chuyến xe:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="18" width="159" height="20" uuid="e87a5af9-0749-47fa-9b84-794d3f49f642"/>
+				<textElement>
+					<font fontName="Lora" size="13" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Thông tin hành khách:]]></text>
 			</staticText>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="45" splitType="Stretch"/>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="363" y="4" width="192" height="31" uuid="bc5205e3-1ac2-4d64-bbf6-e3eaf55f6de1"/>
+				<textElement>
+					<font fontName="Lora Medium" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ÐÃ THANH TOÁN]]></text>
+			</staticText>
+			<line>
+				<reportElement x="79" y="34" width="399" height="1" uuid="20a862bf-6b94-48bd-871c-6dd518787d4e"/>
+			</line>
+		</band>
 	</columnFooter>
 	<pageFooter>
-		<band height="54" splitType="Stretch"/>
+		<band height="94" splitType="Stretch">
+			<staticText>
+				<reportElement x="243" y="27" width="80" height="23" uuid="3ab9042d-72f1-4f94-841a-606408dda479"/>
+				<textElement>
+					<font fontName="Lora" size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1900 7979]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="144" y="54" width="363" height="20" uuid="b4943c05-3d5a-466b-b7bd-b737716d208b"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[CÔNG TY CỔ PHẦN XE KHÁCH THANH XUÂN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="74" width="403" height="20" uuid="c1719338-bcce-44b0-af1a-f48bd32e66af"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Địa chỉ: 9-9A Tình Duyên, phường Thanh Xuân, TP Hồ Chí Minh]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="176" y="8" width="229" height="20" uuid="0a5e4e8b-d675-4b66-8e3a-750dfef23f66"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[TỔNG ĐÀI CHĂM SÓC KHÁCH HÀNG]]></text>
+			</staticText>
+		</band>
 	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>

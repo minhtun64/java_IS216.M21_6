@@ -614,7 +614,29 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel tblModel = (DefaultTableModel) danhsachdatve.getModel();
         int i = danhsachdatve.getSelectedRow();
-        String maNV = danhsachdatve.getValueAt(i, 3).toString(); 
+        Login_Form dangnhap = new Login_Form();
+        String tendangnhap = dangnhap.textTenDN.getText();
+        String maNV = null;
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            pst = con.prepareStatement("SELECT ID_NHANVIEN\n"
+                    + "FROM NHANVIEN \n"
+                    + "WHERE TENDANGNHAP =?  ");
+            pst.setString(1, tendangnhap);
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                maNV = rs.getString("ID_NHANVIEN");
+            }
+
+        } catch (ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
         System.out.println(maNV);
 
         if (danhsachdatve.getSelectedRowCount() == 1) {
@@ -633,7 +655,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "Vé không thỏa điều kiện thanh toán");
                     } else if (A > 0) {
                         try {
-                            B = a.ThanhToanDatVe(iD,maNV);
+                            B = a.ThanhToanDatVe(iD, maNV);
                             if (B == 0) {
                                 JOptionPane.showMessageDialog(this, "Không thành công  ");
                             } else if (B > 0) {
@@ -726,7 +748,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
     private void nuttimkiem_tuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttimkiem_tuyenxeActionPerformed
         // TODO add your handling code here:
-     DefaultTableModel model = (DefaultTableModel) danhsachdatve.getModel();
+        DefaultTableModel model = (DefaultTableModel) danhsachdatve.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
         danhsachdatve.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(IDDve.getText().trim()));

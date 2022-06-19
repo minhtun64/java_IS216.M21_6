@@ -357,8 +357,8 @@ public class Login_Form extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private java.awt.Panel panel2;
-    private javax.swing.JPasswordField textMK;
-    private javax.swing.JTextField textTenDN;
+    public javax.swing.JPasswordField textMK;
+    public javax.swing.JTextField textTenDN;
     private javax.swing.JTextField textTenDN1;
     // End of variables declaration//GEN-END:variables
 }
