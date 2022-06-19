@@ -20,7 +20,7 @@
   <summary>Mục lục</summary>
   <ol>
     <li>
-      <a>Mục tiêu đồ án</a>
+      <a href="#muctieu">Mục tiêu đồ án</a>
     </li>
     <li>
       <a href="#dsthanhvien">Danh sách thành viên</a>
@@ -30,13 +30,9 @@
       <a href="#chucnang">Các chức năng</a>
     </li>
     <li><a href="#yeucau">Yêu cầu hệ thống</a></li>
-    <li>
-      <a href="#caidat">Cài đặt và sử dụng</a>
-      <ul><a href="#setup">Setup môi trường</a></ul>
-      <ul><a href="#start">Khởi động dự </a></ul>
-    </li>
+    <li><a href="#congnghe">Công nghệ sử dụng</a></li>
     <li><a href="#lienhe">Liên hệ</a></li>
-    <li><a href="#banquyen">Bản quyền</a></li>
+    <li><a href="#thuvien">Thư viện sử dụng</a></li>
     <li><a href="#thamkhao">Tài liệu tham khảo</a></li>
   </ol>
 </details>
@@ -160,15 +156,16 @@ Trang web phải đảm bảo được các mục tiêu:
   + Quản lý nhân viên.
   + Thống kê doanh thu.
   + Tất cả các chức năng của nhân viên trừ các chức năng đã phân quyền.
-<details>
-     <summary>Mô hình dữ liệu</summary>
-</details>
-
-
+# <h2 id="yeucau">Yêu cầu hệ thống
+- Oracle Database
+- JDK 17
+# <h2 id="mohinh">Mô hình dữ liệu
 ![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)
 
-
-
+# <h2 id="congnghe">Công nghệ sử dụng
+- <a href="https://netbeans.apache.org/">Apache NetBeans</a>
+- <a href="https://www.oracle.com/index.html">Oracle database</a>
+<!-- 
 
 <details>
   <summary>Công nghệ sử dụng</summary>
@@ -176,4 +173,23 @@ Trang web phải đảm bảo được các mục tiêu:
     <li><a href="https://netbeans.apache.org/">Apache NetBeans</a></li>
     <li><a href="https://www.oracle.com/index.html">Oracle database</a></li>
   </ol>
-</details>
+</details> -->
+## <h2 id="lienhe">Liên hệ</h2>
+
+
+Project Link: [https://github.com/minhtun64uit/java_IS216.M21_6/tree/main) </br>
+Email: [---](-----)
+## <h2 id="thuvien">Thư viện sử dụng</h2>
+- ojdbc11.jar
+- jcalendar-1.2.2.jar
+- commmons-beanutils-1.8.0.jar
+- commmons-collections-2.1.1.jar
+- commmons-digester-2.1.jar
+- commmons-logging-1.1.1.jar
+- dom4j-1.6.1.jar
+- groovy-all-2.0.1.jar
+- itextpdf-5.5.0.jar
+- jasperreports-5.5.0.jar
+- jasperreports-fonts-5.5.0.jar
+- jasperreports-javaflow-5.5.0.jar
+- javax.servlet-5.1.12.jar
