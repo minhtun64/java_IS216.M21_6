@@ -67,8 +67,8 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td>20521212</td>
   <td><a href="https://www.facebook.com/nongtiendung.2309/">Tiến Dũng</a></td>
   <td>0335594771</td>
-  <td>sử lý </td>
-    <td>------</td>
+  <td>-----</td>
+  <td>------</td>
 </tr>
   <tr>
   <td>Nguyễn Đức Thuần</td>
