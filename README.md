@@ -11,10 +11,48 @@
     <a href="https://github.com/minhtun64uit/java_IS216.M21_6/tree/main"><strong>Khám phá »</strong></a>
     <br />
   </p>
+    
+    
+    
 </div>
+  <!-- TABLE OF CONTENTS -->
+<details>
+  <summary>Mục lục</summary>
+  <ol>
+    <li>
+      <a>Mục tiêu đồ án</a>
+    </li>
+    <li>
+      <a href="#dsthanhvien">Danh sách thành viên</a>
+    </li>
+    <li><a href="#framework">Các Framework</a></li>
+    <li>
+      <a href="#chucnang">Các chức năng</a>
+    </li>
+    <li><a href="#yeucau">Yêu cầu hệ thống</a></li>
+    <li>
+      <a href="#caidat">Cài đặt và sử dụng</a>
+      <ul><a href="#setup">Setup môi trường</a></ul>
+      <ul><a href="#start">Khởi động dự </a></ul>
+    </li>
+    <li><a href="#lienhe">Liên hệ</a></li>
+    <li><a href="#banquyen">Bản quyền</a></li>
+    <li><a href="#thamkhao">Tài liệu tham khảo</a></li>
+  </ol>
+</details>
+  
+  
+  <!-- ABOUT THE PROJECT -->
+<h2 id="muctieu">Mục tiêu của đồ án</h2>
+Đây là project của môn học Xây dựng hệ thống thông tin trên các Framework - UIT. Nội dung là tạo một trang web quản lý chuỗi bán lẻ cà phê và sách
+
+Trang web phải đảm bảo được các mục tiêu:
+- Giúp khách hàng mua hàng được nhanh chóng và đúng sản phẩm mình cần.
+- Tiện lợi cho người bán hàng dễ dàng quản lý cửa hàng của mình.
+- Giao diện đơn giản, load nhanh.
 <table>
 <tr>
-  <th colspan="6"><b>Thông tin thành viên trong nhóm</b></th>
+  <th colspan="6"><b>Danh sách thành viên trong nhóm</b></th>
 
 </tr>
 <tr>
@@ -102,13 +140,10 @@
 </details>
 <details>
      <summary>Mô hình dữ liệu</summary>
-  <ol>
-  <li><img src="![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)"></li>
-  </ol>
 </details>
 
-<!-- 
-![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg) -->
+
+![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)
 
 
 
