@@ -134,23 +134,19 @@ Phần mềm phải đảm bảo được các mục tiêu:
   + Đặt mua vé xe.
   + Xem các chuyến xe, giờ xe khách đi.
   + Xem thông tin đặt vé.
-  + Xem các thông tin quy định của xe.
 - Nhân viên:<br/>
   + Đăng nhập
   + Quản lý hoàn vé.
   + Quản lý khách hàng.
   + Quản lý Đặt vé.
-  + Tất cả chức năng của khách hàng.
 - Ban quản lý:<br/>
   + Đăng nhập
   + Quản lý tuyến xe.
   + Quản lý chuyến xe.
   + Quản lý xe.
   + Quản lý loại xe.
-  + Quản lý ghế.
   + Quản lý giá vé.
   + Quản lý nhân viên.
-  + Thống kê doanh thu.
   + Tất cả các chức năng của nhân viên trừ các chức năng đã phân quyền.
 # <h2 id="yeucau">Yêu cầu hệ thống
 - Oracle Database
