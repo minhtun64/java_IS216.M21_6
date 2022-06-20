@@ -6,12 +6,14 @@ package View.QuanLy.ChuyenXe;
 
 import View.Home.Login_Form;
 import View.KhachHang.ChonChuyen;
+import View.KhachHang.XuatVe;
 import View.QuanLy.GiaVe.Homepage_QuanLyGiaVe;
 import View.QuanLy.Homepage_NguoiQuanLy;
 import View.QuanLy.LoaiXe.Homepage_QuanLyLoaiXe;
 import View.QuanLy.NhanVien.Homepage_QuanLyNhanVien;
 import View.QuanLy.TuyenXe.Homepage_QuanLyTuyenXe;
 import View.QuanLy.Xe.Homepage_QuanLyXe;
+import View.ReportViewer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
@@ -19,9 +21,14 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -38,7 +45,7 @@ public class ThongKe extends javax.swing.JFrame {
     public ThongKe() {
         this.setResizable(false);
         initComponents();
-      fillTable();
+        fillTable();
     }
 
     Connection con;
@@ -722,6 +729,26 @@ public class ThongKe extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+//        MessageFormat header = new MessageFormat("Iam Header of the Print Page");
+//        MessageFormat footer = new MessageFormat("Page(0,number,integer)");
+//        try {
+//                dschuyenxe_homepage.print(JTable.PrintMode.NORMAL, header, footer); 
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//
+        String ngaykhoihanh = new SimpleDateFormat("dd/MM/yyyy").format(ngay_chuyenxe.getDate());
+        System.out.println(ngaykhoihanh);
+        HashMap hs = new HashMap();
+        hs.put("THOIGIANKH",ngaykhoihanh);
+        String localDir = System.getProperty("user.dir");
+        ReportViewer viewer_inve;
+        try {
+            viewer_inve = new ReportViewer(localDir + "\\src\\Resources\\Report\\Report_ThongKeChuyenXe.jrxml", hs);
+            viewer_inve.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(XuatVe.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
