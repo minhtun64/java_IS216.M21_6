@@ -152,7 +152,8 @@ Phần mềm phải đảm bảo được các mục tiêu:
 - Oracle Database
 - JDK 17
 # <h2 id="mohinh">Mô hình dữ liệu
-![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)
+  ![Untitled Diagram drawio (5)](https://user-images.githubusercontent.com/87002579/174528904-acb0a0e1-c413-43b1-b85f-44a121e514b7.png)
+
 
 # <h2 id="congnghe">Công nghệ sử dụng
 - <a href="https://netbeans.apache.org/">Apache NetBeans</a>
