@@ -102,7 +102,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(205, 247, 247));
 
-        jLabel54.setFont(new java.awt.Font("Lora", 1, 12)); // NOI18N
+        jLabel54.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px.png"))); // NOI18N
         jLabel54.setText("Chào mừng đến với Quản lý đặt vé!");
 
@@ -423,7 +423,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_management_20px_1.png"))); // NOI18N
 
         jLabel21.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-        jLabel21.setText("Quản lý khách hàng");
+        jLabel21.setText("Quản lý hành khách");
 
         javax.swing.GroupLayout jPanel16Layout = new javax.swing.GroupLayout(jPanel16);
         jPanel16.setLayout(jPanel16Layout);
@@ -614,6 +614,30 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel tblModel = (DefaultTableModel) danhsachdatve.getModel();
         int i = danhsachdatve.getSelectedRow();
+        Login_Form dangnhap = new Login_Form();
+        String tendangnhap = dangnhap.textTenDN.getText();
+        String maNV = null;
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            pst = con.prepareStatement("SELECT ID_NHANVIEN\n"
+                    + "FROM NHANVIEN \n"
+                    + "WHERE TENDANGNHAP =?  ");
+            pst.setString(1, tendangnhap);
+
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                maNV = rs.getString("ID_NHANVIEN");
+            }
+
+        } catch (ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, e);
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        
+        System.out.println(maNV);
 
         if (danhsachdatve.getSelectedRowCount() == 1) {
             String iD = (String) danhsachdatve.getValueAt(i, 0);
@@ -622,24 +646,40 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
             if (ret == JOptionPane.YES_OPTION) {
                 tblModel.removeRow(danhsachdatve.getSelectedRow());
                 Ve xoa = new Ve();
-                int sodongxoa = 0;
-                sodongxoa = xoa.ThanhToanDatVe(iD);
-
-                if (sodongxoa > 0) {
-                    JOptionPane.showMessageDialog(this, "Thanh toán thành công!", "Thông báo",
-                            JOptionPane.INFORMATION_MESSAGE, null);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error");
+                int A = -1;
+                int B = -1;
+                try {
+                    Ve a = new Ve();
+                    A = a.DieuKienThanhToanVe(iD);
+                    if (A == 0) {
+                        JOptionPane.showMessageDialog(this, "Vé không thỏa điều kiện thanh toán");
+                    } else if (A > 0) {
+                        try {
+                            B = a.ThanhToanDatVe(iD, maNV);
+                            if (B == 0) {
+                                JOptionPane.showMessageDialog(this, "Không thành công  ");
+                            } else if (B > 0) {
+                                JOptionPane.showMessageDialog(this, "Thanh toán thành công!", "Thông báo",
+                                        JOptionPane.INFORMATION_MESSAGE, null);
+                            }
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(this, e);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Kiểm tra không thành công  ");
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, e);
                 }
             }
 
         } else {
             if (danhsachdatve.getRowCount() == 0) {
 
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 giá vé cần thanh toán!",
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 vé cần thanh toán!",
                         "Lỗi", JOptionPane.WARNING_MESSAGE, null);
             } else {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 giá vé cần thanh toán!",
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 vé cần thanh toán!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             }
         }
@@ -693,7 +733,7 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
     private void nutthem_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutthem_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
-        Them_DatVe themdatve = new Them_DatVe();
+        ThemDatVe themdatve = new ThemDatVe();
         themdatve.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_nutthem_quanlytuyenxeActionPerformed
@@ -708,44 +748,11 @@ public class Homepage_QuanLyDatVe extends javax.swing.JFrame {
 
     private void nuttimkiem_tuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttimkiem_tuyenxeActionPerformed
         // TODO add your handling code here:
-        String iddve = IDDve.getText();
         DefaultTableModel model = (DefaultTableModel) danhsachdatve.getModel();
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
         danhsachdatve.setRowSorter(tr);
-        if (iddve.equals("")) {
-            JOptionPane.showMessageDialog(this, "Vui lòng nhập ID Đặt vé!",
-                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-        } else {
-            try {
-                Class.forName("oracle.jdbc.OracleDriver");
-                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-                pst = con.prepareStatement("SELECT * FROM DATVE WHERE ID_DATVE=?");
-                pst.setString(1, iddve);
-                ResultSet rs = pst.executeQuery();
-                ResultSetMetaData rsm = rs.getMetaData();
-                int c;
-                c = rsm.getColumnCount();
-                DefaultTableModel Df = (DefaultTableModel) danhsachdatve.getModel();
-                Df.setRowCount(0);
-                while (rs.next()) {
-                    Vector v2 = new Vector();
-                    for (int i = 1; i <= c; i++) {
-                        v2.add(rs.getInt("ID_DATVE"));
-                        v2.add(rs.getString("ID_HANHKHACH"));
-                        v2.add(rs.getString("ID_VE"));
-                        v2.add(rs.getString("ID_NHANVIEN"));
-                        v2.add(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("NGAYTHEM"))));
-                        v2.add(rs.getString("TONGTIEN"));
-                        v2.add(rs.getString("TINHTRANG"));
-                    }
-                    Df.addRow(v2);
-                }
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(null, e);
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-        }
+        tr.setRowFilter(RowFilter.regexFilter(IDDve.getText().trim()));
+
     }//GEN-LAST:event_nuttimkiem_tuyenxeActionPerformed
 
     private void jPanel16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel16MouseClicked

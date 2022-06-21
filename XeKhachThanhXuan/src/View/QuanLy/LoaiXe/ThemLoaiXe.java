@@ -610,15 +610,28 @@ public class ThemLoaiXe extends javax.swing.JFrame {
 
         String tenLoaiXe = tenloaixe_loaixe.getText();
         String soLuongGhe = soluongghe_loaixe.getText();
+        boolean flag = true;
         if (tenLoaiXe.equals("")) {
 
             JOptionPane.showMessageDialog(this, "Vui lòng nhập tên loại xe\n");
+            flag=false;
         }
-        if (soLuongGhe.equals("")) {
+        else if (soLuongGhe.equals("")) {
 
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập số lượng ghế\n");
+                flag=false;
             }
-        LoaiXe db = new LoaiXe();
+        if (flag == true) {
+            String b = "\\d{1,40}";
+            boolean flag4 = soLuongGhe.matches(b);
+            if (flag4 == false) {
+                JOptionPane.showMessageDialog(this, "Số lượng ghế không hợp lệ");
+                flag = false;
+            }
+        }
+        if (flag == true)
+        {
+            LoaiXe db = new LoaiXe();
 
         //Lay ket qua tu CSDL
         int countRecord = db.themLoaiXe(tenLoaiXe, soLuongGhe);
@@ -633,6 +646,8 @@ public class ThemLoaiXe extends javax.swing.JFrame {
             this.setVisible(false);
 
         }
+        }
+        
     }//GEN-LAST:event_them_quanlytuyenxeActionPerformed
 
     private void quaylai_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quaylai_quanlytuyenxeActionPerformed

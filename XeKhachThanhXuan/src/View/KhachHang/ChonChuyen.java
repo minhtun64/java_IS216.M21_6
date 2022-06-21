@@ -3,10 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View.KhachHang;
-
-import java.awt.Color;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,9 +13,7 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Vector;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.RowFilter;
-
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
 
@@ -560,8 +555,6 @@ public class ChonChuyen extends javax.swing.JFrame {
         Homepage_KhachHang khach = new Homepage_KhachHang();
         khach.setVisible(true);
         this.setVisible(false);
-
-
     }//GEN-LAST:event_trangChu_homepageMouseClicked
 
     private void datVe_HomepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datVe_HomepageMouseClicked
@@ -577,21 +570,17 @@ public class ChonChuyen extends javax.swing.JFrame {
 
     private void nuttimkiem_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttimkiem_datveActionPerformed
         // TODO add your handling code here:
+
         paneldschuyenxe_datve.setVisible(true);
         panelnutchon_datve.setVisible(true);
-
-        String diemdi = cbbdiemdi_datve.getSelectedItem().toString().trim();
-        String diemden = cbbdiemden_datve.getSelectedItem().toString().trim();
-        String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_datve.getDate());
-
-        if (ngaykhoihanh.equals(null)) {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày khởi hành!",
+        if (ngay_datve.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày khởi hành!",
                     "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-            ChonChuyen chonchuyen = new ChonChuyen();
-            chonchuyen.setVisible(true);
-            this.setVisible(false);
-
         } else {
+            String diemdi = cbbdiemdi_datve.getSelectedItem().toString().trim();
+            String diemden = cbbdiemden_datve.getSelectedItem().toString().trim();
+            String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_datve.getDate());
+
             DefaultTableModel model = (DefaultTableModel) danhsachchuyenxe.getModel();
             TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
             danhsachchuyenxe.setRowSorter(tr);
@@ -601,15 +590,19 @@ public class ChonChuyen extends javax.swing.JFrame {
                 Class.forName("oracle.jdbc.OracleDriver");
                 con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
                 pst = con.prepareStatement("SELECT C.DIEMDI, C.DIEMDEN, C.THOIGIANKH, L.TENLOAIXE, G.GIAVE\n"
-                        + "FROM (((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
-                        + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
-                        + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE)\n"
+                        + "FROM CHUYENXE C JOIN TUYENXE T ON C.ID_TUYENXE=T.ID_TUYENXE\n"
+                        + "JOIN XE X ON X.ID_XE = C.ID_XE\n"
+                        + "JOIN LOAIXE L ON L.ID_LOAIXE=X.ID_LOAIXE\n"
+                        + "JOIN GIAVE G ON G.ID_LOAIXE = L.ID_LOAIXE\n"
                         + "WHERE T.TINHTRANG ='Hoạt động' AND \n"
-                        + "	L.TINHTRANG ='Hoạt động' AND\n"
-                        + "	T.DIEMDAU =? AND T.DIEMCUOI =? ");
+                        + "    L.TINHTRANG ='Hoạt động'\n"
+                        + "    AND T.DIEMDAU =? AND T.DIEMCUOI =?\n"
+                        + "    AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY')\n"
+                        + "    AND  T.ID_TUYENXE  = G.ID_TUYENXE");
 
                 pst.setString(1, diemdi);
                 pst.setString(2, diemden);
+                pst.setString(3, ngaykhoihanh);
 
                 ResultSet rs = pst.executeQuery();
 
@@ -653,8 +646,8 @@ public class ChonChuyen extends javax.swing.JFrame {
 
         if (chuyenxe.getValueAt(i, 3).equals("Ghế ngồi")) {
             ChonGhe chonghe = new ChonGhe();
-            XuatVe xuatve = new XuatVe();
             this.setVisible(false);
+
             String diemlenxe = danhsachchuyenxe.getValueAt(i, 0).toString();
             String diemxuongxe = danhsachchuyenxe.getValueAt(i, 1).toString();
             String thoigiankhoihanh = danhsachchuyenxe.getValueAt(i, 2).toString();
@@ -665,12 +658,6 @@ public class ChonChuyen extends javax.swing.JFrame {
             chonghe.thoigiankhoihanh_ghe.setText(danhsachchuyenxe.getValueAt(i, 2).toString());
             chonghe.loaixe_ghe.setText(danhsachchuyenxe.getValueAt(i, 3).toString());
             chonghe.giave_ghe.setText(danhsachchuyenxe.getValueAt(i, 4).toString());
-
-//            xuatve.diemlenxe.setText(danhsachchuyenxe.getValueAt(i, 0).toString());
-//            xuatve.diemxuongxe.setText(danhsachchuyenxe.getValueAt(i, 1).toString());
-//            xuatve.thoigiankhoihanh.setText(danhsachchuyenxe.getValueAt(i, 2).toString());
-//            xuatve.loaixe.setText(danhsachchuyenxe.getValueAt(i, 3).toString());
-//            xuatve.giave.setText(danhsachchuyenxe.getValueAt(i, 4).toString());
 
             try {
                 Class.forName("oracle.jdbc.OracleDriver");
@@ -697,7 +684,7 @@ public class ChonChuyen extends javax.swing.JFrame {
                     chonghe.tuyenxe_ghe1.setText(rs.getString("TENTUYEN"));
                     chonghe.biensoxe_ghe.setText(rs.getString("BIENSO"));
                     chonghe.thoigianden_ghe.setText(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("THOIGIANDEN"))));
-                    chonghe.cbbghe_datve.addItem(rs.getString(4));
+                    chonghe.cbbghe_ghe.addItem(rs.getString(4));
 
                 }
 
@@ -724,7 +711,6 @@ public class ChonChuyen extends javax.swing.JFrame {
             chongiuong.thoigiankhoihanh_giuong.setText(danhsachchuyenxe.getValueAt(i, 2).toString());
             chongiuong.loaixe_giuong.setText(danhsachchuyenxe.getValueAt(i, 3).toString());
             chongiuong.giave_giuong.setText(danhsachchuyenxe.getValueAt(i, 4).toString());
-            chongiuong.setVisible(true);
 
             try {
                 Class.forName("oracle.jdbc.OracleDriver");
@@ -748,7 +734,6 @@ public class ChonChuyen extends javax.swing.JFrame {
 
                 while (rs.next()) {
                     chongiuong.tuyenxe_giuong.setText(rs.getString("TENTUYEN"));
-
                     chongiuong.biensoxe_giuong.setText(rs.getString("BIENSO"));
                     chongiuong.thoigianden_giuong.setText(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("THOIGIANDEN"))));
                     chongiuong.cbbgiuong_datve.addItem(rs.getString(4));

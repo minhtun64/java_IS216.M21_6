@@ -464,6 +464,11 @@ public class Homepage_QuanLyLoaiXe extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
         jButton6.setText("Sửa");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -645,49 +650,59 @@ public class Homepage_QuanLyLoaiXe extends javax.swing.JFrame {
 
     private void nutthem_loaixeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutthem_loaixeActionPerformed
         // TODO add your handling code here:
+        ThemLoaiXe themtuyen = new ThemLoaiXe();
+        themtuyen.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_nutthem_loaixeActionPerformed
 
     private void nutxoa_loaixeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutxoa_loaixeActionPerformed
         // TODO add your handling code here:
 
-        DefaultTableModel tblModel = (DefaultTableModel) dsloaixe_loaixe.getModel();
+DefaultTableModel tblModel = (DefaultTableModel) dsloaixe_loaixe.getModel();
         int i = dsloaixe_loaixe.getSelectedRow();
-        
-
+        int A = -1;
+        int B = -1;
         if (dsloaixe_loaixe.getSelectedRowCount() == 1) {
             String iD = (String) dsloaixe_loaixe.getValueAt(i, 0);
             int ret = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa?", "Xóa dữ liệu",
                     JOptionPane.YES_NO_OPTION);
             if (ret == JOptionPane.YES_OPTION) {
-                tblModel.removeRow(dsloaixe_loaixe.getSelectedRow());
-                LoaiXe db = new LoaiXe();
-                int sodongxoaloaixe = db.xoaLoaiXe(iD);
+                //---------------------------------------------------------
+                try {
+                    LoaiXe loaixe = new LoaiXe();
+                    A = loaixe.DieuKienHuyLoaiXe(iD);
+                    if (A == 0) {
+                        JOptionPane.showMessageDialog(this, "Loại xe không thỏa điều kiện để xóa");
 
-                if (sodongxoaloaixe > 0) {
-                    JOptionPane.showMessageDialog(this, "Xóa thành công!", "Thông báo",
-                            JOptionPane.INFORMATION_MESSAGE, null);
-                    Homepage_QuanLyLoaiXe quanlyloaixe = new Homepage_QuanLyLoaiXe();
-                    quanlyloaixe.setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error");
+                    } else if (A > 0) {
+                        try {
+                            B = loaixe.xoaLoaiXe(iD);
+                            if (B == 0) {
+                                JOptionPane.showMessageDialog(this, "Không thành công  ");
+                            } else if (B > 0) {
+                                JOptionPane.showMessageDialog(this, "Xóa thành công!", "Thông báo",
+                                        JOptionPane.INFORMATION_MESSAGE, null);
+                                Homepage_QuanLyLoaiXe homepage = new Homepage_QuanLyLoaiXe();
+                                homepage.setVisible(true);
+                                this.setVisible(false);
+                            }
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(this, e);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Kiểm tra không thành công  ");
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, e);
                 }
             }
-
         } else {
-            if (dsloaixe_loaixe.getRowCount() == 0) {
-
-                JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
-                        "Lỗi", JOptionPane.WARNING_MESSAGE, null);
-                Homepage_QuanLyLoaiXe quanlyloaixe = new Homepage_QuanLyLoaiXe();
-                quanlyloaixe.setVisible(true);
-                this.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 loại xe cần xóa!",
+            if (dsloaixe_loaixe.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Mời chọn 1 loại xe cần xóa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-                Homepage_QuanLyLoaiXe quanlyloaixe = new Homepage_QuanLyLoaiXe();
-                quanlyloaixe.setVisible(true);
-                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chỉ 1 loại xe cần xóa!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             }
         }
     }//GEN-LAST:event_nutxoa_loaixeActionPerformed
@@ -752,6 +767,13 @@ public class Homepage_QuanLyLoaiXe extends javax.swing.JFrame {
         login.setVisible(true);
         CloseFrame();
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        SuaLoaiXe themtuyen = new SuaLoaiXe();
+        themtuyen.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

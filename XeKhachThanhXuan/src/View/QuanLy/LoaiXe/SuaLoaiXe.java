@@ -40,9 +40,11 @@ public class SuaLoaiXe extends javax.swing.JFrame {
 
     Connection con;
     PreparedStatement pst;
+
     public void CloseFrame() {
         super.dispose();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -740,19 +742,37 @@ public class SuaLoaiXe extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel suatuyenxe = (DefaultTableModel) dsloaixe_loaixe.getModel();
         int i = dsloaixe_loaixe.getSelectedRow();
-        
+
         if (dsloaixe_loaixe.getSelectedRowCount() == 1) {
             String maLoaiXe = maloaixe_loaixe.getText();
             String tenLoaiXe = tenloaixe_loaixe.getText();
-            String tenTuyen = soluongghe_loaixe.getText();
+            String slGhe = soluongghe_loaixe.getText();
 
             suatuyenxe.setValueAt(tenloaixe_loaixe.getText(), i, 1);
             suatuyenxe.setValueAt(soluongghe_loaixe.getText(), i, 2);
-            
-            LoaiXe db = new LoaiXe();
+            boolean flag = true;
+            if (tenLoaiXe.equals("")) {
+
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên loại xe\n");
+                flag = false;
+            } else if (slGhe.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập số lượng ghế\n");
+                flag = false;
+            }
+            if (flag == true) {
+                String b = "\\d{1,40}";
+                boolean flag4 = slGhe.matches(b);
+                if (flag4 == false) {
+                    JOptionPane.showMessageDialog(this, "Số lượng ghế không hợp lệ");
+                    flag = false;
+                }
+            }
+            if (flag == true)
+            {
+                LoaiXe db = new LoaiXe();
 
             //Lay ket qua tu CSDL
-            int sodongsualoaive = db.suaLoaiXe(maLoaiXe, tenLoaiXe, tenTuyen);
+            int sodongsualoaive = db.suaLoaiXe(maLoaiXe, tenLoaiXe, slGhe);
 
             if (sodongsualoaive > 0) {
                 JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
@@ -764,6 +784,8 @@ public class SuaLoaiXe extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "Error");
             }
+            }
+            
         } else {
             if (dsloaixe_loaixe.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",

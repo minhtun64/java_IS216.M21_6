@@ -92,18 +92,18 @@ public class ChonGhe extends javax.swing.JFrame {
         loaixe_ghe = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
-        hoten_datve = new javax.swing.JTextField();
+        hoten_ghe = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        sdt_ghe = new javax.swing.JTextField();
+        cmnd_ghe = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        email_ghe = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         tuyenxe_ghe1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        cbbghe_datve = new javax.swing.JComboBox<>();
+        cbbghe_ghe = new javax.swing.JComboBox<>();
         nutdatve_datve = new javax.swing.JButton();
         nutquaylai_ghe = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
@@ -313,10 +313,10 @@ public class ChonGhe extends javax.swing.JFrame {
         jLabel50.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
         jLabel50.setText("Thông tin khách hàng");
 
-        hoten_datve.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-        hoten_datve.addActionListener(new java.awt.event.ActionListener() {
+        hoten_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+        hoten_ghe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hoten_datveActionPerformed(evt);
+                hoten_gheActionPerformed(evt);
             }
         });
 
@@ -326,9 +326,9 @@ public class ChonGhe extends javax.swing.JFrame {
         jLabel51.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
         jLabel51.setText("SĐT");
 
-        jTextField6.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+        sdt_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
 
-        jTextField8.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+        cmnd_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
 
         jLabel19.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
         jLabel19.setText("Số CMND ");
@@ -337,7 +337,7 @@ public class ChonGhe extends javax.swing.JFrame {
         jLabel52.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
         jLabel52.setText("Email");
 
-        jTextField9.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+        email_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
         jLabel16.setText("VNĐ");
@@ -360,10 +360,10 @@ public class ChonGhe extends javax.swing.JFrame {
                             .addComponent(jLabel51))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField8)
-                            .addComponent(hoten_datve)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField9)))
+                            .addComponent(cmnd_ghe)
+                            .addComponent(hoten_ghe)
+                            .addComponent(sdt_ghe)
+                            .addComponent(email_ghe)))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel49)
@@ -451,18 +451,18 @@ public class ChonGhe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(hoten_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(hoten_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel51)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sdt_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel19)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmnd_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(email_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel52))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -470,10 +470,10 @@ public class ChonGhe extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel9.setText("Chọn vị trí");
 
-        cbbghe_datve.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        cbbghe_datve.addActionListener(new java.awt.event.ActionListener() {
+        cbbghe_ghe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        cbbghe_ghe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbghe_datveActionPerformed(evt);
+                cbbghe_gheActionPerformed(evt);
             }
         });
 
@@ -546,7 +546,7 @@ public class ChonGhe extends javax.swing.JFrame {
                                                         .addGap(120, 120, 120)
                                                         .addComponent(jLabel9)
                                                         .addGap(28, 28, 28)
-                                                        .addComponent(cbbghe_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                        .addComponent(cbbghe_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                                         .addGap(113, 113, 113)
                                                         .addComponent(nutdatve_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -585,7 +585,7 @@ public class ChonGhe extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel9)
-                                    .addComponent(cbbghe_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cbbghe_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel23)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -644,7 +644,7 @@ public class ChonGhe extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 688, Short.MAX_VALUE))
+                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, 688, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -680,71 +680,107 @@ public class ChonGhe extends javax.swing.JFrame {
         int ret = JOptionPane.showConfirmDialog(this, "Xin mời quý khách xác nhận đặt vé!", "Xác nhận đặt vé",
                 JOptionPane.YES_NO_OPTION);
         if (ret == JOptionPane.YES_OPTION) {
-     
 
-            String hoTen = hoten_datve.getText();
-            String sDT = jTextField6.getText();
-            String cMND = jTextField8.getText();
-            String eMail = jTextField9.getText();
+            String hoTen = hoten_ghe.getText();
+            String sDT = sdt_ghe.getText();
+            String cMND = cmnd_ghe.getText();
+            String eMail = email_ghe.getText();
             String maVe = null;
 
             String diemLenXe = diemlenxe_ghe.getText();
             String diemXuongXe = diemxuongxe_ghe.getText();
             String thoiGianKhoiHanh = thoigiankhoihanh_ghe.getText();
             String loaiXe = loaixe_ghe.getText();
-            String viTriGhe = cbbghe_datve.getSelectedItem().toString().trim();
+            String viTriGhe = cbbghe_ghe.getSelectedItem().toString().trim();
 
-            try {
-                Class.forName("oracle.jdbc.OracleDriver");
-                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            boolean flag = true;
+            if (hoTen.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên hành khách\n");
+                flag = false;
+            } else if (sDT.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập số điện thoại\n");
+                flag = false;
+            } else if (cMND.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập CMND\n");
+                flag = false;
+            } else if (eMail.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập Email");
+                flag = false;
+            }
+            if (flag == true) {
+                String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
+                boolean flag2 = sDT.matches(reg);
+                if (flag2 == false) {
+                    JOptionPane.showMessageDialog(this, "Số điện thoại không đúng hoặc không hợp lệ");
+                    flag = false;
+                }
+            }
+            if (flag == true) {
+                {
+                    String cmndPattern = "\\d{9}";
+                    boolean flag3 = cMND.matches(cmndPattern);
+                    if (flag3 == false) {
+                        JOptionPane.showMessageDialog(this, "CMND không hợp lệ");
+                        flag = false;
+                    }
+                }
+            }
+            if (flag == true) {
+                String emailPattern = "\\w+@\\w+[.]\\w+([.]\\w+)?";
+                boolean flag4 = eMail.matches(emailPattern);
+                if (flag4 == false) {
+                    JOptionPane.showMessageDialog(this, "Email không hợp lệ");
+                    flag = false;
+                }
+            }
+            if (flag == true) {
 
-                pst = con.prepareStatement("SELECT V.ID_VE\n"
-                        + "FROM ((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
-                        + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
-                        + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
-                        + "    JOIN XE X ON X.ID_XE=C.ID_XE) JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE\n"
-                        + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
-                        + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
-                        + "AND V.TINHTRANG='Trống' AND V.VITRIGHE=?");
+                try {
+                    Class.forName("oracle.jdbc.OracleDriver");
+                    con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
 
-                pst.setString(1, diemLenXe);
-                pst.setString(2, diemXuongXe);
-                pst.setString(3, thoiGianKhoiHanh);
-                pst.setString(4, loaiXe);
-                pst.setString(5, viTriGhe);
+                    pst = con.prepareStatement("SELECT V.ID_VE\n"
+                            + "FROM CHUYENXE C JOIN VE V ON C.ID_CHUYENXE=V.ID_CHUYENXE\n"
+                            + "WHERE C.DIEMDI=? AND C.DIEMDEN =? AND V.VITRIGHE=?\n"
+                            + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS')");
 
-                ResultSet rs = pst.executeQuery();
+                    pst.setString(1, diemLenXe);
+                    pst.setString(2, diemXuongXe);
+                    pst.setString(3, viTriGhe);
+                    pst.setString(4, thoiGianKhoiHanh);
 
-                while (rs.next()) {
-                    maVe = rs.getString("ID_VE");
+                    ResultSet rs = pst.executeQuery();
+
+                    while (rs.next()) {
+                        maVe = rs.getString("ID_VE");
+                    }
+
+                } catch (ClassNotFoundException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e);
                 }
 
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(null, e);
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-
-            DatVe datve = new DatVe();
+                DatVe datve = new DatVe();
 
 //            xuatve.hoten2.setText(hoTen);
 //            xuatve.sdt.setText(sDT);
 //            xuatve.cmnd.setText(cMND);
 //            xuatve.email.setText(eMail);
+                //Lay ket qua tu CSDL
+                int countRecord = datve.datVe(maVe, hoTen, sDT, cMND, eMail);
 
-            //Lay ket qua tu CSDL
-            int countRecord = datve.datVe(maVe, hoTen, sDT, cMND, eMail);
+                if (countRecord > 0) {
+                    JOptionPane.showMessageDialog(this, "Đặt vé thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
 
-            if (countRecord > 0) {
-                JOptionPane.showMessageDialog(this, "Đặt vé thành công!", "Thông báo",
-                        JOptionPane.INFORMATION_MESSAGE, null);
-                hide();
+                    XuatVe khach = new XuatVe();
+                    khach.setVisible(true);
+                    this.setVisible(false);
+                }
 
-                XuatVe khach = new XuatVe();
-                khach.setVisible(true);
-                this.setVisible(false);
             }
-
         }
 
 //
@@ -752,13 +788,13 @@ public class ChonGhe extends javax.swing.JFrame {
 //            quanlytuyenxe.setVisible(true);
     }//GEN-LAST:event_nutdatve_datveActionPerformed
 
-    private void hoten_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoten_datveActionPerformed
+    private void hoten_gheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoten_gheActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_hoten_datveActionPerformed
+    }//GEN-LAST:event_hoten_gheActionPerformed
 
-    private void cbbghe_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbghe_datveActionPerformed
+    private void cbbghe_gheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbghe_gheActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_cbbghe_datveActionPerformed
+    }//GEN-LAST:event_cbbghe_gheActionPerformed
 
     private void nutquaylai_gheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutquaylai_gheActionPerformed
         // TODO add your handling code here:
@@ -820,13 +856,15 @@ public class ChonGhe extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel biensoxe_ghe;
-    public javax.swing.JComboBox<String> cbbghe_datve;
+    public javax.swing.JComboBox<String> cbbghe_ghe;
+    private javax.swing.JTextField cmnd_ghe;
     private javax.swing.JPanel datVe_Homepage;
     public javax.swing.JLabel diemlenxe_ghe;
     public javax.swing.JLabel diemxuongxe_ghe;
+    private javax.swing.JTextField email_ghe;
     public javax.swing.JLabel giave_ghe;
     private javax.swing.JPanel gioiThieu_homepage;
-    private javax.swing.JTextField hoten_datve;
+    private javax.swing.JTextField hoten_ghe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -873,12 +911,10 @@ public class ChonGhe extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     public javax.swing.JLabel loaixe_ghe;
     private javax.swing.JButton nutdatve_datve;
     private javax.swing.JButton nutquaylai_ghe;
+    private javax.swing.JTextField sdt_ghe;
     public javax.swing.JLabel thoigianden_ghe;
     public javax.swing.JLabel thoigiankhoihanh_ghe;
     private javax.swing.JPanel trangChu_homepage;

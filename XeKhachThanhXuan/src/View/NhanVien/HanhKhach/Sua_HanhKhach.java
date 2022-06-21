@@ -599,10 +599,11 @@ public class Sua_HanhKhach extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(BLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDHanhkhach, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                .addGroup(BLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(BLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(IDHanhkhach, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(BLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -729,10 +730,10 @@ public class Sua_HanhKhach extends javax.swing.JFrame {
             }
         } else {
             if (danhsachhanhkhach.getSelectedRowCount() == 0) {
-                JOptionPane.showMessageDialog(this, "Mời chọn 1 tuyến xe cần sửa!",
+                JOptionPane.showMessageDialog(this, "Mời chọn 1 hành khách cần sửa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             } else {
-                JOptionPane.showMessageDialog(this, "Vui lòng chỉ chọn 1 tuyến xe cần sửa!",
+                JOptionPane.showMessageDialog(this, "Vui lòng chỉ chọn 1 hành khách cần sửa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             }
         }

@@ -72,7 +72,6 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
         danhsachdatve = new javax.swing.JTable();
         jLabel26 = new javax.swing.JLabel();
         nhaptuyenxe = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
         nuttimkiem_tuyenxe = new javax.swing.JButton();
         jLabel51 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -100,7 +99,7 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
 
         jSeparator1.setForeground(new java.awt.Color(205, 247, 247));
 
-        jLabel54.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
+        jLabel54.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px.png"))); // NOI18N
         jLabel54.setText("Chào mừng đến với Quản lý hoàn  vé!");
 
@@ -150,7 +149,7 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Mã đặt vé", "Mã nhân viên", "Ngày hoàn", "Phí hoàn vé", "Tiền hoàn vé"
+                "Mã hoàn vé", "Mã đặt vé", "Mã nhân viên", "Ngày hoàn", "Phí hoàn vé", "Tiền hoàn vé"
             }
         ));
         jScrollPane5.setViewportView(danhsachdatve);
@@ -170,9 +169,6 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
                 nhaptuyenxeKeyPressed(evt);
             }
         });
-
-        jLabel27.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel27.setText("Nhập mã hoàn vé");
 
         nuttimkiem_tuyenxe.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
         nuttimkiem_tuyenxe.setText("Tìm kiếm");
@@ -242,13 +238,8 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
                                 .addComponent(jLabel36)))
                         .addGap(111, 111, 111))
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel54))
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGap(252, 252, 252)
-                                .addComponent(jLabel27)))
+                        .addContainerGap()
+                        .addComponent(jLabel54)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -274,8 +265,6 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
                                 .addComponent(jLabel56)
                                 .addComponent(jLabel57))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel27)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(nuttimkiem_tuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -548,7 +537,7 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
 
     private void nutthem_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutthem_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
-        Them_HoanVe themhoanve = new Them_HoanVe();
+        ThemHoanVe themhoanve = new ThemHoanVe();
         themhoanve.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_nutthem_quanlytuyenxeActionPerformed
@@ -617,6 +606,126 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -637,13 +746,14 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
 
             while (rs.next()) {
                 String idhoanve = rs.getString("ID_HOANVE");
+                String iddve = rs.getString("ID_DATVE");
                 String idnhanvien = rs.getString("ID_NHANVIEN");
                 String ngayhoan = String.valueOf(new SimpleDateFormat("dd-MM-yyyy").format(rs.getTimestamp("NGAYHOAN")));
 
                 String phihv = rs.getString("PHIHV");
                 String tienhv = rs.getString("TIENHV");
 
-                String tbData[] = {idhoanve, idnhanvien, ngayhoan, phihv, tienhv};
+                String tbData[] = {idhoanve, iddve, idnhanvien, ngayhoan, phihv, tienhv};
                 //               String tbData[] = {diemdi, diemden};
                 DefaultTableModel tblModel = (DefaultTableModel) danhsachdatve.getModel();
 
@@ -676,7 +786,6 @@ public class Homepage_QuanLyHoanVe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;

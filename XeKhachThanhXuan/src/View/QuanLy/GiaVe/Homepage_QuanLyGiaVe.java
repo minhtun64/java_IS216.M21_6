@@ -39,9 +39,11 @@ public class Homepage_QuanLyGiaVe extends javax.swing.JFrame {
     }
     Connection con;
     PreparedStatement pst;
+
     public void CloseFrame() {
         super.dispose();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -772,11 +774,18 @@ public class Homepage_QuanLyGiaVe extends javax.swing.JFrame {
 
     private void nutthem_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutthem_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
+        ThemGiaVe themtuyen = new ThemGiaVe();
+        themtuyen.setVisible(true);
+        this.setVisible(false);
 
     }//GEN-LAST:event_nutthem_quanlytuyenxeActionPerformed
 
     private void nutsua_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsua_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
+
+        SuaGiaVe themtuyen = new SuaGiaVe();
+        themtuyen.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_nutsua_quanlytuyenxeActionPerformed
 
     private void nutxoa_quanlygiaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutxoa_quanlygiaveActionPerformed
@@ -804,23 +813,24 @@ public class Homepage_QuanLyGiaVe extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
-            } else {
-                if (dsgiave.getRowCount() == 0) {
+            }
+        } else {
+            if (dsgiave.getRowCount() == 0) {
 
-                    JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
-                            "Lỗi", JOptionPane.WARNING_MESSAGE, null);
-                    Homepage_QuanLyGiaVe homepage = new Homepage_QuanLyGiaVe();
-                    homepage.setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 tuyến xe cần xóa!",
-                            "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-                    Homepage_QuanLyGiaVe homepage = new Homepage_QuanLyGiaVe();
-                    homepage.setVisible(true);
-                    this.setVisible(false);
-                }
+                JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
+                        "Lỗi", JOptionPane.WARNING_MESSAGE, null);
+//                Homepage_QuanLyGiaVe homepage = new Homepage_QuanLyGiaVe();
+//                homepage.setVisible(true);
+//                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 giá vé cần xóa!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+//                Homepage_QuanLyGiaVe homepage = new Homepage_QuanLyGiaVe();
+//                homepage.setVisible(true);
+//                this.setVisible(false);
             }
         }
+
     }//GEN-LAST:event_nutxoa_quanlygiaveActionPerformed
 
     private void trangChu_homepage8trangChu_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepage8trangChu_homepageMouseClicked
@@ -935,7 +945,7 @@ public class Homepage_QuanLyGiaVe extends javax.swing.JFrame {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
             Statement st = con.createStatement();
-            String sql = "select * from GIAVE ";
+            String sql = "select * from GIAVE  ";
             ResultSet rs = st.executeQuery(sql);
 
             while (rs.next()) {
@@ -961,9 +971,9 @@ public class Homepage_QuanLyGiaVe extends javax.swing.JFrame {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            PreparedStatement pstdiemdau = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE");
-            PreparedStatement pstdiemcuoi = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE");
-            PreparedStatement pstloaixe = con.prepareStatement("Select DISTINCT TENLOAIXE from LOAIXE");
+            PreparedStatement pstdiemdau = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE where tinhtrang = 'Hoạt động'");
+            PreparedStatement pstdiemcuoi = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE where tinhtrang = 'Hoạt động'");
+            PreparedStatement pstloaixe = con.prepareStatement("Select DISTINCT TENLOAIXE from LOAIXE where tinhtrang = 'Hoạt động'");
             ResultSet rsdiemdau = pstdiemdau.executeQuery();
             ResultSet rsdiemcuoi = pstdiemcuoi.executeQuery();
             ResultSet rsloaixe = pstloaixe.executeQuery();

@@ -8,6 +8,7 @@ import ConnectDB.CheckOracleConnection;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.Types;
 
 /**
  *
@@ -21,12 +22,6 @@ public class ChuyenXe {
         // TODO add your handling code here:
         try ( Connection con = CheckOracleConnection.getMyConnection()) {
 
-//            String query = "INSERT INTO "
-//                    + "DOIBONG(MAD,TENDOI,QUOCGIA)"
-//                    +" VALUES('"
-//                    +maDoi+"','"+tenDoi+"','"+quocGia+"')";
-//            String query = "INSERT INTO TUYENXE VALUES(?,?,?,?,?,?,?)";
-//            PreparedStatement ps = con.prepareStatement(query);
             String strCall = "{call Pro_themchuyenxe (?,?,?,?,?,to_date(?, 'DD-MM-YYYY HH24:MI:SS'),to_date(?, 'DD-MM-YYYY HH24:MI:SS'),?,?)}";
             CallableStatement caSt = con.prepareCall(strCall);
 
@@ -118,6 +113,22 @@ public class ChuyenXe {
 
 //            Statement stat = con.createStatement();
 //            i = stat.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+    public int DieuKienXoaChuyenXe(String ID_ChuyenXe) {
+        int count = -1;
+        try {
+            Connection conn = CheckOracleConnection.getMyConnection();
+            String sql = "{?= call Func_dieukien_xoachuyenxe(?)}";
+            CallableStatement cstmt  = conn.prepareCall(sql);
+            cstmt.registerOutParameter(1,Types.INTEGER);
+            cstmt.setString(2, ID_ChuyenXe);
+            cstmt.executeQuery();
+            count=cstmt.getInt(1);
+
         } catch (Exception e) {
             System.out.println(e);
         }

@@ -4,6 +4,7 @@
  */
 package View.QuanLy.GiaVe;
 
+import ConnectDB.CheckOracleConnection;
 import Process.QuanLy.TuyenXe.GiaVe;
 import Process.QuanLy.TuyenXe.TuyenXe;
 import View.Home.Login_Form;
@@ -95,6 +96,7 @@ public class ThemGiaVe extends javax.swing.JFrame {
         cbbmaloaixe_giave = new javax.swing.JComboBox<>();
         jLabel13 = new javax.swing.JLabel();
         giave_giave = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -521,6 +523,9 @@ public class ThemGiaVe extends javax.swing.JFrame {
 
         giave_giave.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
 
+        jLabel14.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
+        jLabel14.setText("VNÐ");
+
         javax.swing.GroupLayout gioiThieu_homepageLayout = new javax.swing.GroupLayout(gioiThieu_homepage);
         gioiThieu_homepage.setLayout(gioiThieu_homepageLayout);
         gioiThieu_homepageLayout.setHorizontalGroup(
@@ -544,23 +549,25 @@ public class ThemGiaVe extends javax.swing.JFrame {
                         .addGap(108, 153, Short.MAX_VALUE))
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                         .addGap(150, 150, 150)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel13))
-                                .addGap(28, 28, 28)
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(giave_giave)
-                                    .addComponent(cbbmaloaixe_giave, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(cbbtuyenxe_giave, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(79, 79, 79)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                .addGap(118, 118, 118)
+                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel13))
+                .addGap(28, 28, 28)
+                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(giave_giave)
+                    .addComponent(cbbmaloaixe_giave, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbbtuyenxe_giave, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         gioiThieu_homepageLayout.setVerticalGroup(
             gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -580,12 +587,13 @@ public class ThemGiaVe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(giave_giave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
                 .addGap(18, 18, 18)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                         .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 113, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 91, Short.MAX_VALUE)
                         .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 13, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel51)
@@ -627,24 +635,50 @@ public class ThemGiaVe extends javax.swing.JFrame {
         String matuyen = cbbtuyenxe_giave.getSelectedItem().toString().trim();
         String maloai = cbbmaloaixe_giave.getSelectedItem().toString().trim();
         String giave = giave_giave.getText();
+        boolean flag = true;
         if (giave.equals("")) {
-
             JOptionPane.showMessageDialog(this, "Vui lòng nhập giá vé\n");
+            flag = false;
         }
-        GiaVe classgiave = new GiaVe();
-
-        //Lay ket qua tu CSDL
-        int countRecord = classgiave.themGiaVe(maloai, matuyen, giave);
-
-        if (countRecord > 0) {
-            JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
-                    JOptionPane.INFORMATION_MESSAGE, null);
-            hide();
-
-            Homepage_QuanLyGiaVe hp_giave = new Homepage_QuanLyGiaVe();
-            hp_giave.setVisible(true);
-
+        if (flag == true) {
+            String a = "\\d{1,20}";
+            boolean flag2 = giave.matches(a);
+            if (flag2 == false) {
+                JOptionPane.showMessageDialog(this, "Giá vé không hợp lệ");
+                flag = false;
+            }
         }
+        if (flag == true) {
+            try {
+                Connection conn = CheckOracleConnection.getMyConnection();
+                String sql = "SELECT ID_TUYENXE, ID_LOAIXE FROM GIAVE WHERE ID_TUYENXE='" + matuyen + "' AND ID_LOAIXE='" + maloai + "'";
+                PreparedStatement ps = conn.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery();
+                if (rs.next()) {
+                    JOptionPane.showMessageDialog(this, "Thêm không thành công\n"+"Giá vé đã tồn tại");
+                    flag = false;
+                }
+            } catch (ClassNotFoundException | SQLException e) {
+                System.out.println(e);
+            }
+        }
+        if (flag == true) {
+            GiaVe classgiave = new GiaVe();
+
+            //Lay ket qua tu CSDL
+            int countRecord = classgiave.themGiaVe(maloai, matuyen, giave);
+
+            if (countRecord > 0) {
+                JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
+                        JOptionPane.INFORMATION_MESSAGE, null);
+                hide();
+
+                Homepage_QuanLyGiaVe hp_giave = new Homepage_QuanLyGiaVe();
+                hp_giave.setVisible(true);
+
+            }
+        }
+
     }//GEN-LAST:event_nutthem_giaveActionPerformed
 
     private void cbbtuyenxe_giaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbbtuyenxe_giaveMouseClicked
@@ -675,13 +709,14 @@ public class ThemGiaVe extends javax.swing.JFrame {
 
     private void cbbtuyenxe_giaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbtuyenxe_giaveActionPerformed
         // TODO add your handling code here:
+        cbbmaloaixe_giave.removeAllItems();
         String matuyen = cbbtuyenxe_giave.getSelectedItem().toString().trim();
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            pst = con.prepareStatement("SELECT L.ID_LOAIXE\n"
-                    + "FROM (TUYENXE T JOIN GIAVE G ON T.ID_TUYENXE=G.ID_TUYENXE)JOIN LOAIXE L ON L.ID_LOAIXE=G.ID_LOAIXE\n"
-                    + "WHERE T.ID_TUYENXE =? and T.TINHTRANG ='Hoạt động'");
+            pst = con.prepareStatement("SELECT DISTINCT X.ID_LOAIXE\n"
+                    + "FROM (TUYENXE T JOIN CHUYENXE C ON T.ID_TUYENXE=C.ID_TUYENXE) JOIN XE X ON X.ID_XE=C.ID_XE\n"
+                    + "WHERE T.ID_TUYENXE = ?");
 
             pst.setString(1, matuyen);
 
@@ -871,6 +906,7 @@ public class ThemGiaVe extends javax.swing.JFrame {
     private javax.swing.JPanel gioiThieu_homepage;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;

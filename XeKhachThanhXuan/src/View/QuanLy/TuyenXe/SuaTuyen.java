@@ -781,9 +781,9 @@ public class SuaTuyen extends javax.swing.JFrame {
             suatuyenxe.setValueAt(diemcuoi.getText(), i, 3);
             suatuyenxe.setValueAt(sokm.getText(), i, 4);
             suatuyenxe.setValueAt(sogiodi.getText(), i, 5);
+
             boolean flag = true;
             if (tenTuyen.equals("")) {
-
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập tên tuyến\n");
                 flag = false;
             } else if (diemDau.equals("")) {
@@ -803,7 +803,7 @@ public class SuaTuyen extends javax.swing.JFrame {
                 String a = "\\d{1,20}";
                 boolean flag2 = soKm.matches(a);
                 if (flag2 == false) {
-                    JOptionPane.showMessageDialog(this, "Số KM không hợp lệ");
+                    JOptionPane.showMessageDialog(this, "Số Km không hợp lệ");
                     flag = false;
                 }
             }
@@ -811,28 +811,32 @@ public class SuaTuyen extends javax.swing.JFrame {
                 String b = "\\d{1,10}";
                 boolean flag4 = soGioDi.matches(b);
                 if (flag4 == false) {
-                    JOptionPane.showMessageDialog(this, "số giờ đi không hợp lệ");
+                    JOptionPane.showMessageDialog(this, "Số giờ đi không hợp lệ");
                     flag = false;
                 }
             }
-            TuyenXe biensuatuyenxe = new TuyenXe();
 
-            //Lay ket qua tu CSDL
-            int sodongsuatuyenxe = biensuatuyenxe.suaTuyenXe(iD, tenTuyen, diemDau,
-                    diemCuoi, soKm, soGioDi);
+            if (flag == true) {
+                TuyenXe biensuatuyenxe = new TuyenXe();
 
-            if (sodongsuatuyenxe > 0) {
-                JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
-                        JOptionPane.INFORMATION_MESSAGE, null);
-                hide();
+                //Lay ket qua tu CSDL
+                int sodongsuatuyenxe = biensuatuyenxe.suaTuyenXe(iD, tenTuyen, diemDau,
+                        diemCuoi, soKm, soGioDi);
 
-                SuaTuyen classsuatuyenxe = new SuaTuyen();
-                classsuatuyenxe.setVisible(true);
-                this.setVisible(false);
+                if (sodongsuatuyenxe > 0) {
+                    JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Error");
+                    SuaTuyen classsuatuyenxe = new SuaTuyen();
+                    classsuatuyenxe.setVisible(true);
+                    this.setVisible(false);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
             }
+
         } else {
             if (danhsachtuyenxe.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
@@ -842,7 +846,7 @@ public class SuaTuyen extends javax.swing.JFrame {
                 this.setVisible(false);
 
             } else {
-                JOptionPane.showMessageDialog(this, "Vui lòng chỉ chọn 1 tuyến xe cần sửa!",
+                JOptionPane.showMessageDialog(this, "Xin mời chọn 1 tuyến xe cần sửa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
                 SuaTuyen classsuatuyenxe = new SuaTuyen();
                 classsuatuyenxe.setVisible(true);

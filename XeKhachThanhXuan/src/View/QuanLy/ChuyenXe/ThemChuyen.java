@@ -130,7 +130,7 @@ public class ThemChuyen extends javax.swing.JFrame {
 
         jLabel54.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px_3.png"))); // NOI18N
-        jLabel54.setText("Chào mừng đến với Quản lý chuyến xe!");
+        jLabel54.setText("Mời thêm chuyến xe!");
 
         jSeparator3.setForeground(new java.awt.Color(205, 247, 247));
 
@@ -737,20 +737,27 @@ public class ThemChuyen extends javax.swing.JFrame {
 
     private void themchuyenxe_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_themchuyenxe_chuyenxeActionPerformed
         // TODO add your handling code here:
+        if (thoigiankhoihanh_themchuyen.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn thời gian khởi hành!",
+                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+        } else if (thoigianden_themchuyen.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn thời gian đên!",
+                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+        } else {
 
-        String matuyen = cbbtuyenxe_themchuyen.getSelectedItem().toString().trim();
-        String maxe = cbbmaxe_themchuyen.getSelectedItem().toString().trim();
-        String maquanly = cbbmaquanly_themchuyen.getSelectedItem().toString().trim();
+            String matuyen = cbbtuyenxe_themchuyen.getSelectedItem().toString().trim();
+            String maxe = cbbmaxe_themchuyen.getSelectedItem().toString().trim();
+            String maquanly = cbbmaquanly_themchuyen.getSelectedItem().toString().trim();
 
-        String tenTuyen = noilenxe_themchuyen.getText();
-        String diemDau = noixuongxe_themchuyen.getText();
-        String ngaykhoihanh = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss" ).format(thoigiankhoihanh_themchuyen.getDate());
+            String tenTuyen = noilenxe_themchuyen.getText();
+            String diemDau = noixuongxe_themchuyen.getText();
+            String ngaykhoihanh = new SimpleDateFormat("dd-MMM-yyyy HH:mm:ss").format(thoigiankhoihanh_themchuyen.getDate());
 
-        String ngayden = new SimpleDateFormat("dd-MMM-yyyy  HH:mm:ss").format(thoigianden_themchuyen.getDate());
-        String tentaixe = tentaixe_themchuyen.getText();
-        String tenphuxe = tenphuxe_themchuyen.getText();
-        System.out.println(ngaykhoihanh);
-        boolean flag = true;
+            String ngayden = new SimpleDateFormat("dd-MMM-yyyy  HH:mm:ss").format(thoigianden_themchuyen.getDate());
+            String tentaixe = tentaixe_themchuyen.getText();
+            String tenphuxe = tenphuxe_themchuyen.getText();
+            System.out.println(ngaykhoihanh);
+            boolean flag = true;
             if (tenTuyen.equals("")) {
 
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập nơi lên xe\n");
@@ -758,43 +765,38 @@ public class ThemChuyen extends javax.swing.JFrame {
             } else if (diemDau.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập nơi xuống xe\n");
                 flag = false;
-            }else if (ngaykhoihanh.equals(""))
-            {
+            } else if (ngaykhoihanh.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập thời gian khởi hành\n");
                 flag = false;
-            } 
-            else if (ngayden.equals(""))
-            {
+            } else if (ngayden.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập thời gian khởi hành\n");
                 flag = false;
-            } 
-            else if (tentaixe.equals("")) {
+            } else if (tentaixe.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập tài xế\n");
                 flag = false;
             } else if (tenphuxe.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập phụ xe");
                 flag = false;
             }
-            if(flag == true){
-                        ChuyenXe db = new ChuyenXe();
+            if (flag == true) {
+                ChuyenXe db = new ChuyenXe();
 
-        //Lay ket qua tu CSDL
-        int countRecord = db.themChuyenXe(matuyen, maxe, maquanly, tenTuyen,
-                diemDau, ngaykhoihanh, ngayden, tentaixe, tenphuxe);
+                //Lay ket qua tu CSDL
+                int countRecord = db.themChuyenXe(matuyen, maxe, maquanly, tenTuyen,
+                        diemDau, ngaykhoihanh, ngayden, tentaixe, tenphuxe);
 
-        if (countRecord > 0) {
-            JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
-                    JOptionPane.INFORMATION_MESSAGE, null);
-            hide();
+                if (countRecord > 0) {
+                    JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
 
-            Homepage_QuanLyChuyenXe themchuyen = new Homepage_QuanLyChuyenXe();
-            themchuyen.setVisible(true);
-            this.setVisible(false);
+                    Homepage_QuanLyChuyenXe themchuyen = new Homepage_QuanLyChuyenXe();
+                    themchuyen.setVisible(true);
+                    this.setVisible(false);
+                }
             }
-            }
 
-
-        
+        }
     }//GEN-LAST:event_themchuyenxe_chuyenxeActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -926,9 +928,9 @@ public class ThemChuyen extends javax.swing.JFrame {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            PreparedStatement psttuyenxe = con.prepareStatement("Select DISTINCT ID_TUYENXE from TUYENXE");
-            PreparedStatement pstmaxe = con.prepareStatement("Select DISTINCT ID_XE from XE");
-            PreparedStatement pstmaquanly = con.prepareStatement("Select DISTINCT ID_NQL from NGUOIQUANLY");
+            PreparedStatement psttuyenxe = con.prepareStatement("Select DISTINCT ID_TUYENXE from TUYENXE where tinhtrang = 'Hoạt động'");
+            PreparedStatement pstmaxe = con.prepareStatement("Select DISTINCT ID_XE from XE where tinhtrang = 'Hoạt động'");
+            PreparedStatement pstmaquanly = con.prepareStatement("Select DISTINCT ID_NQL from NGUOIQUANLY ");
             ResultSet rstuyenxe = psttuyenxe.executeQuery();
             ResultSet rsmaxe = pstmaxe.executeQuery();
             ResultSet rsmaquanly = pstmaquanly.executeQuery();

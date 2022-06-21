@@ -18,11 +18,14 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.Normalizer;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -949,6 +952,62 @@ public class SuaNhanVien extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Vui lòng nhập ngày sinh của nhân viên");
                 flag = false;
             }
+//            if (flag == true) {
+//                String temp = Normalizer.normalize(ten, Normalizer.Form.NFD);
+//                    Pattern pattern = Pattern.compile("\\p{InCombiningDiacriticalMarks}+");
+//                  // return pattern.matcher(temp).replaceAll("");
+////                   flag = false;
+////                    String tennv = "^[a-z Ạ-ỹ A-Z]$";
+////                    boolean flag4 = ten.matches(tennv);
+//                    if (flag4 == false) {
+//                        JOptionPane.showMessageDialog(this, "Tên nhân viên không hợp lệ");
+//                        flag = false;
+//                    }
+//                }
+                
+                if (flag == true) {
+                    int result = ngaySinh.compareTo(ngayVaoLam);
+                    if (result == 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh trong ngày vào làm  :)");
+                        flag = false;
+                    } else if (result > 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm  :)");
+                        flag = false;
+                    } else if (result < 0) {
+//                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm :))");
+//                        flag = false;
+                    } else {
+                        System.out.println("How to get here?");
+                    }
+                }
+                if (flag == true) {
+                    DateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                    try {
+                        Date ngaysinh = simpleDateFormat.parse(ngaySinh);
+                        Date ngayvaolam = simpleDateFormat.parse(ngayVaoLam);
+                        long getDiff = (ngaysinh.getTime() - ngayvaolam.getTime());
+                        if (getDiff / 12 < 18) {
+                            JOptionPane.showMessageDialog(null, "Nhân viên chưa đủ 18 tuổi  :)");
+                            flag = false;
+                        }
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ThemNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    int result = ngaySinh.compareTo(ngayVaoLam);
+                    if (result == 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh trong ngày vào làm  :)");
+                        flag = false;
+                    } else if (result > 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm  :)");
+                        flag = false;
+                    } else if (result < 0) {
+//                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm :))");
+//                        flag = false;
+                    } else {
+                        System.out.println("How to get here?");
+                    }
+                }
             if (flag == true) {
                 String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
                 boolean flag2 = sDT.matches(reg);
@@ -997,7 +1056,7 @@ public class SuaNhanVien extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(this, "Vui lòng chỉ chọn 1 nhân viên cần sửa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-                Homepage_QuanLyNhanVien homepage = new Homepage_QuanLyNhanVien();
+                SuaNhanVien homepage = new SuaNhanVien();
                 homepage.setVisible(true);
                 this.setVisible(false);
 

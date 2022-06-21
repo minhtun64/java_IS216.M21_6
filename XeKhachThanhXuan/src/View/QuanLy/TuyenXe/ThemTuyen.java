@@ -141,16 +141,18 @@ public class ThemTuyen extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel39)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(them_quanlytuyenxe)
+                .addComponent(them_quanlytuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(them_quanlytuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel39))
+                .addComponent(jLabel39)
+                .addGap(28, 28, 28))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(them_quanlytuyenxe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(27, 27, 27))
         );
 
@@ -705,22 +707,25 @@ public class ThemTuyen extends javax.swing.JFrame {
                 flag = false;
             }
         }
+        if (flag == true) {
+            TuyenXe db = new TuyenXe();
 
-        TuyenXe db = new TuyenXe();
+            //Lay ket qua tu CSDL
+            int countRecord = db.themTuyenXe(tenTuyen, diemDau, diemCuoi, soKm,
+                    soGioDi);
 
-        //Lay ket qua tu CSDL
-        int countRecord = db.themTuyenXe(tenTuyen, diemDau, diemCuoi, soKm,
-                soGioDi);
+            if (countRecord > 0) {
+                JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
+                        JOptionPane.INFORMATION_MESSAGE, null);
+                hide();
 
-        if (countRecord > 0) {
-            JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
-                    JOptionPane.INFORMATION_MESSAGE, null);
-            hide();
+                Homepage_QuanLyTuyenXe quanlytuyenxe = new Homepage_QuanLyTuyenXe();
+                quanlytuyenxe.setVisible(true);
 
-            Homepage_QuanLyTuyenXe quanlytuyenxe = new Homepage_QuanLyTuyenXe();
-            quanlytuyenxe.setVisible(true);
-
+            }
         }
+
+
     }//GEN-LAST:event_them_quanlytuyenxeActionPerformed
 
     private void tentuyenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tentuyenActionPerformed

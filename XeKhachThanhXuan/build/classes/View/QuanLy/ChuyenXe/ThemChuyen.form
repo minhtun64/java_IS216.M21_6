@@ -257,7 +257,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/Resources/Icon/icons8_heart_20px_3.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Ch&#xe0;o m&#x1eeb;ng &#x111;&#x1ebf;n v&#x1edb;i Qu&#x1ea3;n l&#xfd; chuy&#x1ebf;n xe!"/>
+            <Property name="text" type="java.lang.String" value="M&#x1edd;i th&#xea;m chuy&#x1ebf;n xe!"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator3">

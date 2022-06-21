@@ -9,7 +9,10 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+//import java.sql.Types;
 
 /**
  *
@@ -78,13 +81,14 @@ public class Ve {
         return count;
     }
 
-    public int ThanhToanDatVe(String IDDve) {
+    public int ThanhToanDatVe(String IDDve, String IDNV) {
         int count = 1;
         try {
             Connection conn = CheckOracleConnection.getMyConnection();
-            String strCall = "{call Pro_thanhtoanve(?)}";
+            String strCall = "{call Pro_thanhtoanve(?,?)}";
             CallableStatement caSt = conn.prepareCall(strCall);
             caSt.setString(1, IDDve);
+            caSt.setString(2, IDNV);
             ResultSet rs = caSt.executeQuery();
 
             if (!rs.isBeforeFirst()) {
@@ -93,6 +97,22 @@ public class Ve {
 
 //            Statement stat = con.createStatement();
 //            i = stat.executeUpdate(query);
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+        public int DieuKienThanhToanVe(String ID) {
+        int count = -1;
+        try {
+            Connection conn = CheckOracleConnection.getMyConnection();
+            String sql = "{?= call Func_dieukien_thanhtoanve(?)}";
+            CallableStatement cstmt  = conn.prepareCall(sql);
+            cstmt.registerOutParameter(1,Types.INTEGER);
+            cstmt.setString(2, ID);
+            cstmt.executeQuery();
+            count=cstmt.getInt(1);
+
         } catch (Exception e) {
             System.out.println(e);
         }
@@ -145,7 +165,7 @@ public class Ve {
         return count;
     }
 
-    public int ThemHoanVe(String IDDatve, String IDnhanvien) throws SQLException, ClassNotFoundException {
+    public int Them_HoanVe(String IDDatve, String IDnhanvien) throws SQLException, ClassNotFoundException {
         int count = 0;
         try {
             Connection conn = CheckOracleConnection.getMyConnection();
@@ -154,6 +174,59 @@ public class Ve {
             caSt.setString(1, IDDatve);
             caSt.setString(2, IDnhanvien);
             count = caSt.executeUpdate();
+            ResultSet rs = caSt.executeQuery();
+            if (!rs.isBeforeFirst()) {
+                count = 0;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+            public int PhiHoanVe(String ID) {
+        int count = -1;
+        try {
+            Connection conn = CheckOracleConnection.getMyConnection();
+            String sql = "{?= call Func_phihoanve(?)}";
+            CallableStatement cstmt  = conn.prepareCall(sql);
+            cstmt.registerOutParameter(1,Types.INTEGER);
+            cstmt.setString(2, ID);
+            cstmt.executeQuery();
+            count=cstmt.getInt(1);
+  
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+        
+        public int TienHoanVe(String ID) {
+        int count = -1;
+        try {
+            Connection conn = CheckOracleConnection.getMyConnection();
+            String sql = "{?= call Func_tienhoanve(?)}";
+            CallableStatement cstmt  = conn.prepareCall(sql);
+            cstmt.registerOutParameter(1,Types.INTEGER);
+            cstmt.setString(2, ID);
+            cstmt.executeQuery();
+            count=cstmt.getInt(1);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+    public int DieuKienHoanVe(String IDDatve) {
+        int count = -1;
+        try {
+            Connection conn = CheckOracleConnection.getMyConnection();
+            String sql = "{?= call Func_dieukien_hoanve(?)}";
+            CallableStatement cstmt  = conn.prepareCall(sql);
+            cstmt.registerOutParameter(1,Types.INTEGER);
+            cstmt.setString(2, IDDatve);
+            cstmt.executeQuery();
+            count=cstmt.getInt(1);
 
         } catch (Exception e) {
             System.out.println(e);
@@ -179,26 +252,31 @@ public class Ve {
         return count;
     }
 
-    public int ThemDatVe(int IDVe, int IDNhanVien, String hvt, String sdt, String cmnd, String email) throws SQLException, ClassNotFoundException {
-        int count = 1;
+    
+    public int ThemVe_QuanLyVe(String maVe, String maNV, String hoTen, String sDT, String cMND, String eMail)
+    {
+        int count = 0;
         try {
             Connection conn = CheckOracleConnection.getMyConnection();
             String sql = "{call Pro_themdatve_nhanvien(?,?,?,?,?,?)}";
-            PreparedStatement ps = conn.prepareStatement(sql);
             CallableStatement caSt = conn.prepareCall(sql);
-
-            caSt.setInt(1, IDVe);
-            caSt.setInt(2, IDNhanVien);
-            caSt.setString(3, hvt);
-            caSt.setString(4, sdt);
-            caSt.setString(5, cmnd);
-            caSt.setString(6, email);
-
+            caSt.setString(1, maVe);
+            caSt.setString(2, maNV);
+            caSt.setString(3, hoTen);
+            caSt.setString(4, sDT);
+            caSt.setString(5, cMND);
+            caSt.setString(6, eMail);
             count = caSt.executeUpdate();
+            ResultSet rs = caSt.executeQuery();
+            if (!rs.isBeforeFirst()) {
+                count = 0;
+            }
 
         } catch (Exception e) {
             System.out.println(e);
         }
         return count;
     }
+
+   
 }

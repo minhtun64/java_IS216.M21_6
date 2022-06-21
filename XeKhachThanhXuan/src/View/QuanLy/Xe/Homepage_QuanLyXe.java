@@ -21,7 +21,9 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -35,14 +37,16 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
     public Homepage_QuanLyXe() {
         initComponents();
         fillTable();
-        loadcbb();
+//        loadcbb();
     }
 
     Connection con;
     PreparedStatement pst;
+
     public void CloseFrame() {
         super.dispose();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -96,13 +100,8 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
         jLabel46 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        cbbdiemdi_xe = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        cbbdiemden_xe = new javax.swing.JComboBox<>();
-        jLabel7 = new javax.swing.JLabel();
-        cbbloaixe_xe = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
         nuttimkiem_xe = new javax.swing.JButton();
+        nhapxe = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -434,7 +433,7 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
 
         jLabel54.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px_3.png"))); // NOI18N
-        jLabel54.setText("Mời thêm xe!");
+        jLabel54.setText("Chào mừng đến với Quản lý xe!");
 
         jSeparator3.setForeground(new java.awt.Color(205, 247, 247));
 
@@ -521,6 +520,11 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
 
         jButton9.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
         jButton9.setText("Sửa");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -545,33 +549,25 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/QuanLy/Icon/QuanLyTuyenXe/icons8_search_30px_3.png"))); // NOI18N
 
-        cbbdiemdi_xe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        cbbdiemdi_xe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbdiemdi_xeActionPerformed(evt);
-            }
-        });
-
-        jLabel6.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel6.setText("Chọn diểm đi");
-
-        cbbdiemden_xe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbdiemden_xeActionPerformed(evt);
-            }
-        });
-
-        jLabel7.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel7.setText("Chọn diểm đến");
-
-        jLabel4.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel4.setText("Chọn loại xe");
-
         nuttimkiem_xe.setFont(new java.awt.Font("Lora SemiBold", 0, 14)); // NOI18N
         nuttimkiem_xe.setText("Tìm kiếm");
         nuttimkiem_xe.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nuttimkiem_xeActionPerformed(evt);
+            }
+        });
+
+        nhapxe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        nhapxe.setToolTipText("");
+        nhapxe.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(205, 247, 247)));
+        nhapxe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nhapxeActionPerformed(evt);
+            }
+        });
+        nhapxe.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                nhapxeKeyPressed(evt);
             }
         });
 
@@ -598,7 +594,7 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                .addGap(9, 40, Short.MAX_VALUE)
+                .addGap(18, 37, Short.MAX_VALUE)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -612,29 +608,11 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
                             .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                 .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addComponent(cbbdiemdi_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(cbbdiemden_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(12, 12, 12))
-                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addGap(30, 30, 30)
-                                        .addComponent(jLabel6)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel7)
-                                        .addGap(40, 40, 40)))
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addComponent(jLabel4)
-                                        .addGap(55, 55, 55))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addComponent(cbbloaixe_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                                .addGap(33, 33, 33)
+                                .addComponent(nhapxe, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(28, 28, 28)
                                 .addComponent(nuttimkiem_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(25, 25, 25))))
+                        .addGap(28, 28, 28))))
         );
         gioiThieu_homepageLayout.setVerticalGroup(
             gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -643,34 +621,22 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
                 .addComponent(jLabel54)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
-                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbbdiemdi_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)))
-                    .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                            .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel7))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(cbbloaixe_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(cbbdiemden_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                            .addGap(23, 23, 23)
-                            .addComponent(nuttimkiem_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nuttimkiem_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nhapxe, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(1, 1, 1)))
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel51)
@@ -700,13 +666,16 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+        ThemXe themtuyen = new ThemXe();
+        themtuyen.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void nutxoa_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutxoa_xeActionPerformed
         // TODO add your handling code here:
         DefaultTableModel tblModel = (DefaultTableModel) danhsachxe_xe.getModel();
         int i = danhsachxe_xe.getSelectedRow();
-
+        int A = -1;
         if (danhsachxe_xe.getSelectedRowCount() == 1) {
 
             String maXe = (String) danhsachxe_xe.getValueAt(i, 0);
@@ -716,90 +685,34 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
                 tblModel.removeRow(danhsachxe_xe.getSelectedRow());
                 Xe xe = new Xe();
                 int sodongxoagiave = xe.xoaXe(maXe);
+                A = xe.DieuKienHuyXe(maXe);
+                if (A == 0) {
+                    JOptionPane.showMessageDialog(this, "Xe không thỏa điều kiện để xóa");
 
-                if (sodongxoagiave > 0) {
+                } else if (sodongxoagiave > 0) {
                     JOptionPane.showMessageDialog(this, "Xóa thành công!", "Thông báo",
                             JOptionPane.INFORMATION_MESSAGE, null);
-                    Homepage_QuanLyXe homepage = new Homepage_QuanLyXe();
-                    homepage.setVisible(true);
-                    this.setVisible(false);
                 } else {
                     JOptionPane.showMessageDialog(null, "Error");
                 }
-            } else {
-                if (danhsachxe_xe.getRowCount() == 0) {
+            }
+        } else {
+            if (danhsachxe_xe.getRowCount() == 0) {
 
-                    JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
-                            "Lỗi", JOptionPane.WARNING_MESSAGE, null);
-                    Homepage_QuanLyXe homepage = new Homepage_QuanLyXe();
-                    homepage.setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 tuyến xe cần xóa!",
-                            "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-                    Homepage_QuanLyXe homepage = new Homepage_QuanLyXe();
-                    homepage.setVisible(true);
-                    this.setVisible(false);
-                }
+                JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
+                        "Lỗi", JOptionPane.WARNING_MESSAGE, null);
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 xe cần xóa!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             }
         }
     }//GEN-LAST:event_nutxoa_xeActionPerformed
 
-    private void cbbdiemdi_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbdiemdi_xeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbdiemdi_xeActionPerformed
-
-    private void cbbdiemden_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbdiemden_xeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbdiemden_xeActionPerformed
-
     private void nuttimkiem_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttimkiem_xeActionPerformed
-        String diemdi = cbbdiemdi_xe.getSelectedItem().toString().trim();
-        String diemden = cbbdiemden_xe.getSelectedItem().toString().trim();
-        String loaixe = cbbloaixe_xe.getSelectedItem().toString().trim();
-
-        try {
-            Class.forName("oracle.jdbc.OracleDriver");
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            pst = con.prepareStatement("select X.ID_XE, X.ID_LOAIXE, X.TENXE, X.MAUXE, X.HANGSX, X.BIENSO \n"
-                    + "from ((TUYENXE T JOIN GIAVE G ON T.ID_TUYENXE = G.ID_TUYENXE ) JOIN LOAIXE L ON L.ID_LOAIXE = G.ID_LOAIXE)\n"
-                    + "    JOIN XE X ON X.ID_LOAIXE=L.ID_LOAIXE\n"
-                    + "WHERE T.DIEMDAU=? AND T.DIEMCUOI =? AND L.TENLOAIXE=?");
-
-            pst.setString(1, diemdi);
-            pst.setString(2, diemden);
-            pst.setString(3, loaixe);
-
-            ResultSet rs = pst.executeQuery();
-
-            ResultSetMetaData rsm = rs.getMetaData();
-            int c;
-            c = rsm.getColumnCount();
-
-            DefaultTableModel Df = (DefaultTableModel) danhsachxe_xe.getModel();
-            Df.setRowCount(0);
-
-            while (rs.next()) {
-                Vector v2 = new Vector();
-
-                for (int i = 1; i <= c; i++) {
-                    v2.add(rs.getString("ID_XE"));
-                    v2.add(rs.getString("ID_LOAIXE"));
-                    v2.add(rs.getString("TENXE"));
-                    v2.add(rs.getString("MAUXE"));
-                    v2.add(rs.getString("HANGSX"));
-                    v2.add(rs.getString("BIENSO"));
-                }
-
-                Df.addRow(v2);
-
-            }
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
-
+        DefaultTableModel model = (DefaultTableModel) danhsachxe_xe.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        danhsachxe_xe.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(nhapxe.getText().trim()));
     }//GEN-LAST:event_nuttimkiem_xeActionPerformed
 
     private void trangChu_homepage8trangChu_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepage8trangChu_homepageMouseClicked
@@ -832,7 +745,6 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
 
     private void jPanel19QuanLyLoaiXeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel19QuanLyLoaiXeMouseClicked
         // TODO add your handling code here:
-        // TODO add your handling code here:
         Homepage_QuanLyLoaiXe quanlyloaixe = new Homepage_QuanLyLoaiXe();
         quanlyloaixe.setVisible(true);
         CloseFrame();
@@ -858,6 +770,21 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
         login.setVisible(true);
         CloseFrame();
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+        SuaXe themtuyen = new SuaXe();
+        themtuyen.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void nhapxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nhapxeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nhapxeActionPerformed
+
+    private void nhapxeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nhapxeKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nhapxeKeyPressed
 
     /**
      * @param args the command line arguments
@@ -928,41 +855,39 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e);
         }
     }
+    
 
-    public void loadcbb() {
-        try {
-            Class.forName("oracle.jdbc.OracleDriver");
-            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            PreparedStatement pstdiemdau = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE");
-            PreparedStatement pstdiemcuoi = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE");
-            PreparedStatement pstloaixe = con.prepareStatement("Select DISTINCT TENLOAIXE from LOAIXE");
-            ResultSet rsdiemdau = pstdiemdau.executeQuery();
-            ResultSet rsdiemcuoi = pstdiemcuoi.executeQuery();
-            ResultSet rsloaixe = pstloaixe.executeQuery();
-            while (rsdiemdau.next()) {
-                cbbdiemdi_xe.addItem(rsdiemdau.getString(1));
-
-            }
-            while (rsdiemcuoi.next()) {
-                cbbdiemden_xe.addItem(rsdiemcuoi.getString(1));
-            }
-            while (rsloaixe.next()) {
-                cbbloaixe_xe.addItem(rsloaixe.getString(1));
-            }
-
-        } catch (ClassNotFoundException e1) {
-            e1.printStackTrace();
-        } catch (SQLException e1) {
-            e1.printStackTrace();
-        }
-
-    }
+//    public void loadcbb() {
+//        try {
+//            Class.forName("oracle.jdbc.OracleDriver");
+//            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+//            PreparedStatement pstdiemdau = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE where tinhtrang = 'Hoạt động'");
+//            PreparedStatement pstdiemcuoi = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE where tinhtrang = 'Hoạt động'");
+//            PreparedStatement pstloaixe = con.prepareStatement("Select DISTINCT TENLOAIXE from LOAIXE where tinhtrang = 'Hoạt động'");
+//            ResultSet rsdiemdau = pstdiemdau.executeQuery();
+//            ResultSet rsdiemcuoi = pstdiemcuoi.executeQuery();
+//            ResultSet rsloaixe = pstloaixe.executeQuery();
+//            while (rsdiemdau.next()) {
+//                cbbdiemdi_xe.addItem(rsdiemdau.getString(1));
+//
+//            }
+//            while (rsdiemcuoi.next()) {
+//                cbbdiemden_xe.addItem(rsdiemcuoi.getString(1));
+//            }
+//            while (rsloaixe.next()) {
+//                cbbloaixe_xe.addItem(rsloaixe.getString(1));
+//            }
+//
+//        } catch (ClassNotFoundException e1) {
+//            e1.printStackTrace();
+//        } catch (SQLException e1) {
+//            e1.printStackTrace();
+//        }
+//
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel A;
-    private javax.swing.JComboBox<String> cbbdiemden_xe;
-    private javax.swing.JComboBox<String> cbbdiemdi_xe;
-    private javax.swing.JComboBox<String> cbbloaixe_xe;
     private javax.swing.JPanel dangXuat_homepage;
     private javax.swing.JTable danhsachxe_xe;
     private javax.swing.JPanel gioiThieu_homepage;
@@ -986,15 +911,12 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel18;
@@ -1007,6 +929,7 @@ public class Homepage_QuanLyXe extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField nhapxe;
     private javax.swing.JButton nuttimkiem_xe;
     private javax.swing.JButton nutxoa_xe;
     private javax.swing.JPanel trangChu_homepage8;

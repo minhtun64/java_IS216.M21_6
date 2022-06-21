@@ -686,49 +686,88 @@ public class ChonGiuong extends javax.swing.JFrame {
             String loaiXe = loaixe_giuong.getText();
             String viTriGhe = cbbgiuong_datve.getSelectedItem().toString().trim();
 
-            try {
-                Class.forName("oracle.jdbc.OracleDriver");
-                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            boolean flag = true;
+            if (hoTen.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên hành khách\n");
+                flag = false;
+            } else if (sDT.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập số điện thoại\n");
+                flag = false;
+            } else if (cMND.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập CMND\n");
+                flag = false;
+            } else if (eMail.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập Email");
+                flag = false;
+            }
+            if (flag == true) {
+                String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
+                boolean flag2 = sDT.matches(reg);
+                if (flag2 == false) {
+                    JOptionPane.showMessageDialog(this, "Số điện thoại không đúng hoặc không hợp lệ");
+                    flag = false;
+                }
+            }
+            if (flag == true) {
+                {
+                    String cmndPattern = "\\d{9}";
+                    boolean flag3 = cMND.matches(cmndPattern);
+                    if (flag3 == false) {
+                        JOptionPane.showMessageDialog(this, "CMND không hợp lệ");
+                        flag = false;
+                    }
+                }
+            }
+            if (flag == true) {
+                String emailPattern = "\\w+@\\w+[.]\\w+([.]\\w+)?";
+                boolean flag4 = eMail.matches(emailPattern);
+                if (flag4 == false) {
+                    JOptionPane.showMessageDialog(this, "Email không hợp lệ");
+                    flag = false;
+                }
+            }
+            if (flag == true) {
 
-                pst = con.prepareStatement("SELECT V.ID_VE\n"
-                        + "FROM ((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
-                        + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
-                        + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
-                        + "    JOIN XE X ON X.ID_XE=C.ID_XE) JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE\n"
-                        + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
-                        + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
-                        + "AND V.TINHTRANG='Trống' AND V.VITRIGHE=?");
+                try {
+                    Class.forName("oracle.jdbc.OracleDriver");
+                    con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
 
-                pst.setString(1, diemLenXe);
-                pst.setString(2, diemXuongXe);
-                pst.setString(3, thoiGianKhoiHanh);
-                pst.setString(4, loaiXe);
-                pst.setString(5, viTriGhe);
+                    pst = con.prepareStatement("SELECT V.ID_VE\n"
+                            + "FROM CHUYENXE C JOIN VE V ON C.ID_CHUYENXE=V.ID_CHUYENXE\n"
+                            + "WHERE C.DIEMDI=? AND C.DIEMDEN =? AND V.VITRIGHE=?\n"
+                            + "  AND  TO_CHAR(THOIGIANKH, 'DD-MM-YYYY HH24:MI:SS') =? ");
 
-                ResultSet rs = pst.executeQuery();
+                    pst.setString(1, diemLenXe);
+                    pst.setString(2, diemXuongXe);
+                    pst.setString(3, viTriGhe);
+                    pst.setString(4, thoiGianKhoiHanh);
 
-                while (rs.next()) {
-                    maVe = rs.getString("ID_VE");
+                    ResultSet rs = pst.executeQuery();
+
+                    while (rs.next()) {
+                        maVe = rs.getString("ID_VE");
+                        System.out.println(maVe);
+                    }
+
+                } catch (ClassNotFoundException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e);
                 }
 
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(null, e);
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+                DatVe datve = new DatVe();
 
-            DatVe datve = new DatVe();
+                //Lay ket qua tu CSDL
+                int countRecord = datve.datVe(maVe, hoTen, sDT, cMND, eMail);
 
-            //Lay ket qua tu CSDL
-            int countRecord = datve.datVe(maVe, hoTen, sDT, cMND, eMail);
-
-            if (countRecord > 0) {
-                JOptionPane.showMessageDialog(this, "Đặt vé thành công!", "Thông báo",
-                        JOptionPane.INFORMATION_MESSAGE, null);
-                hide();
-                XuatVe khach = new XuatVe();
-                khach.setVisible(true);
-                this.setVisible(false);
+                if (countRecord > 0) {
+                    JOptionPane.showMessageDialog(this, "Đặt vé thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
+                    XuatVe khach = new XuatVe();
+                    khach.setVisible(true);
+                    this.setVisible(false);
+                }
             }
         }
 

@@ -638,7 +638,7 @@ public class SuaGiaVe extends javax.swing.JFrame {
                         .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(60, 60, 60)
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(141, 141, 141))
+                        .addGap(18, 18, 18))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel13)
@@ -648,8 +648,8 @@ public class SuaGiaVe extends javax.swing.JFrame {
                         .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(matuyenxe)
                             .addComponent(giave_giave, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(maloaixe))
-                        .addGap(123, 123, 123))))
+                            .addComponent(maloaixe))))
+                .addGap(175, 175, 175))
         );
         gioiThieu_homepageLayout.setVerticalGroup(
             gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -680,7 +680,7 @@ public class SuaGiaVe extends javax.swing.JFrame {
                             .addComponent(nuttim_giave, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(24, 24, 24)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(matuyenxe)
                     .addComponent(jLabel19))
@@ -696,7 +696,7 @@ public class SuaGiaVe extends javax.swing.JFrame {
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel51)
@@ -804,6 +804,7 @@ public class SuaGiaVe extends javax.swing.JFrame {
         int i = dsgiave.getSelectedRow();
 
         if (dsgiave.getSelectedRowCount() == 1) {
+
             String maTuyenXe = matuyenxe.getText();
             String maLoaiXe = maloaixe.getText();
             String giaVe = giave_giave.getText();
@@ -811,27 +812,39 @@ public class SuaGiaVe extends javax.swing.JFrame {
             suagiave.setValueAt(matuyenxe.getText(), i, 0);
             suagiave.setValueAt(maloaixe.getText(), i, 1);
             suagiave.setValueAt(giave_giave.getText(), i, 2);
+            boolean flag = true;
             if (giaVe.equals("")) {
-
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập giá vé\n");
+                flag = false;
             }
-            GiaVe giave = new GiaVe();
-
-            //Lay ket qua tu CSDL
-            int sodongsuatuyenxe = giave.suaGiaVe(maLoaiXe, maTuyenXe, giaVe);
-
-            if (sodongsuatuyenxe > 0) {
-                JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
-                        JOptionPane.INFORMATION_MESSAGE, null);
-                hide();
-
-                SuaGiaVe classsuagiave = new SuaGiaVe();
-                classsuagiave.setVisible(true);
-                this.setVisible(false);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Error");
+            if (flag == true) {
+                String a = "\\d{1,20}";
+                boolean flag2 = giaVe.matches(a);
+                if (flag2 == false) {
+                    JOptionPane.showMessageDialog(this, "Giá vé không hợp lệ");
+                    flag = false;
+                }
             }
+            if (flag == true) {
+                GiaVe giave = new GiaVe();
+
+                //Lay ket qua tu CSDL
+                int sodongsuatuyenxe = giave.suaGiaVe(maLoaiXe, maTuyenXe, giaVe);
+
+                if (sodongsuatuyenxe > 0) {
+                    JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
+
+                    Homepage_QuanLyGiaVe classsuagiave = new Homepage_QuanLyGiaVe();
+                    classsuagiave.setVisible(true);
+                    this.setVisible(false);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
+            }
+
         } else {
             if (dsgiave.getRowCount() == 0) {
                 JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",

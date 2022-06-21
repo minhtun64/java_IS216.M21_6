@@ -16,7 +16,9 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.Vector;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableRowSorter;
 
 /**
  *
@@ -403,10 +405,11 @@ public class QuanLyHanhKhach extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
-                .addGroup(BLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(IDHanhkhach, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                .addGroup(BLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addGroup(BLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(IDHanhkhach, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Timkiem, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -441,35 +444,10 @@ public class QuanLyHanhKhach extends javax.swing.JFrame {
 
     private void TimkiemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TimkiemActionPerformed
         // TODO add your handling code  here:
-        String x = IDHanhkhach.getText();
-        int idhk = Integer.parseInt(x);
-        try {
-            Class.forName("oracle.jdbc.OracleDriver");
-            conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            pst = conn.prepareStatement("SELECT ID_HANHKHACH, TENHK, SDT, CMND, EMAIL FROM HANHKHACH WHERE ID_HANHKHACH =?");
-            pst.setInt(1, idhk);
-            ResultSet rs = pst.executeQuery();
-            ResultSetMetaData rsm = rs.getMetaData();
-            int c;
-            c = rsm.getColumnCount();
-            DefaultTableModel Df = (DefaultTableModel) danhsachhanhkhach.getModel();
-            Df.setRowCount(0);
-            while (rs.next()) {
-                Vector v2 = new Vector();
-                for (int i = 1; i <= c; i++) {
-                    v2.add(rs.getInt("ID_HANHKHACH"));
-                    v2.add(rs.getString("TENHK"));
-                    v2.add(rs.getString("SDT"));
-                    v2.add(rs.getString("CMND"));
-                    v2.add(rs.getString("EMAIL"));
-                }
-                Df.addRow(v2);
-            }
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, e);
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+        DefaultTableModel model = (DefaultTableModel) danhsachhanhkhach.getModel();
+        TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
+        danhsachhanhkhach.setRowSorter(tr);
+        tr.setRowFilter(RowFilter.regexFilter(IDHanhkhach.getText().trim()));
 
     }//GEN-LAST:event_TimkiemActionPerformed
 

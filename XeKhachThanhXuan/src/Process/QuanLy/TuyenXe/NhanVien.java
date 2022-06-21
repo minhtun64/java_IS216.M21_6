@@ -8,6 +8,7 @@ import ConnectDB.CheckOracleConnection;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /**
  *
@@ -17,11 +18,12 @@ public class NhanVien {
 
     public int themNhanVien(String maNQL, String tenNhanVien, String gioiTinh,
             String ngaySinh, String ngayVaoLam, String sDT, String eMail,
-            String tenDangNhap, String matKhau) {
+            String tenDangNhap, String matKhau)throws SQLException, ClassNotFoundException {
         int count = 1;
         // TODO add your handling code here:
         try ( Connection con = CheckOracleConnection.getMyConnection()) {
 
+      //      String strCall = "{call Pro_themnhanvien(?,?,?,to_date(?, 'DD-MM-YYYY'),to_date(?, 'DD-MM-YYYY'),?,?,?,?)}";
             String strCall = "{call Pro_themnhanvien(?,?,?,to_date(?, 'DD-MM-YYYY'),to_date(?, 'DD-MM-YYYY'),?,?,?,?)}";
             CallableStatement caSt = con.prepareCall(strCall);
 

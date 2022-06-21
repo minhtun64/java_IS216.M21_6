@@ -6,12 +6,14 @@ package View.QuanLy.ChuyenXe;
 
 import View.Home.Login_Form;
 import View.KhachHang.ChonChuyen;
+import View.KhachHang.XuatVe;
 import View.QuanLy.GiaVe.Homepage_QuanLyGiaVe;
 import View.QuanLy.Homepage_NguoiQuanLy;
 import View.QuanLy.LoaiXe.Homepage_QuanLyLoaiXe;
 import View.QuanLy.NhanVien.Homepage_QuanLyNhanVien;
 import View.QuanLy.TuyenXe.Homepage_QuanLyTuyenXe;
 import View.QuanLy.Xe.Homepage_QuanLyXe;
+import View.ReportViewer;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
@@ -19,9 +21,14 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.text.MessageFormat;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableRowSorter;
@@ -39,7 +46,6 @@ public class ThongKe extends javax.swing.JFrame {
         this.setResizable(false);
         initComponents();
         fillTable();
-
     }
 
     Connection con;
@@ -101,6 +107,7 @@ public class ThongKe extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         thongke_chuyenxe = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -430,7 +437,7 @@ public class ThongKe extends javax.swing.JFrame {
 
         jLabel54.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px_3.png"))); // NOI18N
-        jLabel54.setText("Chào mừng đến với Quản lý chuyến xe!");
+        jLabel54.setText("Mời thống kê!");
 
         jSeparator3.setForeground(new java.awt.Color(205, 247, 247));
 
@@ -505,10 +512,38 @@ public class ThongKe extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(thongke_chuyenxe);
 
+        jButton1.setFont(new java.awt.Font("Lora SemiBold", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/QuanLy/Icon/QuanLyTuyenXe/icons8_print_30px.png"))); // NOI18N
+        jButton1.setText("In");
+        jButton1.setActionCommand("");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout gioiThieu_homepageLayout = new javax.swing.GroupLayout(gioiThieu_homepage);
         gioiThieu_homepage.setLayout(gioiThieu_homepageLayout);
         gioiThieu_homepageLayout.setHorizontalGroup(
             gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel4)
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(nuttim_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(156, 156, 156))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(99, 99, 99)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(164, 164, 164))))
             .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
@@ -526,31 +561,17 @@ public class ThongKe extends javax.swing.JFrame {
                                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
                                         .addGap(133, 133, 133)
                                         .addComponent(jLabel51)))
-                                .addGap(129, 129, 129)))))
+                                .addGap(129, 129, 129))))
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(nuttim_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(156, 156, 156))
-            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGap(272, 272, 272)
-                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 671, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         gioiThieu_homepageLayout.setVerticalGroup(
             gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -558,22 +579,25 @@ public class ThongKe extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel54)
                 .addGap(6, 6, 6)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(nuttim_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nuttim_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel51)
@@ -603,13 +627,11 @@ public class ThongKe extends javax.swing.JFrame {
 
     private void nuttim_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttim_chuyenxeActionPerformed
         // TODO add your handling code here:
-
+//        DefaultTableModel thongkechuyenxe = (DefaultTableModel) thongke_chuyenxe.getModel();
+//        thongkechuyenxe.setRowCount(0);
         if (ngay_chuyenxe.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày khởi hành!",
                     "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-//            ChonChuyen chonchuyen = new ChonChuyen();
-//            chonchuyen.setVisible(true);
-//            this.setVisible(false);
 
         } else {
             String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_chuyenxe.getDate());
@@ -622,14 +644,13 @@ public class ThongKe extends javax.swing.JFrame {
         int soluongchuyen = 0;
         int doanhthu = 0;
         int sodong = dschuyenxe_homepage.getRowCount();
-     
 
         for (int i = 0; i < sodong; i++) {
             soluongchuyen = soluongchuyen + 1;
 
         }
         for (int j = 0; j < sodong; j++) {
-            doanhthu = doanhthu + (Integer.parseInt(dschuyenxe_homepage.getValueAt(j,4).toString()));
+            doanhthu = doanhthu + (Integer.parseInt(dschuyenxe_homepage.getValueAt(j, 4).toString()));
         }
 
         String soLuongChuyen = String.valueOf(soluongchuyen);
@@ -637,9 +658,9 @@ public class ThongKe extends javax.swing.JFrame {
         String doanhThu = String.valueOf(doanhthu);
         String tbData[] = {soLuongChuyen, doanhThu};
         DefaultTableModel tblModel = (DefaultTableModel) thongke_chuyenxe.getModel();
-        
+        tblModel.setRowCount(0);
         tblModel.addRow(tbData);
-        
+
     }//GEN-LAST:event_nuttim_chuyenxeActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -705,6 +726,30 @@ public class ThongKe extends javax.swing.JFrame {
         login.setVisible(true);
         CloseFrame();
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+//        MessageFormat header = new MessageFormat("Iam Header of the Print Page");
+//        MessageFormat footer = new MessageFormat("Page(0,number,integer)");
+//        try {
+//                dschuyenxe_homepage.print(JTable.PrintMode.NORMAL, header, footer); 
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
+//
+        String ngaykhoihanh = new SimpleDateFormat("dd/MM/yyyy").format(ngay_chuyenxe.getDate());
+        System.out.println(ngaykhoihanh);
+        HashMap hs = new HashMap();
+        hs.put("THOIGIANKH",ngaykhoihanh);
+        String localDir = System.getProperty("user.dir");
+        ReportViewer viewer_inve;
+        try {
+            viewer_inve = new ReportViewer(localDir + "\\src\\Resources\\Report\\Report_ThongKeChuyenXe.jrxml", hs);
+            viewer_inve.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(XuatVe.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -782,6 +827,7 @@ public class ThongKe extends javax.swing.JFrame {
     private javax.swing.JPanel dangXuat_homepage;
     private javax.swing.JTable dschuyenxe_homepage;
     private javax.swing.JPanel gioiThieu_homepage;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel18;

@@ -6,6 +6,7 @@ package View.NhanVien.DatVe;
 
 import View.KhachHang.*;
 import Process.KhachHang.DatVe.DatVe;
+import Process.NhanVien.Ve;
 import View.Home.Login_Form;
 import View.NhanVien.HoanVe.Homepage_QuanLyHoanVe;
 import View.NhanVien.Homepage_NguoiNhanVien;
@@ -49,6 +50,23 @@ public class ThemGhe extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel3 = new javax.swing.JPanel();
+        A10 = new javax.swing.JPanel();
+        jLabel53 = new javax.swing.JLabel();
+        trangChu_homepage10 = new javax.swing.JPanel();
+        jLabel58 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jPanel16 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        dangXuat_homepage = new javax.swing.JPanel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
         gioiThieu_homepage = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel5 = new javax.swing.JLabel();
@@ -89,40 +107,23 @@ public class ThemGhe extends javax.swing.JFrame {
         loaixe_ghe = new javax.swing.JLabel();
         jLabel49 = new javax.swing.JLabel();
         jLabel50 = new javax.swing.JLabel();
-        hoten_datve = new javax.swing.JTextField();
+        hoten_ghe = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        sdt_ghe = new javax.swing.JTextField();
+        cmnd_ghe = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        email_ghe = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         tuyenxe_ghe1 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        cbbghe_datve = new javax.swing.JComboBox<>();
+        cbbghe_ghe = new javax.swing.JComboBox<>();
         nutdatve_datve = new javax.swing.JButton();
         nutquaylai_ghe = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        cbbmanhanvien_datve = new javax.swing.JComboBox<>();
-        A10 = new javax.swing.JPanel();
-        jLabel53 = new javax.swing.JLabel();
-        trangChu_homepage10 = new javax.swing.JPanel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel59 = new javax.swing.JLabel();
-        jPanel16 = new javax.swing.JPanel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel61 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        dangXuat_homepage = new javax.swing.JPanel();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel63 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -137,434 +138,6 @@ public class ThemGhe extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
-
-        gioiThieu_homepage.setBackground(new java.awt.Color(251, 250, 238));
-
-        jSeparator1.setForeground(new java.awt.Color(205, 247, 247));
-
-        jLabel5.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel5.setText("Địa chỉ: 9-9A Tình Duyên, phường Thanh Xuân, TP Hồ Chí Minh");
-
-        jLabel4.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel4.setText("CÔNG TY CỔ PHẦN XE KHÁCH THANH XUÂN");
-
-        jLabel3.setFont(new java.awt.Font("Comfortaa Medium", 1, 18)); // NOI18N
-        jLabel3.setText("1900 7979");
-        jLabel3.setToolTipText("");
-
-        jLabel2.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel2.setText("TỔNG ĐÀI CHĂM SÓC KHÁCH HÀNG");
-
-        jLabel6.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_fax_20px_6.png"))); // NOI18N
-        jLabel6.setText("Fax: 028 7979 6853");
-
-        jLabel7.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_mail_20px_3.png"))); // NOI18N
-        jLabel7.setText("Email: hotro@thanhxuan.vn");
-
-        jLabel8.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_Facebook_20px_4.png"))); // NOI18N
-        jLabel8.setText("Facebook: www.facebook.com/xekhachthanhxuan");
-
-        jLabel12.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_YouTube_20px_2.png"))); // NOI18N
-        jLabel12.setText("Youtube: youtube.com/channel/xekhachthanhxuan");
-
-        jLabel54.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
-        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px.png"))); // NOI18N
-        jLabel54.setText("Xin mời  nhập thông tin đặt vé!!");
-
-        jSeparator3.setForeground(new java.awt.Color(205, 247, 247));
-
-        jPanel4.setBackground(new java.awt.Color(205, 247, 247));
-
-        jLabel35.setFont(new java.awt.Font("Lora Medium", 1, 14)); // NOI18N
-        jLabel35.setText("Hãng xe khách Thanh Xuân");
-
-        jLabel41.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel41.setText("Tuyến xe:");
-
-        jLabel42.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel42.setText("Điểm lên xe:");
-
-        jLabel43.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel43.setText("Điểm xuống xe:");
-
-        jLabel44.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel44.setText("Biển số xe:");
-
-        jLabel45.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel45.setText("Thời gian khởi hành:");
-
-        jLabel46.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel46.setText("Thời gian đến:");
-
-        diemlenxe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        diemlenxe_ghe.setText("jLabel27");
-
-        diemxuongxe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        diemxuongxe_ghe.setText("jLabel27");
-
-        jLabel47.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel47.setText("Giá vé: ");
-
-        jLabel48.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel48.setText("Loại xe:");
-
-        biensoxe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        biensoxe_ghe.setText("jLabel27");
-
-        thoigiankhoihanh_ghe.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
-        thoigiankhoihanh_ghe.setText("jLabel27");
-
-        thoigianden_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        thoigianden_ghe.setText("jLabel27");
-
-        giave_ghe.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
-        giave_ghe.setText("jLabel27");
-
-        loaixe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        loaixe_ghe.setText("jLabel27");
-
-        jLabel49.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
-        jLabel49.setText("Thông tin đặt vé");
-
-        jLabel50.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
-        jLabel50.setText("Thông tin khách hàng");
-
-        hoten_datve.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-        hoten_datve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                hoten_datveActionPerformed(evt);
-            }
-        });
-
-        jLabel18.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel18.setText("Họ và tên");
-
-        jLabel51.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel51.setText("SĐT");
-
-        jTextField6.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-
-        jTextField8.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-
-        jLabel19.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel19.setText("Số CMND ");
-        jLabel19.setToolTipText("");
-
-        jLabel52.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel52.setText("Email");
-
-        jTextField9.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
-        jLabel16.setText("VNĐ");
-
-        tuyenxe_ghe1.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
-        tuyenxe_ghe1.setText("jLabel27");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel52)
-                            .addComponent(jLabel51))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField8)
-                            .addComponent(hoten_datve)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField9)))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel49)
-                            .addComponent(jLabel50)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel46)
-                                    .addComponent(jLabel44)
-                                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel48)
-                                    .addComponent(jLabel47))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(loaixe_ghe)
-                                    .addComponent(thoigiankhoihanh_ghe)
-                                    .addComponent(biensoxe_ghe)
-                                    .addComponent(thoigianden_ghe)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(giave_ghe)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel16))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel35))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel42)
-                                    .addComponent(jLabel43)
-                                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(diemlenxe_ghe)
-                                    .addComponent(diemxuongxe_ghe)
-                                    .addComponent(tuyenxe_ghe1))))
-                        .addGap(0, 8, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel35)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel49)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel41)
-                    .addComponent(tuyenxe_ghe1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel42)
-                    .addComponent(diemlenxe_ghe))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel43)
-                    .addComponent(diemxuongxe_ghe))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel44)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel45)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel46))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(biensoxe_ghe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(thoigiankhoihanh_ghe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(thoigianden_ghe)))
-                .addGap(4, 4, 4)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel48)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel47))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(loaixe_ghe)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(giave_ghe)
-                            .addComponent(jLabel16))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel50)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(hoten_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel51)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel52))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jLabel9.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel9.setText("Chọn vị trí");
-
-        cbbghe_datve.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        cbbghe_datve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbbghe_datveActionPerformed(evt);
-            }
-        });
-
-        nutdatve_datve.setFont(new java.awt.Font("Lora Medium", 1, 14)); // NOI18N
-        nutdatve_datve.setText("Đặt vé");
-        nutdatve_datve.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutdatve_datveActionPerformed(evt);
-            }
-        });
-
-        nutquaylai_ghe.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
-        nutquaylai_ghe.setText("Quay lại");
-        nutquaylai_ghe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nutquaylai_gheActionPerformed(evt);
-            }
-        });
-
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/HanhKhach/Icon/DatGhe/ghecokhung.png"))); // NOI18N
-
-        jLabel17.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        jLabel17.setText("Chọn mã nhân viên");
-
-        javax.swing.GroupLayout gioiThieu_homepageLayout = new javax.swing.GroupLayout(gioiThieu_homepage);
-        gioiThieu_homepage.setLayout(gioiThieu_homepageLayout);
-        gioiThieu_homepageLayout.setHorizontalGroup(
-            gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel54)
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGap(621, 621, 621)
-                                .addComponent(jLabel57)
-                                .addGap(243, 243, 243)
-                                .addComponent(jLabel56)
-                                .addGap(0, 0, 0)
-                                .addComponent(jLabel55))
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jSeparator3)
-                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel5)
-                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                        .addGap(43, 43, 43)
-                                                        .addComponent(jLabel4))
-                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                        .addGap(131, 131, 131)
-                                                        .addComponent(jLabel3))
-                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                        .addGap(72, 72, 72)
-                                                        .addComponent(jLabel2)))
-                                                .addGap(49, 49, 49)
-                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel6)
-                                                    .addComponent(jLabel12)
-                                                    .addComponent(jLabel8)
-                                                    .addComponent(jLabel7)))
-                                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                .addGap(25, 25, 25)
-                                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                        .addGap(113, 113, 113)
-                                                        .addComponent(nutdatve_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                        .addComponent(nutquaylai_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                        .addGap(12, 12, 12)
-                                                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                                                .addComponent(jLabel17)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cbbmanhanvien_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addGap(18, 18, 18)
-                                                                .addComponent(jLabel9)
-                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                .addComponent(cbbghe_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                            .addComponent(jLabel23))))))
-                                        .addGap(0, 0, Short.MAX_VALUE)))
-                                .addGap(0, 0, 0)
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))
-                                    .addComponent(jLabel11)
-                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addComponent(jLabel37)
-                                        .addGap(233, 233, 233)
-                                        .addComponent(jLabel38)
-                                        .addGap(206, 206, 206)
-                                        .addComponent(jLabel36))))))
-                    .addComponent(jSeparator1))
-                .addContainerGap())
-        );
-        gioiThieu_homepageLayout.setVerticalGroup(
-            gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel54)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel55))
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel9)
-                                    .addComponent(cbbghe_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17)
-                                    .addComponent(cbbmanhanvien_datve, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel23)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(nutdatve_datve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(nutquaylai_ghe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel37)
-                                    .addComponent(jLabel38)
-                                    .addComponent(jLabel36))
-                                .addGap(16, 16, 16)))
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel56)
-                            .addComponent(jLabel57)))
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jLabel11)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13))
-                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel5))
-                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel3))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)))))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
 
         A10.setBackground(new java.awt.Color(205, 247, 247));
 
@@ -735,6 +308,440 @@ public class ThemGhe extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
+        gioiThieu_homepage.setBackground(new java.awt.Color(251, 250, 238));
+
+        jSeparator1.setForeground(new java.awt.Color(205, 247, 247));
+
+        jLabel5.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel5.setText("Địa chỉ: 9-9A Tình Duyên, phường Thanh Xuân, TP Hồ Chí Minh");
+
+        jLabel4.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel4.setText("CÔNG TY CỔ PHẦN XE KHÁCH THANH XUÂN");
+
+        jLabel3.setFont(new java.awt.Font("Comfortaa Medium", 1, 18)); // NOI18N
+        jLabel3.setText("1900 7979");
+        jLabel3.setToolTipText("");
+
+        jLabel2.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel2.setText("TỔNG ĐÀI CHĂM SÓC KHÁCH HÀNG");
+
+        jLabel6.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_fax_20px_6.png"))); // NOI18N
+        jLabel6.setText("Fax: 028 7979 6853");
+
+        jLabel7.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_mail_20px_3.png"))); // NOI18N
+        jLabel7.setText("Email: hotro@thanhxuan.vn");
+
+        jLabel8.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_Facebook_20px_4.png"))); // NOI18N
+        jLabel8.setText("Facebook: www.facebook.com/xekhachthanhxuan");
+
+        jLabel12.setFont(new java.awt.Font("Lora", 0, 10)); // NOI18N
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_YouTube_20px_2.png"))); // NOI18N
+        jLabel12.setText("Youtube: youtube.com/channel/xekhachthanhxuan");
+
+        jLabel54.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
+        jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px.png"))); // NOI18N
+        jLabel54.setText("Xin mời  nhập thông tin đặt vé!!");
+
+        jSeparator3.setForeground(new java.awt.Color(205, 247, 247));
+
+        jPanel4.setBackground(new java.awt.Color(205, 247, 247));
+
+        jLabel35.setFont(new java.awt.Font("Lora Medium", 1, 14)); // NOI18N
+        jLabel35.setText("Hãng xe khách Thanh Xuân");
+
+        jLabel41.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel41.setText("Tuyến xe:");
+
+        jLabel42.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel42.setText("Điểm lên xe:");
+
+        jLabel43.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel43.setText("Điểm xuống xe:");
+
+        jLabel44.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel44.setText("Biển số xe:");
+
+        jLabel45.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel45.setText("Thời gian khởi hành:");
+
+        jLabel46.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel46.setText("Thời gian đến:");
+
+        diemlenxe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        diemlenxe_ghe.setText("jLabel27");
+
+        diemxuongxe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        diemxuongxe_ghe.setText("jLabel27");
+
+        jLabel47.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel47.setText("Giá vé: ");
+
+        jLabel48.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel48.setText("Loại xe:");
+
+        biensoxe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        biensoxe_ghe.setText("jLabel27");
+
+        thoigiankhoihanh_ghe.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
+        thoigiankhoihanh_ghe.setText("jLabel27");
+
+        thoigianden_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        thoigianden_ghe.setText("jLabel27");
+
+        giave_ghe.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
+        giave_ghe.setText("jLabel27");
+
+        loaixe_ghe.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        loaixe_ghe.setText("jLabel27");
+
+        jLabel49.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
+        jLabel49.setText("Thông tin đặt vé");
+
+        jLabel50.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
+        jLabel50.setText("Thông tin khách hàng");
+
+        hoten_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+        hoten_ghe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hoten_gheActionPerformed(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel18.setText("Họ và tên");
+
+        jLabel51.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel51.setText("SĐT");
+
+        sdt_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+
+        cmnd_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+
+        jLabel19.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel19.setText("Số CMND ");
+        jLabel19.setToolTipText("");
+
+        jLabel52.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
+        jLabel52.setText("Email");
+
+        email_ghe.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+
+        jLabel16.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
+        jLabel16.setText("VNĐ");
+
+        tuyenxe_ghe1.setFont(new java.awt.Font("Lora Medium", 1, 12)); // NOI18N
+        tuyenxe_ghe1.setText("jLabel27");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel18)
+                            .addComponent(jLabel19)
+                            .addComponent(jLabel52)
+                            .addComponent(jLabel51))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmnd_ghe)
+                            .addComponent(hoten_ghe)
+                            .addComponent(sdt_ghe)
+                            .addComponent(email_ghe)))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel49)
+                            .addComponent(jLabel50)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel46)
+                                    .addComponent(jLabel44)
+                                    .addComponent(jLabel45, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel48)
+                                    .addComponent(jLabel47))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(loaixe_ghe)
+                                    .addComponent(thoigiankhoihanh_ghe)
+                                    .addComponent(biensoxe_ghe)
+                                    .addComponent(thoigianden_ghe)
+                                    .addGroup(jPanel4Layout.createSequentialGroup()
+                                        .addComponent(giave_ghe)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel16))))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(jLabel35))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel42)
+                                    .addComponent(jLabel43)
+                                    .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(6, 6, 6)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(diemlenxe_ghe)
+                                    .addComponent(diemxuongxe_ghe)
+                                    .addComponent(tuyenxe_ghe1))))
+                        .addGap(0, 8, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel41)
+                    .addComponent(tuyenxe_ghe1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel42)
+                    .addComponent(diemlenxe_ghe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel43)
+                    .addComponent(diemxuongxe_ghe))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel44)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel45)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel46))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(biensoxe_ghe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(thoigiankhoihanh_ghe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(thoigianden_ghe)))
+                .addGap(4, 4, 4)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel48)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel47))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(loaixe_ghe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(giave_ghe)
+                            .addComponent(jLabel16))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel50)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel18)
+                    .addComponent(hoten_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel51)
+                    .addComponent(sdt_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel19)
+                    .addComponent(cmnd_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(email_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel52))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jLabel9.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel9.setText("Chọn vị trí");
+
+        cbbghe_ghe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        cbbghe_ghe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbbghe_gheActionPerformed(evt);
+            }
+        });
+
+        nutdatve_datve.setFont(new java.awt.Font("Lora Medium", 1, 14)); // NOI18N
+        nutdatve_datve.setText("Đặt vé");
+        nutdatve_datve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nutdatve_datveActionPerformed(evt);
+            }
+        });
+
+        nutquaylai_ghe.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
+        nutquaylai_ghe.setText("Quay lại");
+        nutquaylai_ghe.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nutquaylai_gheActionPerformed(evt);
+            }
+        });
+
+        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/HanhKhach/Icon/DatGhe/ghecokhung.png"))); // NOI18N
+
+        jLabel14.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
+        jLabel14.setText("Chọn mã nhân viên");
+
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout gioiThieu_homepageLayout = new javax.swing.GroupLayout(gioiThieu_homepage);
+        gioiThieu_homepage.setLayout(gioiThieu_homepageLayout);
+        gioiThieu_homepageLayout.setHorizontalGroup(
+            gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel54)
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGap(621, 621, 621)
+                                .addComponent(jLabel57)
+                                .addGap(243, 243, 243)
+                                .addComponent(jLabel56)
+                                .addGap(0, 0, 0)
+                                .addComponent(jLabel55))
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSeparator3)
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel5)
+                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                        .addGap(43, 43, 43)
+                                                        .addComponent(jLabel4))
+                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                        .addGap(131, 131, 131)
+                                                        .addComponent(jLabel3))
+                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                        .addGap(72, 72, 72)
+                                                        .addComponent(jLabel2)))
+                                                .addGap(49, 49, 49)
+                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabel6)
+                                                    .addComponent(jLabel12)
+                                                    .addComponent(jLabel8)
+                                                    .addComponent(jLabel7)))
+                                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                .addGap(25, 25, 25)
+                                                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                        .addGap(12, 12, 12)
+                                                        .addComponent(jLabel23))
+                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                        .addGap(113, 113, 113)
+                                                        .addComponent(nutdatve_datve, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                        .addComponent(nutquaylai_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                                        .addGap(18, 18, 18)
+                                                        .addComponent(jLabel14)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(jLabel9)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                        .addComponent(cbbghe_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(0, 0, 0)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addComponent(jLabel11)
+                                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                        .addComponent(jLabel37)
+                                        .addGap(233, 233, 233)
+                                        .addComponent(jLabel38)
+                                        .addGap(206, 206, 206)
+                                        .addComponent(jLabel36))))))
+                    .addComponent(jSeparator1))
+                .addContainerGap())
+        );
+        gioiThieu_homepageLayout.setVerticalGroup(
+            gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, gioiThieu_homepageLayout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addGap(98, 98, 98)
+                        .addComponent(jLabel55))
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel9)
+                                    .addComponent(cbbghe_ghe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel14)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel23)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nutdatve_datve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(nutquaylai_ghe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jLabel37)
+                                    .addComponent(jLabel38)
+                                    .addComponent(jLabel36))
+                                .addGap(16, 16, 16)))
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel56)
+                            .addComponent(jLabel57)))
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel10)
+                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel13))
+                    .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel5))
+                            .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel6)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(gioiThieu_homepageLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(jLabel3))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12)))))
+                .addGap(0, 5, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout A10Layout = new javax.swing.GroupLayout(A10);
         A10.setLayout(A10Layout);
         A10Layout.setHorizontalGroup(
@@ -752,7 +759,10 @@ public class ThemGhe extends javax.swing.JFrame {
                             .addComponent(jPanel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(dangXuat_homepage, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(trangChu_homepage10, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(11, 11, 11))))
+                        .addGap(11, 11, 11)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 688, Short.MAX_VALUE)
+                .addGap(5, 5, 5))
         );
         A10Layout.setVerticalGroup(
             A10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -769,7 +779,8 @@ public class ThemGhe extends javax.swing.JFrame {
                 .addComponent(jPanel18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dangXuat_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 217, Short.MAX_VALUE))
+            .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -779,110 +790,17 @@ public class ThemGhe extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addComponent(A10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.PREFERRED_SIZE, 688, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(gioiThieu_homepage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(A10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(A10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nutdatve_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutdatve_datveActionPerformed
-        // TODO add your handling code here:
-        int ret = JOptionPane.showConfirmDialog(this, "Xin mời quý khách xác nhận đặt vé!", "Xác nhận đặt vé",
-                JOptionPane.YES_NO_OPTION);
-        if (ret == JOptionPane.YES_OPTION) {
-
-            String hoTen = hoten_datve.getText();
-            String sDT = jTextField6.getText();
-            String cMND = jTextField8.getText();
-            String eMail = jTextField9.getText();
-            String maVe = null;
-
-            String diemLenXe = diemlenxe_ghe.getText();
-            String diemXuongXe = diemxuongxe_ghe.getText();
-            String thoiGianKhoiHanh = thoigiankhoihanh_ghe.getText();
-            String loaiXe = loaixe_ghe.getText();
-            String viTriGhe = cbbghe_datve.getSelectedItem().toString().trim();
-
-            try {
-                Class.forName("oracle.jdbc.OracleDriver");
-                con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-
-                pst = con.prepareStatement("SELECT V.ID_VE\n"
-                        + "FROM ((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
-                        + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
-                        + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
-                        + "    JOIN XE X ON X.ID_XE=C.ID_XE) JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE\n"
-                        + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
-                        + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
-                        + "AND V.TINHTRANG='Trống' AND V.VITRIGHE=?");
-
-                pst.setString(1, diemLenXe);
-                pst.setString(2, diemXuongXe);
-                pst.setString(3, thoiGianKhoiHanh);
-                pst.setString(4, loaiXe);
-                pst.setString(5, viTriGhe);
-
-                ResultSet rs = pst.executeQuery();
-
-                while (rs.next()) {
-                    maVe = rs.getString("ID_VE");
-                }
-
-            } catch (ClassNotFoundException e) {
-                JOptionPane.showMessageDialog(null, e);
-            } catch (SQLException e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
-
-            DatVe datve = new DatVe();
-
-//            xuatve.hoten2.setText(hoTen);
-//            xuatve.sdt.setText(sDT);
-//            xuatve.cmnd.setText(cMND);
-//            xuatve.email.setText(eMail);
-            //Lay ket qua tu CSDL
-            int countRecord = datve.datVe(maVe, hoTen, sDT, cMND, eMail);
-
-            if (countRecord > 0) {
-                JOptionPane.showMessageDialog(this, "Đặt vé thành công!", "Thông báo",
-                        JOptionPane.INFORMATION_MESSAGE, null);
-                hide();
-
-                ThemXuatVe khach = new ThemXuatVe();
-                khach.setVisible(true);
-                this.setVisible(false);
-            }
-
-        }
-
-//
-//            Homepage_QuanLyTuyenXe quanlytuyenxe = new Homepage_QuanLyTuyenXe();
-//            quanlytuyenxe.setVisible(true);
-    }//GEN-LAST:event_nutdatve_datveActionPerformed
-
-    private void hoten_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoten_datveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_hoten_datveActionPerformed
-
-    private void cbbghe_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbghe_datveActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbbghe_datveActionPerformed
-
-    private void nutquaylai_gheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutquaylai_gheActionPerformed
-        // TODO add your handling code here:
-        Homepage_KhachHang khach = new Homepage_KhachHang();
-        khach.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_nutquaylai_gheActionPerformed
 
     private void trangChu_homepage10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_trangChu_homepage10MouseClicked
         // TODO add your handling code here:
@@ -918,6 +836,131 @@ public class ThemGhe extends javax.swing.JFrame {
         login.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
+
+    private void hoten_gheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hoten_gheActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hoten_gheActionPerformed
+
+    private void cbbghe_gheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbghe_gheActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbbghe_gheActionPerformed
+
+    private void nutdatve_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutdatve_datveActionPerformed
+        // TODO add your handling code here:
+        int ret = JOptionPane.showConfirmDialog(this, "Xin mời quý khách xác nhận đặt vé!", "Xác nhận đặt vé",
+            JOptionPane.YES_NO_OPTION);
+        if (ret == JOptionPane.YES_OPTION) {
+
+            String hoTen = hoten_ghe.getText();
+            String sDT = sdt_ghe.getText();
+            String cMND = cmnd_ghe.getText();
+            String eMail = email_ghe.getText();
+            String maVe = null;
+
+            String diemLenXe = diemlenxe_ghe.getText();
+            String diemXuongXe = diemxuongxe_ghe.getText();
+            String thoiGianKhoiHanh = thoigiankhoihanh_ghe.getText();
+            String loaiXe = loaixe_ghe.getText();
+            String viTriGhe = cbbghe_ghe.getSelectedItem().toString().trim();
+            String maNV = jComboBox1.getSelectedItem().toString().trim();
+
+            boolean flag = true;
+            if (hoTen.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên hành khách\n");
+                flag = false;
+            } else if (sDT.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập số điện thoại\n");
+                flag = false;
+            } else if (cMND.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập CMND\n");
+                flag = false;
+            } else if (eMail.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập Email");
+                flag = false;
+            }
+            if (flag == true) {
+                String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
+                boolean flag2 = sDT.matches(reg);
+                if (flag2 == false) {
+                    JOptionPane.showMessageDialog(this, "Số điện thoại không đúng hoặc không hợp lệ");
+                    flag = false;
+                }
+            }
+            if (flag == true) {
+                {
+                    String cmndPattern = "\\d{9}";
+                    boolean flag3 = cMND.matches(cmndPattern);
+                    if (flag3 == false) {
+                        JOptionPane.showMessageDialog(this, "CMND không hợp lệ");
+                        flag = false;
+                    }
+                }
+            }
+            if (flag == true) {
+
+                try {
+                    Class.forName("oracle.jdbc.OracleDriver");
+                    con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+
+                    pst = con.prepareStatement("SELECT V.ID_VE\n"
+                        + "FROM CHUYENXE C JOIN VE V ON C.ID_CHUYENXE=V.ID_CHUYENXE\n"
+                        + "WHERE C.DIEMDI=? AND C.DIEMDEN =? AND V.VITRIGHE=?\n"
+                        + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS')");
+
+                    pst.setString(1, diemLenXe);
+                    pst.setString(2, diemXuongXe);
+                    pst.setString(3, viTriGhe);
+                    pst.setString(4, thoiGianKhoiHanh);
+
+                    ResultSet rs = pst.executeQuery();
+
+                    while (rs.next()) {
+                        maVe = rs.getString("ID_VE");
+                    }
+
+                } catch (ClassNotFoundException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                } catch (SQLException e) {
+                    JOptionPane.showMessageDialog(null, e);
+                }
+
+                Ve db = new Ve();
+
+                //            xuatve.hoten2.setText(hoTen);
+                //            xuatve.sdt.setText(sDT);
+                //            xuatve.cmnd.setText(cMND);
+                //            xuatve.email.setText(eMail);
+                //Lay ket qua tu CSDL
+                int countRecord = db.ThemVe_QuanLyVe(maVe,maNV, hoTen, sDT, cMND, eMail);
+
+                if (countRecord > 0) {
+                    JOptionPane.showMessageDialog(this, "Đặt vé thành công!", "Thông báo",
+                        JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
+
+                    ThemXuatVe khach = new ThemXuatVe();
+                    khach.setVisible(true);
+                    this.setVisible(false);
+                }
+
+            }
+        }
+
+        //
+        //            Homepage_QuanLyTuyenXe quanlytuyenxe = new Homepage_QuanLyTuyenXe();
+        //            quanlytuyenxe.setVisible(true);
+    }//GEN-LAST:event_nutdatve_datveActionPerformed
+
+    private void nutquaylai_gheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutquaylai_gheActionPerformed
+        // TODO add your handling code here:
+        Homepage_QuanLyDatVe khach = new Homepage_QuanLyDatVe();
+        khach.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_nutquaylai_gheActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -992,7 +1035,7 @@ public class ThemGhe extends javax.swing.JFrame {
             PreparedStatement pst = con.prepareStatement("Select DISTINCT ID_NHANVIEN from NHANVIEN where tinhtrang ='Hoạt động'");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
-                cbbmanhanvien_datve.addItem(rs.getString(1));
+                jComboBox1.addItem(rs.getString(1));
 
             }
 
@@ -1006,20 +1049,22 @@ public class ThemGhe extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel A10;
     public javax.swing.JLabel biensoxe_ghe;
-    public javax.swing.JComboBox<String> cbbghe_datve;
-    private javax.swing.JComboBox<String> cbbmanhanvien_datve;
+    public javax.swing.JComboBox<String> cbbghe_ghe;
+    private javax.swing.JTextField cmnd_ghe;
     private javax.swing.JPanel dangXuat_homepage;
     public javax.swing.JLabel diemlenxe_ghe;
     public javax.swing.JLabel diemxuongxe_ghe;
+    private javax.swing.JTextField email_ghe;
     public javax.swing.JLabel giave_ghe;
     private javax.swing.JPanel gioiThieu_homepage;
-    private javax.swing.JTextField hoten_datve;
+    private javax.swing.JTextField hoten_ghe;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1069,12 +1114,10 @@ public class ThemGhe extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     public javax.swing.JLabel loaixe_ghe;
     private javax.swing.JButton nutdatve_datve;
     private javax.swing.JButton nutquaylai_ghe;
+    private javax.swing.JTextField sdt_ghe;
     public javax.swing.JLabel thoigianden_ghe;
     public javax.swing.JLabel thoigiankhoihanh_ghe;
     private javax.swing.JPanel trangChu_homepage10;

@@ -124,4 +124,20 @@ public class TuyenXe {
         }
         return count;
     }
+            public int DieuKienHuyTuyenXe(String ID) {
+        int count = -1;
+        try {
+            Connection conn = CheckOracleConnection.getMyConnection();
+            String sql = "{?= call Func_dieukien_huytuyenxe(?)}";
+            CallableStatement cstmt  = conn.prepareCall(sql);
+            cstmt.registerOutParameter(1,Types.INTEGER);
+            cstmt.setString(2, ID);
+            cstmt.executeQuery();
+            count=cstmt.getInt(1);
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
 }

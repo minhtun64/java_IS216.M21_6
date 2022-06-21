@@ -15,6 +15,7 @@ import View.QuanLy.ChuyenXe.Homepage_QuanLyChuyenXe;
 import View.QuanLy.GiaVe.Homepage_QuanLyGiaVe;
 import View.QuanLy.Homepage_NguoiQuanLy;
 import View.QuanLy.Xe.Homepage_QuanLyXe;
+import java.awt.HeadlessException;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -22,8 +23,15 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
+import java.text.DateFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
+import org.joda.time.DateTimeComparator;
 
 /**
  *
@@ -42,9 +50,11 @@ public class ThemNhanVien extends javax.swing.JFrame {
 
     Connection con;
     PreparedStatement pst;
+
     public void CloseFrame() {
         super.dispose();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -263,6 +273,7 @@ public class ThemNhanVien extends javax.swing.JFrame {
 
         buttonGroupgioitinh_nhanvien.add(nam_nhanvien);
         nam_nhanvien.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
+        nam_nhanvien.setSelected(true);
         nam_nhanvien.setText("Nam ");
         nam_nhanvien.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -751,73 +762,149 @@ public class ThemNhanVien extends javax.swing.JFrame {
 
     private void them_quanlynhanvienActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_them_quanlynhanvienActionPerformed
         // TODO add your handling code here:
-        String maNQL = cbbmaquanly_nhanvien.getSelectedItem().toString().trim();
-        String ten = ten_nhanvien.getText();
-        nam_nhanvien.setActionCommand("Nam");
-        nu_nhanvien.setActionCommand("Nữ");
-        String gioiTinh = buttonGroupgioitinh_nhanvien.getSelection().getActionCommand();
-        String ngaySinh = new SimpleDateFormat("dd-MM-yyyy").format(ngaysinh_nhanvien.getDate());
-        String ngayVaoLam = new SimpleDateFormat("dd-MM-yyyy").format(ngayvaolam_nhanvien.getDate());
+        try {
+            if (ngaysinh_nhanvien.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày sinh nhân viên!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+            } else if (ngayvaolam_nhanvien.getDate() == null) {
+                JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày vào làm!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+            } else {
+                String maNQL = cbbmaquanly_nhanvien.getSelectedItem().toString().trim();
+                String ten = ten_nhanvien.getText();
+                nam_nhanvien.setActionCommand("Nam");
+                nu_nhanvien.setActionCommand("Nữ");
+                String gioiTinh = buttonGroupgioitinh_nhanvien.getSelection().getActionCommand();
+                String ngaySinh = new SimpleDateFormat("dd-MM-yyyy").format(ngaysinh_nhanvien.getDate());
+                String ngayVaoLam = new SimpleDateFormat("dd-MM-yyyy").format(ngayvaolam_nhanvien.getDate());
 
-        String sDT = sdt_nhanvien.getText();
-        String eMail = email_nhanvien.getText();
-        String tenDangNhap = tendangnhap_nhanvien.getText();
-        String matKhau = matkhau_nhanvien.getText();
-         boolean flag = true;
-            if (ten.equals("")) {
+                String sDT = sdt_nhanvien.getText();
+                String eMail = email_nhanvien.getText();
+                String tenDangNhap = tendangnhap_nhanvien.getText();
+                String matKhau = matkhau_nhanvien.getText();
+                boolean flag = true;
+                if (ten.equals("")) {
 
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên hành khách\n");
-                flag = false;
-            } else if (sDT.equals("")) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập số điện thoại\n");
-                flag = false;
-            } else if (eMail.equals("")) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập Email");
-                flag = false;
-            }else if (tenDangNhap.equals("")) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập tên đăng nhập cho nhân viên");
-                flag = false;
-            }else if (matKhau.equals("")) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập mật khẩu cho nhân viên");
-                flag = false;
-            }else if (ngayvaolam_nhanvien.getDate()==null) {
-                JOptionPane.showMessageDialog(null, "Vui lòng ngày vào làm của nhân viên");
-                flag = false;
-            }else if (ngaysinh_nhanvien.getDate()==null) {
-                JOptionPane.showMessageDialog(null, "Vui lòng nhập ngày sinh của nhân viên");
-                flag = false;
-            }
-            if (flag == true) {
-                String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
-                boolean flag2 = sDT.matches(reg);
-                if (flag2 == false) {
-                    JOptionPane.showMessageDialog(this, "Số điện thoại không đúng hoặc không hợp lệ");
+                    JOptionPane.showMessageDialog(this, "Vui lòng nhập tên nhân viên\n");
+                    flag = false;
+                } else if (sDT.equals("")) {
+                    JOptionPane.showMessageDialog(this, "Vui lòng nhập số điện thoại\n");
+                    flag = false;
+                } else if (eMail.equals("")) {
+                    JOptionPane.showMessageDialog(this, "Vui lòng nhập Email");
+                    flag = false;
+                } else if (tenDangNhap.equals("")) {
+                    JOptionPane.showMessageDialog(this, "Vui lòng nhập tên đăng nhập cho nhân viên");
+                    flag = false;
+                } else if (matKhau.equals("")) {
+                    JOptionPane.showMessageDialog(this, "Vui lòng nhập mật khẩu cho nhân viên");
+                    flag = false;
+                } else if (ngayvaolam_nhanvien.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Vui lòng ngày vào làm của nhân viên");
+                    flag = false;
+                } else if (ngaysinh_nhanvien.getDate() == null) {
+                    JOptionPane.showMessageDialog(null, "Vui lòng nhập ngày sinh của nhân viên");
                     flag = false;
                 }
-            }
-            if (flag == true) {
-                String emailPattern = "\\w+@\\w+[.]\\w+([.]\\w+)?";
-                boolean flag4 = eMail.matches(emailPattern);
-                if (flag4 == false) {
-                    JOptionPane.showMessageDialog(this, "Email không hợp lệ");
-                    flag = false;
+                if (flag == true) {
+                    String tennv = "^[a-zA-Z ]*$";
+                    boolean flag4 = ten.matches(tennv);
+                    if (flag4 == false) {
+                        JOptionPane.showMessageDialog(this, "Tên nhân viên không hợp lệ");
+                        flag = false;
+                    }
+                }
+                
+                if (flag == true) {
+                    int result = ngaySinh.compareTo(ngayVaoLam);
+                    if (result == 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh trong ngày vào làm  :)");
+                        flag = false;
+                    } else if (result > 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm  :)");
+                        flag = false;
+                    } else if (result < 0) {
+//                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm :))");
+//                        flag = false;
+                    } else {
+                        System.out.println("How to get here?");
+                    }
+                }
+                if (flag == true) {
+                    DateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
+                    try {
+                        Date ngaysinh = simpleDateFormat.parse(ngaySinh);
+                        Date ngayvaolam = simpleDateFormat.parse(ngayVaoLam);
+                        long getDiff = (ngaysinh.getTime() - ngayvaolam.getTime());
+                        if (getDiff / 12 < 18) {
+                            JOptionPane.showMessageDialog(null, "Nhân viên chưa đủ 18 tuổi  :)");
+                            flag = false;
+                        }
+                    } catch (ParseException ex) {
+                        Logger.getLogger(ThemNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    int result = ngaySinh.compareTo(ngayVaoLam);
+                    if (result == 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh trong ngày vào làm  :)");
+                        flag = false;
+                    } else if (result > 0) {
+                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm  :)");
+                        flag = false;
+                    } else if (result < 0) {
+//                        JOptionPane.showMessageDialog(null, "Nhân viên không thể sinh sau ngày vào làm :))");
+//                        flag = false;
+                    } else {
+                        System.out.println("How to get here?");
+                    }
+                }
+                if (flag == true) {
+                    String reg = "^(0|\\+84)(\\s|\\.)?((3[2-9])|(5[689])|(7[06-9])|(8[1-689])|(9[0-46-9]))(\\d)(\\s|\\.)?(\\d{3})(\\s|\\.)?(\\d{3})$";
+                    boolean flag2 = sDT.matches(reg);
+                    if (flag2 == false) {
+                        JOptionPane.showMessageDialog(this, "Số điện thoại không đúng hoặc không hợp lệ");
+                        flag = false;
+                    }
+                }
+                if (flag == true) {
+                    String emailPattern = "\\w+@\\w+[.]\\w+([.]\\w+)?";
+                    boolean flag4 = eMail.matches(emailPattern);
+                    if (flag4 == false) {
+                        JOptionPane.showMessageDialog(this, "Email không hợp lệ");
+                        flag = false;
+                    }
+                }
+                if (flag == true) {
+                    System.out.println(gioiTinh);
+                    NhanVien db = new NhanVien();
+
+                    //Lay ket qua tu CSDL
+                    int countRecord = 0;
+                    try {
+                        countRecord = db.themNhanVien(maNQL, ten, gioiTinh, ngaySinh,
+                                ngayVaoLam, sDT, eMail, tenDangNhap, matKhau);
+                    } catch (SQLException ex) {
+                        Logger.getLogger(ThemNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (ClassNotFoundException ex) {
+                        Logger.getLogger(ThemNhanVien.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
+                    if (countRecord > 0) {
+                        JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
+                                JOptionPane.INFORMATION_MESSAGE, null);
+                        hide();
+
+                        Homepage_QuanLyNhanVien quanly = new Homepage_QuanLyNhanVien();
+                        quanly.setVisible(true);
+
+                    }
                 }
             }
-        NhanVien db = new NhanVien();
-
-        //Lay ket qua tu CSDL
-        int countRecord = db.themNhanVien(maNQL, ten, gioiTinh, ngaySinh,
-                ngayVaoLam, sDT, eMail, tenDangNhap, matKhau);
-
-        if (countRecord > 0) {
-            JOptionPane.showMessageDialog(this, "Thêm thành công!", "Thông báo",
-                    JOptionPane.INFORMATION_MESSAGE, null);
-            hide();
-
-            Homepage_QuanLyNhanVien quanly = new Homepage_QuanLyNhanVien();
-            quanly.setVisible(true);
-
+        } catch (HeadlessException e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+
+
     }//GEN-LAST:event_them_quanlynhanvienActionPerformed
 
     private void quaylai_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quaylai_quanlytuyenxeActionPerformed

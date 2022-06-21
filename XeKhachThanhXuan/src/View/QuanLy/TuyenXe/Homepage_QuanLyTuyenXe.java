@@ -44,9 +44,11 @@ public class Homepage_QuanLyTuyenXe extends javax.swing.JFrame {
 
     Connection con;
     PreparedStatement pst;
+
     public void CloseFrame() {
         super.dispose();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -681,46 +683,52 @@ public class Homepage_QuanLyTuyenXe extends javax.swing.JFrame {
 
     private void nutxoa_quanlytuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutxoa_quanlytuyenxeActionPerformed
         // TODO add your handling code here:
-
-        DefaultTableModel tblModel = (DefaultTableModel) danhsachtuyenxe.getModel();
+DefaultTableModel tblModel = (DefaultTableModel) danhsachtuyenxe.getModel();
         int i = danhsachtuyenxe.getSelectedRow();
-
+        int A = -1;
+        int B = -1;
         if (danhsachtuyenxe.getSelectedRowCount() == 1) {
+            String iD = (String) danhsachtuyenxe.getValueAt(i, 0);
             int ret = JOptionPane.showConfirmDialog(this, "Bạn có muốn xóa?", "Xóa dữ liệu",
                     JOptionPane.YES_NO_OPTION);
             if (ret == JOptionPane.YES_OPTION) {
-                String iD = (String) danhsachtuyenxe.getValueAt(i, 0);
-                tblModel.removeRow(danhsachtuyenxe.getSelectedRow());
-                TuyenXe bienxoatuyenxe = new TuyenXe();
-                int sodongxoatuyenxe = bienxoatuyenxe.xoaTuyenXe(iD);
+                try {
+                    TuyenXe tuyenxe = new TuyenXe();
+                    A = tuyenxe.DieuKienHuyTuyenXe(iD);
+                    if (A == 0) {
+                        JOptionPane.showMessageDialog(this, "tuyến xe không thỏa điều kiện để xóa");
 
-                if (sodongxoatuyenxe > 0) {
-                    JOptionPane.showMessageDialog(this, "Xóa thành công!", "Thông báo",
-                            JOptionPane.INFORMATION_MESSAGE, null);
-                    Homepage_QuanLyTuyenXe homepage = new Homepage_QuanLyTuyenXe();
-                    homepage.setVisible(true);
-                    this.setVisible(false);
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error");
+                    } else if (A > 0) {
+                        try {
+                            B = tuyenxe.xoaTuyenXe(iD);
+                            if (B == 0) {
+                                JOptionPane.showMessageDialog(this, "Không thành công  ");
+                            } else if (B > 0) {
+                                JOptionPane.showMessageDialog(this, "Xóa thành công!", "Thông báo",
+                                        JOptionPane.INFORMATION_MESSAGE, null);
+                                Homepage_QuanLyTuyenXe homepage = new Homepage_QuanLyTuyenXe();
+                                homepage.setVisible(true);
+                                this.setVisible(false);
+                            }
+                        } catch (Exception e) {
+                            JOptionPane.showMessageDialog(this, e);
+                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Kiểm tra không thành công  ");
+                    }
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, e);
                 }
             }
         } else {
-            if (danhsachtuyenxe.getRowCount() == 0) {
-
-                JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
-                        "Lỗi", JOptionPane.WARNING_MESSAGE, null);
-                Homepage_QuanLyTuyenXe homepage = new Homepage_QuanLyTuyenXe();
-                homepage.setVisible(true);
-                this.setVisible(false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Vui lòng chọn 1 tuyến xe cần xóa!",
+            if (danhsachtuyenxe.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Mời chọn 1 tuyến xe cần xóa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-                Homepage_QuanLyTuyenXe homepage = new Homepage_QuanLyTuyenXe();
-                homepage.setVisible(true);
-                this.setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chỉ 1 tuyến xe cần xóa!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             }
         }
-
 
     }//GEN-LAST:event_nutxoa_quanlytuyenxeActionPerformed
 

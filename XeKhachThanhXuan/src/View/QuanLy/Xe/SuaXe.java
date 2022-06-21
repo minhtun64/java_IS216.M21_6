@@ -36,13 +36,36 @@ public class SuaXe extends javax.swing.JFrame {
         initComponents();
         fillTable();
         loadcbb();
+        loadcbbmaloaixe();
     }
 
     Connection con;
     PreparedStatement pst;
+
     public void CloseFrame() {
         super.dispose();
     }
+
+    public void loadcbbmaloaixe() {
+
+        try {
+            Class.forName("oracle.jdbc.OracleDriver");
+            con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
+            PreparedStatement pst = con.prepareStatement("Select DISTINCT ID_LOAIXE from LOAIXE where tinhtrang ='Hoạt động'");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+                jComboBox_maloaixe_xe.addItem(rs.getString(1));
+
+            }
+
+        } catch (ClassNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -101,8 +124,8 @@ public class SuaXe extends javax.swing.JFrame {
         quaylai_quanlytuyenxe = new javax.swing.JButton();
         jLabel40 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jComboBox_maloaixe_xe = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        maloaixe_xe = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -565,15 +588,10 @@ public class SuaXe extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(251, 250, 238));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(205, 247, 247)));
 
+        jComboBox_maloaixe_xe.setFont(new java.awt.Font("Lora", 0, 14)); // NOI18N
+
         jLabel5.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel5.setText("Mã loại xe");
-
-        maloaixe_xe.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
-        maloaixe_xe.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                maloaixe_xeActionPerformed(evt);
-            }
-        });
 
         jLabel8.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel8.setText("Tên xe");
@@ -622,14 +640,14 @@ public class SuaXe extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bienso_xe, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                    .addComponent(tenxe_xe)
+                    .addComponent(mauxe_xe)
+                    .addComponent(hangsanxuat_xe)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(maxe_xe)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(bienso_xe, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
-                    .addComponent(maloaixe_xe)
-                    .addComponent(tenxe_xe)
-                    .addComponent(mauxe_xe)
-                    .addComponent(hangsanxuat_xe)))
+                    .addComponent(jComboBox_maloaixe_xe, 0, 105, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -641,7 +659,7 @@ public class SuaXe extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(maloaixe_xe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox_maloaixe_xe, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
@@ -853,10 +871,6 @@ public class SuaXe extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_quaylai_quanlytuyenxeActionPerformed
 
-    private void maloaixe_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_maloaixe_xeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_maloaixe_xeActionPerformed
-
     private void mauxe_xeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mauxe_xeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_mauxe_xeActionPerformed
@@ -866,7 +880,7 @@ public class SuaXe extends javax.swing.JFrame {
         int selectedRow = danhsachxe_xe.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) danhsachxe_xe.getModel();
         maxe_xe.setText(model.getValueAt(selectedRow, 0).toString());
-        maloaixe_xe.setText(model.getValueAt(selectedRow, 1).toString());
+        jComboBox_maloaixe_xe.setSelectedItem(model.getValueAt(selectedRow, 1).toString());
         tenxe_xe.setText(model.getValueAt(selectedRow, 2).toString());
         mauxe_xe.setText(model.getValueAt(selectedRow, 3).toString());
         hangsanxuat_xe.setText(model.getValueAt(selectedRow, 4).toString());
@@ -880,19 +894,19 @@ public class SuaXe extends javax.swing.JFrame {
 
         if (danhsachxe_xe.getSelectedRowCount() == 1) {
             String maXe = maxe_xe.getText();
-            String maLoaiXe = maloaixe_xe.getText();
+            String maLoaiXe = jComboBox_maloaixe_xe.getSelectedItem().toString().trim();
             String tenXe = tenxe_xe.getText();
             String mauXe = mauxe_xe.getText();
             String hangSanXuat = hangsanxuat_xe.getText();
             String bienSo = bienso_xe.getText();
 
-            suaxe.setValueAt(maxe_xe.getText(), i, 0);
-            suaxe.setValueAt(maloaixe_xe.getText(), i, 1);
+            suaxe.setValueAt(maXe, i, 0);
+            suaxe.setValueAt(maLoaiXe, i, 1);
             suaxe.setValueAt(tenxe_xe.getText(), i, 2);
             suaxe.setValueAt(mauxe_xe.getText(), i, 3);
             suaxe.setValueAt(hangsanxuat_xe.getText(), i, 4);
             suaxe.setValueAt(bienso_xe.getText(), i, 5);
-                        boolean flag = true;
+            boolean flag = true;
             if (maXe.equals("")) {
 
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập mã xe\n");
@@ -903,49 +917,44 @@ public class SuaXe extends javax.swing.JFrame {
             } else if (tenXe.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập tên xe");
                 flag = false;
-            }else if (mauXe.equals("")) {
-                JOptionPane.showMessageDialog(this, "Vui lòng nhập mẫu xe");
+            } else if (mauXe.equals("")) {
+                JOptionPane.showMessageDialog(this, "Vui lòng nhập màu xe");
                 flag = false;
-            }else if (hangSanXuat.equals("")) {
+            } else if (hangSanXuat.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập hãng sản xuất");
                 flag = false;
-            }else if (bienSo.equals("")) {
+            } else if (bienSo.equals("")) {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập biển số xe");
                 flag = false;
             }
-            Xe db = new Xe();
+            if (flag == true) {
+                Xe db = new Xe();
 
-            //Lay ket qua tu CSDL
-            int sodongsuaxe = db.suaXe(maXe, maLoaiXe, tenXe,
-                    mauXe, hangSanXuat, bienSo);
+                //Lay ket qua tu CSDL
+                int sodongsuaxe = db.suaXe(maXe, maLoaiXe, tenXe,
+                        mauXe, hangSanXuat, bienSo);
 
-            if (sodongsuaxe > 0) {
-                JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
-                        JOptionPane.INFORMATION_MESSAGE, null);
-                hide();
+                if (sodongsuaxe > 0) {
+                    JOptionPane.showMessageDialog(this, "Sửa thành công!", "Thông báo",
+                            JOptionPane.INFORMATION_MESSAGE, null);
+                    hide();
 
-                Homepage_QuanLyXe xe = new Homepage_QuanLyXe();
-                xe.setVisible(true);
-                this.setVisible(false);
+                    Homepage_QuanLyXe xe = new Homepage_QuanLyXe();
+                    xe.setVisible(true);
+                    this.setVisible(false);
 
-            } else {
-                JOptionPane.showMessageDialog(null, "Error");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error");
+                }
             }
+
         } else {
-            if (danhsachxe_xe.getRowCount() == 0) {
-                JOptionPane.showMessageDialog(this, "Bảng không có dữ liệu!",
-                        "Lỗi", JOptionPane.WARNING_MESSAGE, null);
-                Homepage_QuanLyXe xe = new Homepage_QuanLyXe();
-                xe.setVisible(true);
-                this.setVisible(false);
-
-            } else {
-                JOptionPane.showMessageDialog(this, "Vui lòng chỉ chọn 1 tuyến xe cần sửa!",
+            if (danhsachxe_xe.getSelectedRowCount() == 0) {
+                JOptionPane.showMessageDialog(this, "Mời chọn 1 xe cần sửa!",
                         "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-                Homepage_QuanLyXe xe = new Homepage_QuanLyXe();
-                xe.setVisible(true);
-                this.setVisible(false);
-
+            } else {
+                JOptionPane.showMessageDialog(this, "Vui lòng chỉ 1 xe cần sửa!",
+                        "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
             }
         }
     }//GEN-LAST:event_jButton9ActionPerformed
@@ -1125,6 +1134,7 @@ public class SuaXe extends javax.swing.JFrame {
     private javax.swing.JPanel gioiThieu_homepage;
     private javax.swing.JTextField hangsanxuat_xe;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox_maloaixe_xe;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1169,7 +1179,6 @@ public class SuaXe extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JTextField maloaixe_xe;
     private javax.swing.JTextField mauxe_xe;
     private javax.swing.JLabel maxe_xe;
     private javax.swing.JButton nuttimkiem_xe;

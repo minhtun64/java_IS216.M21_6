@@ -150,7 +150,7 @@ public class SuaChuyen extends javax.swing.JFrame {
 
         jLabel54.setFont(new java.awt.Font("Lora", 0, 12)); // NOI18N
         jLabel54.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Resources/Icon/icons8_heart_20px_3.png"))); // NOI18N
-        jLabel54.setText("Chào mừng đến với Quản lý chuyến xe!");
+        jLabel54.setText("Mời sửa chuyến xe!");
 
         jSeparator3.setForeground(new java.awt.Color(205, 247, 247));
 
@@ -424,8 +424,8 @@ public class SuaChuyen extends javax.swing.JFrame {
                                         .addComponent(jLabel6)
                                         .addGap(171, 171, 171))
                                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
-                                        .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ngay_chuyenxe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(18, 18, 18)
                                         .addComponent(nuttim_chuyenxe, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addComponent(jScrollPane5)))
                     .addGroup(gioiThieu_homepageLayout.createSequentialGroup()
@@ -868,6 +868,13 @@ public class SuaChuyen extends javax.swing.JFrame {
 
     private void nutsua_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nutsua_chuyenxeActionPerformed
         // TODO add your handling code here:
+        if (thoigiankhoihanh.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn thời gian khởi hành!",
+                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+        } else if (thoigianden.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn thời gian đên!",
+                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+        } else {
         DefaultTableModel suachuyenxe = (DefaultTableModel) dschuyenxe_chuyenxe.getModel();
         int i = dschuyenxe_chuyenxe.getSelectedRow();
 
@@ -914,13 +921,7 @@ public class SuaChuyen extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Vui lòng nhập phụ xe");
                 flag = false;
             }
-//            else if (thoigiankhoihanh.getDate()==null) {
-//                JOptionPane.showMessageDialog(null, "Vui lòng nhập phụ xe");
-//                flag = false;
-//            }else if (thoigianden.getDate()==null) {
-//                JOptionPane.showMessageDialog(null, "Vui lòng nhập phụ xe");
-//                flag = false;
-//            }
+
             if (flag == true) {
                 ChuyenXe db = new ChuyenXe();
 
@@ -957,12 +958,15 @@ public class SuaChuyen extends javax.swing.JFrame {
 //                    this.setVisible(false);
             }
         }
-
+        }
 
     }//GEN-LAST:event_nutsua_chuyenxeActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        Homepage_QuanLyChuyenXe quanlychuyenxe = new Homepage_QuanLyChuyenXe();
+        quanlychuyenxe.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void dangXuat_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuat_homepageMouseClicked
@@ -1039,31 +1043,26 @@ public class SuaChuyen extends javax.swing.JFrame {
 
     private void nuttim_chuyenxeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuttim_chuyenxeActionPerformed
 
-        String diemdi = cbbdiemdi_chuyenxe.getSelectedItem().toString().trim();
-        String diemden = cbbdiemden_chuyenxe.getSelectedItem().toString().trim();
-        String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_chuyenxe.getDate());
-
-        if (ngaykhoihanh.equals(null)) {
-            JOptionPane.showMessageDialog(this, "Vui lòng chọn ngày khởi hành!",
+      if (ngay_chuyenxe.getDate() == null) {
+            JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày khởi hành!",
                     "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
-            SuaChuyen chonchuyen = new SuaChuyen();
-            chonchuyen.setVisible(true);
-            this.setVisible(false);
+//            ChonChuyen chonchuyen = new ChonChuyen();
+//            chonchuyen.setVisible(true);
+//            this.setVisible(false);
 
         } else {
-            //            DefaultTableModel model = (DefaultTableModel) dschuyenxe_homepage.getModel();
-            //            TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
-            //            dschuyenxe_homepage.setRowSorter(tr);
-            //            tr.setRowFilter(RowFilter.regexFilter(ngaykhoihanh.trim()));
+            String diemdi = cbbdiemdi_chuyenxe.getSelectedItem().toString().trim();
+            String diemden = cbbdiemden_chuyenxe.getSelectedItem().toString().trim();
+            String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_chuyenxe.getDate());
 
             try {
                 Class.forName("oracle.jdbc.OracleDriver");
                 con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-                pst = con.prepareStatement("SELECT c.id_chuyenxe, c.diemdi, c.diemden, c.thoigiankh, c.thoigianden, c.taixe, c.phuxe, c.slvecon\n"
+                pst = con.prepareStatement("SELECT c.id_chuyenxe, t.id_tuyenxe, c.id_xe, c.id_nql, c.diemdi, c.diemden, c.thoigiankh, c.thoigianden, c.taixe, c.phuxe, c.slvecon\n"
                         + "FROM TUYENXE T JOIN CHUYENXE C ON T.ID_TUYENXE = C.ID_TUYENXE\n"
                         + "WHERE T.DIEMDAU=? AND T.DIEMCUOI=? AND TO_CHAR(THOIGIANKH, 'DD-MM-YYYY') =?");
 
-                //                pst = con.prepareStatement("SELECT * from employee WHERE  userID = '" + userID + "'");
+//                pst = con.prepareStatement("SELECT * from employee WHERE  userID = '" + userID + "'");
                 pst.setString(1, diemdi);
                 pst.setString(2, diemden);
                 pst.setString(3, ngaykhoihanh);
@@ -1082,9 +1081,11 @@ public class SuaChuyen extends javax.swing.JFrame {
 
                     for (int i = 1; i <= c; i++) {
                         v2.add(rs.getString("id_chuyenxe"));
+                        v2.add(rs.getString("id_tuyenxe"));
+                        v2.add(rs.getString("id_xe"));
+                        v2.add(rs.getString("id_nql"));
                         v2.add(rs.getString("diemdi"));
                         v2.add(rs.getString("diemden"));
-                        v2.add(rs.getString("diemdi"));
 
                         v2.add(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("THOIGIANKH"))));
                         v2.add(String.valueOf(new SimpleDateFormat("dd-MM-yyyy HH:mm:ss").format(rs.getTimestamp("thoigianden"))));
@@ -1092,9 +1093,7 @@ public class SuaChuyen extends javax.swing.JFrame {
                         v2.add(rs.getString("phuxe"));
                         v2.add(rs.getInt("slvecon"));
                     }
-
                     Df.addRow(v2);
-
                 }
             } catch (ClassNotFoundException e) {
                 JOptionPane.showMessageDialog(null, e);
@@ -1220,7 +1219,7 @@ public class SuaChuyen extends javax.swing.JFrame {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE");
+            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMCUOI from TUYENXE where tinhtrang = 'Hoạt động'");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 cbbdiemdi_chuyenxe.addItem(rs.getString(1));
@@ -1238,7 +1237,7 @@ public class SuaChuyen extends javax.swing.JFrame {
         try {
             Class.forName("oracle.jdbc.OracleDriver");
             con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
-            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE");
+            PreparedStatement pst = con.prepareStatement("Select DISTINCT DIEMDAU from TUYENXE where tinhtrang = 'Hoạt động'");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
                 cbbdiemden_chuyenxe.addItem(rs.getString(1));

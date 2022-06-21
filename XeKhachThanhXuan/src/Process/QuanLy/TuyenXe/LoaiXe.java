@@ -8,7 +8,7 @@ import ConnectDB.CheckOracleConnection;
 import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-
+import java.sql.Types;
 /**
  *
  * @author duyta
@@ -75,6 +75,22 @@ public class LoaiXe {
             if (!rs.isBeforeFirst()) {
                 count = 0;
             }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return count;
+    }
+    public int DieuKienHuyLoaiXe(String ID_LoaiXe) {
+        int count = -1;
+        try {
+            Connection conn = CheckOracleConnection.getMyConnection();
+            String sql = "{?= call Func_dieukien_huyloaixe(?)}";
+            CallableStatement cstmt  = conn.prepareCall(sql);
+            cstmt.registerOutParameter(1,Types.INTEGER);
+            cstmt.setString(2, ID_LoaiXe);
+            cstmt.executeQuery();
+            count=cstmt.getInt(1);
+
         } catch (Exception e) {
             System.out.println(e);
         }
