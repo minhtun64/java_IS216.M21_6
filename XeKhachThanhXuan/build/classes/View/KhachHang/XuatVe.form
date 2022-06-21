@@ -926,7 +926,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lora SemiBold" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n"/>
+                <Property name="text" type="java.lang.String" value="H&#x1ecd; v&#xe0; t&#xea;n:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel51">
@@ -934,7 +934,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lora SemiBold" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="S&#x110;T"/>
+                <Property name="text" type="java.lang.String" value="S&#x110;T:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
@@ -942,7 +942,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lora SemiBold" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="S&#x1ed1; CMND "/>
+                <Property name="text" type="java.lang.String" value="S&#x1ed1; CMND: "/>
                 <Property name="toolTipText" type="java.lang.String" value=""/>
               </Properties>
             </Component>
@@ -951,7 +951,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Lora SemiBold" size="12" style="0"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Email"/>
+                <Property name="text" type="java.lang.String" value="Email:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
