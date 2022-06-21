@@ -61,7 +61,7 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td><a href="https://www.facebook.com/minhtuan644">Minh Tuấn</a></td>
   <td>0949385911</td>
   <td>Nhóm trưởng</td>
-  <td>------</td>
+  <td>25</td>
 </tr>
   <tr>
   <td>Nông Tiến Dũng</td>
@@ -69,7 +69,7 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td><a href="https://www.facebook.com/nongtiendung.2309/">Tiến Dũng</a></td>
   <td>0335594771</td>
   <td>-----</td>
-  <td>------</td>
+  <td>25</td>
 </tr>
   <tr>
   <td>Nguyễn Đức Thuần</td>
@@ -77,7 +77,7 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td><a href="https://www.facebook.com/profile.php?id=100014732828317">Đức Thuần</a></td>
   <td>0886339784</td>
   <td>Thiết kế database</td>
-   <td>------</td>
+   <td>25</td>
 </tr>
   <tr>
   <td>Nguyễn Duy Tài</td>
@@ -85,7 +85,7 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td><a href="https://www.facebook.com/duytai800">Duy Tài</a></td>
   <td>0335586347</td>
   <td>----------</td>
-  <td>------</td>
+  <td>25</td>
 </tr>
 </table>
 <!-- #Hệ Thống Quản Lý Mua Bán Vé Xe Khách
