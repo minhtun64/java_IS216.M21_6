@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package View.KhachHang;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -594,11 +595,10 @@ public class ChonChuyen extends javax.swing.JFrame {
                         + "JOIN XE X ON X.ID_XE = C.ID_XE\n"
                         + "JOIN LOAIXE L ON L.ID_LOAIXE=X.ID_LOAIXE\n"
                         + "JOIN GIAVE G ON G.ID_LOAIXE = L.ID_LOAIXE\n"
-                        + "WHERE T.TINHTRANG ='Hoạt động' AND \n"
-                        + "    L.TINHTRANG ='Hoạt động'\n"
-                        + "    AND T.DIEMDAU =? AND T.DIEMCUOI =?\n"
-                        + "    AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY')\n"
-                        + "    AND  T.ID_TUYENXE  = G.ID_TUYENXE");
+                        + "WHERE T.TINHTRANG ='Hoạt động' AND L.TINHTRANG ='Hoạt động'\n"
+                        + "AND T.DIEMDAU =? AND T.DIEMCUOI = ?\n"
+                        + "AND TO_CHAR(C.THOIGIANKH,  'DD-MM-YYYY')  =?\n"
+                        + " AND  T.ID_TUYENXE  = G.ID_TUYENXE AND C.SLVECON >0");
 
                 pst.setString(1, diemdi);
                 pst.setString(2, diemden);

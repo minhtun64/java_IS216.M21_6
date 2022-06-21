@@ -708,14 +708,14 @@ public class ThemDatVe extends javax.swing.JFrame {
         // TODO add your handling code here:
         Homepage_QuanLyHoanVe quanlyhoanve = new Homepage_QuanLyHoanVe();
         quanlyhoanve.setVisible(true);
-       this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_jPanel18QuanLyHoanVeMouseClicked
 
     private void dangXuat_homepageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dangXuat_homepageMouseClicked
         // TODO add your handling code here:
         Login_Form login = new Login_Form();
         login.setVisible(true);
-       this.setVisible(false);
+        this.setVisible(false);
     }//GEN-LAST:event_dangXuat_homepageMouseClicked
 
     private void cbbdiemdi_datveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbbdiemdi_datveActionPerformed
@@ -729,7 +729,7 @@ public class ThemDatVe extends javax.swing.JFrame {
         panelnutchon_datve.setVisible(true);
         if (ngay_datve.getDate() == null) {
             JOptionPane.showMessageDialog(null, "Vui lòng chọn ngày khởi hành!",
-                "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
+                    "Lỗi thao tác", JOptionPane.WARNING_MESSAGE, null);
         } else {
             String diemdi = cbbdiemdi_datve.getSelectedItem().toString().trim();
             String diemden = cbbdiemden_datve.getSelectedItem().toString().trim();
@@ -744,15 +744,14 @@ public class ThemDatVe extends javax.swing.JFrame {
                 Class.forName("oracle.jdbc.OracleDriver");
                 con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
                 pst = con.prepareStatement("SELECT C.DIEMDI, C.DIEMDEN, C.THOIGIANKH, L.TENLOAIXE, G.GIAVE\n"
-                    + "FROM CHUYENXE C JOIN TUYENXE T ON C.ID_TUYENXE=T.ID_TUYENXE\n"
-                    + "JOIN XE X ON X.ID_XE = C.ID_XE\n"
-                    + "JOIN LOAIXE L ON L.ID_LOAIXE=X.ID_LOAIXE\n"
-                    + "JOIN GIAVE G ON G.ID_LOAIXE = L.ID_LOAIXE\n"
-                    + "WHERE T.TINHTRANG ='Hoạt động' AND \n"
-                    + "    L.TINHTRANG ='Hoạt động'\n"
-                    + "    AND T.DIEMDAU =? AND T.DIEMCUOI =?\n"
-                    + "    AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY')\n"
-                    + "    AND  T.ID_TUYENXE  = G.ID_TUYENXE");
+                        + "FROM CHUYENXE C JOIN TUYENXE T ON C.ID_TUYENXE=T.ID_TUYENXE\n"
+                        + "JOIN XE X ON X.ID_XE = C.ID_XE\n"
+                        + "JOIN LOAIXE L ON L.ID_LOAIXE=X.ID_LOAIXE\n"
+                        + "JOIN GIAVE G ON G.ID_LOAIXE = L.ID_LOAIXE\n"
+                        + "WHERE T.TINHTRANG ='Hoạt động' AND L.TINHTRANG ='Hoạt động'\n"
+                        + "AND T.DIEMDAU =? AND T.DIEMCUOI = ?\n"
+                        + "AND TO_CHAR(C.THOIGIANKH,  'DD-MM-YYYY')  =?\n"
+                        + " AND  T.ID_TUYENXE  = G.ID_TUYENXE AND C.SLVECON >0");
 
                 pst.setString(1, diemdi);
                 pst.setString(2, diemden);
@@ -817,13 +816,13 @@ public class ThemDatVe extends javax.swing.JFrame {
                 con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
 
                 pst = con.prepareStatement("SELECT T.TENTUYEN, C.THOIGIANDEN, X.BIENSO, V.VITRIGHE\n"
-                    + "FROM (((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
-                    + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
-                    + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
-                    + "    JOIN XE X ON X.ID_XE=C.ID_XE)JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE)\n"
-                    + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
-                    + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
-                    + "AND V.TINHTRANG='Trống' ");
+                        + "FROM (((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
+                        + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
+                        + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
+                        + "    JOIN XE X ON X.ID_XE=C.ID_XE)JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE)\n"
+                        + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
+                        + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
+                        + "AND V.TINHTRANG='Trống' ");
 
                 pst.setString(1, diemlenxe);
                 pst.setString(2, diemxuongxe);
@@ -870,13 +869,13 @@ public class ThemDatVe extends javax.swing.JFrame {
                 con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
 
                 pst = con.prepareStatement("SELECT T.TENTUYEN, C.THOIGIANDEN, X.BIENSO, V.VITRIGHE\n"
-                    + "FROM (((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
-                    + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
-                    + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
-                    + "    JOIN XE X ON X.ID_XE=C.ID_XE)JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE)\n"
-                    + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
-                    + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
-                    + "AND V.TINHTRANG='Trống' ");
+                        + "FROM (((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
+                        + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
+                        + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
+                        + "    JOIN XE X ON X.ID_XE=C.ID_XE)JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE)\n"
+                        + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
+                        + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
+                        + "AND V.TINHTRANG='Trống' ");
 
                 pst.setString(1, diemlenxe);
                 pst.setString(2, diemxuongxe);
@@ -921,13 +920,13 @@ public class ThemDatVe extends javax.swing.JFrame {
                 con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl", "c##TEST3", "Square1");
 
                 pst = con.prepareStatement("SELECT T.TENTUYEN, C.THOIGIANDEN, X.BIENSO, V.VITRIGHE\n"
-                    + "FROM (((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
-                    + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
-                    + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
-                    + "    JOIN XE X ON X.ID_XE=C.ID_XE)JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE)\n"
-                    + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
-                    + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
-                    + "AND V.TINHTRANG='Trống' ");
+                        + "FROM (((((CHUYENXE C JOIN TUYENXE T ON T.ID_TUYENXE = C.ID_TUYENXE)\n"
+                        + "	JOIN GIAVE G ON T.ID_TUYENXE= G.ID_TUYENXE )\n"
+                        + "	JOIN LOAIXE L ON G.ID_LOAIXE = L.ID_LOAIXE) \n"
+                        + "    JOIN XE X ON X.ID_XE=C.ID_XE)JOIN VE V ON V.ID_CHUYENXE=C.ID_CHUYENXE)\n"
+                        + "WHERE C.DIEMDI=? AND C.DIEMDEN =?\n"
+                        + "AND C.THOIGIANKH =TO_DATE(?,  'DD-MM-YYYY HH24:MI:SS') AND L.TENLOAIXE=?\n"
+                        + "AND V.TINHTRANG='Trống' ");
 
                 pst.setString(1, diemlenxe);
                 pst.setString(2, diemxuongxe);
