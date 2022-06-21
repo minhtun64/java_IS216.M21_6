@@ -121,7 +121,8 @@ Phần mềm phải đảm bảo được các mục tiêu:
 - JDK 17
   
 # <h2 id="mohinh">Mô hình dữ liệu
-![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)
+![sơ đồ 2](https://user-images.githubusercontent.com/87002579/174849576-32886079-ca1e-4a24-848f-0babb573accb.png)
+
 
 # <h2 id="congnghe">Công nghệ sử dụng
 - <a href="https://netbeans.apache.org/">Apache NetBeans</a>
