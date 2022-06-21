@@ -60,7 +60,7 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td>20522106</td>
   <td><a href="https://www.facebook.com/minhtuan644">Minh Tuấn</a></td>
   <td>0949385911</td>
-  <td>Nhóm trưởng</td>
+  <td>Thiết kế database</td>
   <td>25</td>
 </tr>
   <tr>
@@ -68,7 +68,7 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td>20521212</td>
   <td><a href="https://www.facebook.com/nongtiendung.2309/">Tiến Dũng</a></td>
   <td>0335594771</td>
-  <td>-----</td>
+  <td>Code Frontend</td>
   <td>25</td>
 </tr>
   <tr>
@@ -84,7 +84,7 @@ Phần mềm phải đảm bảo được các mục tiêu:
   <td>20520299</td>
   <td><a href="https://www.facebook.com/duytai800">Duy Tài</a></td>
   <td>0335586347</td>
-  <td>----------</td>
+  <td>Code backend</td>
   <td>25</td>
 </tr>
 </table>
