@@ -110,9 +110,16 @@ Phần mềm phải đảm bảo được các mục tiêu:
   + Quản lý loại xe.
   + Quản lý giá vé.
   + Quản lý nhân viên.
+  
+# <h2 id="chucnangnangcao">Chức năng nâng cao
+- Vẽ biểu đồ cột
+- Hoàn vé theo ngày
+- Xuất exe
+  
 # <h2 id="yeucau">Yêu cầu hệ thống
 - Oracle Database
 - JDK 17
+  
 # <h2 id="mohinh">Mô hình dữ liệu
 ![ERD (16)](https://user-images.githubusercontent.com/87002579/170882725-2e22ab68-71d1-43b7-8776-138507cfb12d.jpg)
 
