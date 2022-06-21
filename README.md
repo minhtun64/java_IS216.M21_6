@@ -22,6 +22,7 @@
     <li><a href="#muctieu">Mục tiêu đồ án</a></li>
     <li><a href="#dsthanhvien">Danh sách thành viên</a></li>
     <li><a href="#chucnang">Các chức năng</a></li>
+    <li><a href="#chucnangnangcao">Chức năng nâng cao</a></li>
     <li><a href="#yeucau">Yêu cầu hệ thống</a></li>
     <li><a href="#mohinh">Mô hình</a></li>
     <li><a href="#congnghe">Công nghệ sử dụng</a></li>
