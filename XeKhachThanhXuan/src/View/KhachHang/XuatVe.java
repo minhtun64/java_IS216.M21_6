@@ -333,17 +333,17 @@ public class XuatVe extends javax.swing.JFrame {
         jLabel50.setText("Thông tin khách hàng");
 
         jLabel18.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel18.setText("Họ và tên");
+        jLabel18.setText("Họ và tên:");
 
         jLabel51.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel51.setText("SĐT");
+        jLabel51.setText("SĐT:");
 
         jLabel19.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel19.setText("Số CMND ");
+        jLabel19.setText("Số CMND: ");
         jLabel19.setToolTipText("");
 
         jLabel52.setFont(new java.awt.Font("Lora SemiBold", 0, 12)); // NOI18N
-        jLabel52.setText("Email");
+        jLabel52.setText("Email:");
 
         jLabel16.setFont(new java.awt.Font("Lora SemiBold", 1, 12)); // NOI18N
         jLabel16.setText("VNĐ");

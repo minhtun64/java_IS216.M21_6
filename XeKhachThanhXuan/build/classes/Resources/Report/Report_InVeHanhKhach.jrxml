@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c202add6-d6bd-4c95-b24f-a79286011134">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="367"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT H.TENHK, T.TENTUYEN, T.DIEMDAU, T. DIEMCUOI, X.BIENSO, V.VITRIGHE,
 C.THOIGIANKH, C.THOIGIANDEN, L.TENLOAIXE, D.TONGTIEN, H.SDT, H.CMND, H.EMAIL, D.ID_DATVE
@@ -151,7 +151,7 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 				<text><![CDATA[Tên hành khách:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="140" y="42" width="100" height="20" uuid="89582608-75b4-4ae3-a37b-b26c4677157d"/>
+				<reportElement x="140" y="42" width="137" height="20" uuid="89582608-75b4-4ae3-a37b-b26c4677157d"/>
 				<textElement>
 					<font fontName="Lora" size="13" isBold="true"/>
 				</textElement>
@@ -307,7 +307,7 @@ WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="33" splitType="Stretch"/>
+		<band height="40" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="113" splitType="Stretch">
