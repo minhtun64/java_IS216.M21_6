@@ -96,9 +96,7 @@ and extract(year from THOIGIANKH) = $P{nam}]]>
 	<queryString>
 		<![CDATA[SELECT ID_CHUYENXE, DIEMDI, DIEMDEN,  THOIGIANKH, DOANHTHU
 FROM CHUYENXE
-WHERE extract(day from THOIGIANKH) = $P{ngay}
-and extract(month from THOIGIANKH) = $P{thang}
-and extract(year from THOIGIANKH) = $P{nam}]]>
+WHERE TO_CHAR(THOIGIANKH,  'DD-MM-YYYY')  =$P{ngaythongke}]]>
 	</queryString>
 	<field name="ID_CHUYENXE" class="java.math.BigDecimal"/>
 	<field name="DIEMDI" class="java.lang.String"/>
@@ -144,7 +142,7 @@ and extract(year from THOIGIANKH) = $P{nam}]]>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="73" splitType="Stretch">
+		<band height="85" splitType="Stretch">
 			<staticText>
 				<reportElement x="142" y="0" width="237" height="21" uuid="c9301203-d32a-4644-beb2-c7f353fcc9ff"/>
 				<textElement>
@@ -153,19 +151,26 @@ and extract(year from THOIGIANKH) = $P{nam}]]>
 				<text><![CDATA[BÁO CÁO DOANH THU NGÀY ]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="19" y="41" width="564" height="20" uuid="0ab976f6-b3ac-4f89-be03-ead04aac1b5b"/>
+				<reportElement x="20" y="49" width="564" height="20" uuid="0ab976f6-b3ac-4f89-be03-ead04aac1b5b"/>
 				<textElement>
 					<font fontName="Lora" size="12" isBold="false"/>
 				</textElement>
 				<text><![CDATA[Bộ phận kinh doanh xin gửi bảng báo cáo doanh thu theo ngày của hãng xe như sau:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="21" width="564" height="20" uuid="c3bb401f-4460-409b-a181-df4bac7e8b6c"/>
+				<reportElement x="20" y="26" width="564" height="20" uuid="c3bb401f-4460-409b-a181-df4bac7e8b6c"/>
 				<textElement>
 					<font fontName="Lora" size="12" isBold="false"/>
 				</textElement>
-				<text><![CDATA[- Kính gửi: Ông Nguyễn Minh Nhựt - Giám đốc kinh doanh hãng xe khách Thanh Xuân]]></text>
+				<text><![CDATA[Kính gửi: Ông Nguyễn Minh Nhựt - Giám đốc kinh doanh hãng xe khách Thanh Xuân]]></text>
 			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="371" y="0" width="144" height="25" uuid="6f764df9-254e-419e-8d78-9359e4902176"/>
+				<textElement>
+					<font fontName="Lora" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ngaythongke}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
