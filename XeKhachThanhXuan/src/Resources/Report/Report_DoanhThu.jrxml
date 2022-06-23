@@ -92,13 +92,11 @@ and extract(year from THOIGIANKH) = $P{nam}]]>
 		<field name="THOIGIANKH" class="java.sql.Timestamp"/>
 		<field name="DOANHTHU" class="java.math.BigDecimal"/>
 	</subDataset>
-	<parameter name="ngaythongke" class="java.lang.String"/>
+	<parameter name="parameter_ngaythongke" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT ID_CHUYENXE, DIEMDI, DIEMDEN,  THOIGIANKH, DOANHTHU
 FROM CHUYENXE
-WHERE extract(day from THOIGIANKH) = $P{ngay}
-and extract(month from THOIGIANKH) = $P{thang}
-and extract(year from THOIGIANKH) = $P{nam}]]>
+WHERE TO_CHAR(THOIGIANKH,  'DD-MM-YYYY')  =$P{parameter_ngaythongke}]]>
 	</queryString>
 	<field name="ID_CHUYENXE" class="java.math.BigDecimal"/>
 	<field name="DIEMDI" class="java.lang.String"/>
@@ -166,6 +164,13 @@ and extract(year from THOIGIANKH) = $P{nam}]]>
 				</textElement>
 				<text><![CDATA[- Kính gửi: Ông Nguyễn Minh Nhựt - Giám đốc kinh doanh hãng xe khách Thanh Xuân]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="370" y="1" width="222" height="40" uuid="e6537a99-ba4f-4a06-bbbb-3b8013624fc5"/>
+				<textElement>
+					<font fontName="Lora" size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{parameter_ngaythongke}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>

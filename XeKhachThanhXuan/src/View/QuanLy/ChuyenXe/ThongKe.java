@@ -680,15 +680,18 @@ public class ThongKe extends javax.swing.JFrame {
 
         }
         int soluongchuyen = 0;
-        int doanhthu = 0;
+        
         int sodong = dschuyenxe_homepage.getRowCount();
 
         for (int i = 0; i < sodong; i++) {
             soluongchuyen = soluongchuyen + 1;
 
         }
+        
+        int doanhthu = 0;
         for (int j = 0; j < sodong; j++) {
-            doanhthu = doanhthu + (Integer.parseInt(dschuyenxe_homepage.getValueAt(j, 4).toString()));
+            //doanhthu = doanhthu + (Integer.parseInt(dschuyenxe_homepage.getValueAt(j, 4).toString()));
+            doanhthu = doanhthu + (Integer)dschuyenxe_homepage.getValueAt(j, 4);
         }
 
         String soLuongChuyen = String.valueOf(soluongchuyen);
@@ -820,22 +823,22 @@ public class ThongKe extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-//        String ngaykhoihanh = new SimpleDateFormat("dd/MM/yyyy").format(ngay_chuyenxe.getDate());
-//        System.out.println(ngaykhoihanh);
-//
-//        try {
-//            LayNgay(ngaykhoihanh);
-//        } catch (SQLException | JRException ex) {
-//            System.out.println(ex);
-//        }
+        String ngaykhoihanh = new SimpleDateFormat("dd-MM-yyyy").format(ngay_chuyenxe.getDate());
+        System.out.println(ngaykhoihanh);
 
-        MessageFormat header = new MessageFormat("Báo cáo doanh thu");
-        MessageFormat footer = new MessageFormat("Hãng xe khách Thanh Xuân");
         try {
-                dschuyenxe_homepage.print(JTable.PrintMode.NORMAL, header, footer); 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
+            LayNgay(ngaykhoihanh);
+        } catch (SQLException | JRException ex) {
+            System.out.println(ex);
         }
+
+//        MessageFormat header = new MessageFormat("Báo cáo doanh thu");
+//        MessageFormat footer = new MessageFormat("Hãng xe khách Thanh Xuân");
+//        try {
+//                dschuyenxe_homepage.print(JTable.PrintMode.NORMAL, header, footer); 
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        }
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -914,8 +917,8 @@ public class ThongKe extends javax.swing.JFrame {
         HashMap hs = new HashMap();
         hs.put("parameter_ngaythongke", ngay);
         String localDir = System.getProperty("user.dir");
-        ReportViewer viewer_thongke = new ReportViewer(localDir + "\\src\\Resources\\Report\\Report_DoanhThu.jrxml", hs);
-        viewer_thongke.setVisible(true);
+        ReportViewer viewer_baocaoindoanhthu = new ReportViewer(localDir + "\\src\\Resources\\Report\\Report_DoanhThu.jrxml", hs);
+        viewer_baocaoindoanhthu.setVisible(true);
 
     }
 
