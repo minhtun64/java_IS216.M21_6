@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c202add6-d6bd-4c95-b24f-a79286011134">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="367"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT H.TENHK, T.TENTUYEN, T.DIEMDAU, T. DIEMCUOI, X.BIENSO, V.VITRIGHE,
+C.THOIGIANKH, C.THOIGIANDEN, L.TENLOAIXE, D.TONGTIEN, H.SDT, H.CMND, H.EMAIL, D.ID_DATVE
+FROM (((((DATVE D JOIN VE v ON V.ID_VE=D.ID_VE)
+ JOIN HANHKHACH H ON D.ID_HANHKHACH=H.ID_HANHKHACH)
+ JOIN CHUYENXE C ON C.ID_CHUYENXE = V.ID_CHUYENXE)
+JOIN XE X ON X.ID_XE = C.ID_XE)
+JOIN LOAIXE L ON L.ID_LOAIXE=X.ID_LOAIXE)
+JOIN TUYENXE t ON t.ID_TUYENXE=C.ID_tuyenxe
+WHERE D.ID_DATVE= (SELECT MAX(DATVE.ID_DATVE) FROM DATVE )]]>
+	</queryString>
+	<field name="TENHK" class="java.lang.String"/>
+	<field name="TENTUYEN" class="java.lang.String"/>
+	<field name="DIEMDAU" class="java.lang.String"/>
+	<field name="DIEMCUOI" class="java.lang.String"/>
+	<field name="BIENSO" class="java.lang.String"/>
+	<field name="VITRIGHE" class="java.math.BigDecimal"/>
+	<field name="THOIGIANKH" class="java.sql.Timestamp"/>
+	<field name="THOIGIANDEN" class="java.sql.Timestamp"/>
+	<field name="TENLOAIXE" class="java.lang.String"/>
+	<field name="TONGTIEN" class="java.math.BigDecimal"/>
+	<field name="SDT" class="java.lang.String"/>
+	<field name="CMND" class="java.lang.String"/>
+	<field name="EMAIL" class="java.lang.String"/>
+	<field name="ID_DATVE" class="java.math.BigDecimal"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="100" splitType="Stretch">
+			<textField pattern="d/M/yyyy">
+				<reportElement x="277" y="66" width="100" height="20" uuid="e4cff005-1d40-4f93-a150-27a9d50905f9"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="0" y="0" width="132" height="93" uuid="ab176a34-25fe-4315-b4a7-26f1e4ced1ca"/>
+				<imageExpression><![CDATA["D:\\UIT\\II\\HK IV\\Programming with Java\\Project\\Project\\HÃNG XE KHÁCH logo.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="175" y="66" width="100" height="20" uuid="3ab1b748-000e-490a-9a42-623cac4aeeeb"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[TP Hồ Chí Minh, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="119" y="8" width="323" height="35" uuid="87bbb772-8952-4af0-857e-789003c0714b"/>
+				<textElement>
+					<font fontName="Lora SemiBold" size="20"/>
+				</textElement>
+				<text><![CDATA[HÃNG XE KHÁCH THANH XUÂN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="207" y="46" width="161" height="20" uuid="15a3370b-3410-459c-9c1f-9f46624663f1"/>
+				<textElement>
+					<font fontName="Lora SemiBold" size="14"/>
+				</textElement>
+				<text><![CDATA[XIN THÔNG BÁO]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="115" splitType="Stretch">
+			<textField>
+				<reportElement x="350" y="51" width="157" height="31" uuid="866ef21f-425f-4d81-b8f5-380a54f2eff6"/>
+				<textElement>
+					<font fontName="Lora" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ID_DATVE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="230" y="92" width="120" height="20" uuid="803974cd-cc40-4145-a44f-3496e91179bf"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Chi tiết như sau:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="262" y="18" width="235" height="29" uuid="2a77d66f-cb00-446a-9b0f-42d1c318ae86"/>
+				<textElement>
+					<font fontName="Lora" size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENHK}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="89" y="62" width="216" height="20" uuid="f89bcad1-b29a-4832-9865-32d0885b8cb2"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Đặt vé thành công với mã đặt vé:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="89" y="29" width="141" height="18" uuid="7a247ecb-7a89-40e1-9538-ed6dcdd1adff"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Chúc mừng ông/bà: ]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="348" splitType="Stretch">
+			<textField>
+				<reportElement x="402" y="146" width="140" height="20" uuid="8b018b16-e340-44bf-9f2f-c98357ccd3dd"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EMAIL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="76" width="100" height="20" uuid="777bc171-689f-4d96-811e-633d23cbf822"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SDT}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="58" y="15" width="159" height="20" uuid="c8287b94-6bda-4fd8-8c4d-215c2bff14eb"/>
+				<textElement>
+					<font fontName="Lora" size="13" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Thông tin chuyến xe:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="42" width="100" height="20" uuid="1557e45b-7714-4eca-b8c8-71379bb200ea"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Tên tuyến:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="76" width="100" height="20" uuid="7fd8b0f6-4120-40f1-b0c4-e6e60536526f"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Điểm đầu: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="42" width="100" height="20" uuid="93db816f-de4a-4a89-9bd6-d5e6b38e8042"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Tên hành khách:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="42" width="100" height="20" uuid="89582608-75b4-4ae3-a37b-b26c4677157d"/>
+				<textElement>
+					<font fontName="Lora" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENTUYEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="111" width="140" height="20" uuid="6749b6ef-374f-4510-a496-7e14055cad53"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CMND}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="292" y="146" width="100" height="20" uuid="fc5c2304-8a3b-4b2e-8ff2-57beb946c91d"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="15" width="159" height="20" uuid="1411f224-3008-4109-8fe9-30d7660a1296"/>
+				<textElement>
+					<font fontName="Lora" size="13" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Thông tin hành khách:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="216" width="100" height="20" uuid="99f008a9-b7f7-4ae8-8a7d-78ba992c23fd"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Thời gian đến:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="140" y="216" width="118" height="20" uuid="62db6aca-4b50-42c0-be9b-04093f9505aa"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{THOIGIANDEN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="321" width="100" height="20" uuid="b4f3387d-6e2d-40c3-9e30-432c5c6588a1"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Tổng tiền:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="146" width="100" height="20" uuid="41744e4c-229b-4b03-8c8f-ce60ae7b506f"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Biển số:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="146" width="100" height="20" uuid="2244d15a-f39b-443e-9a68-12f06c493eb6"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{BIENSO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="111" width="100" height="20" uuid="4e7f02d5-3f77-4f4e-ba27-78bc69c1c2a0"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIEMCUOI}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="287" width="100" height="20" uuid="ab348f10-dc2a-4b63-a387-9c02b4926c17"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Tên loại xe:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="4" y="180" width="125" height="20" uuid="2ae306ec-43db-4226-9e73-45f75c19c83b"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Thời gian khởi hành:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="402" y="42" width="140" height="20" uuid="5ac14347-0122-4ac6-8c21-9d735c556d61"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENHK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="253" width="100" height="20" uuid="401fd127-76c3-4ee0-ad97-6490882568cb"/>
+				<textElement>
+					<font fontName="Lora" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VITRIGHE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="292" y="76" width="100" height="20" uuid="5cc0cbf5-ff83-4e95-8123-eb1664689da6"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Số điện thoại: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="292" y="111" width="100" height="20" uuid="77a5e758-1a19-4c51-9e98-c20156ff1102"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[CMND:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement x="140" y="180" width="118" height="20" uuid="aacf0032-627d-4a1e-bccc-756a0108d5c7"/>
+				<textElement>
+					<font fontName="Lora" size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{THOIGIANKH}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="287" width="100" height="20" uuid="b572b1d7-ef30-4496-941c-ead9c17cb1db"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TENLOAIXE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="253" width="100" height="20" uuid="72f33bae-e359-4432-b3ea-9491422e9dd0"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Vị trí ghế:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="111" width="100" height="20" uuid="e7f1dd8e-8c57-46d3-b42f-b07c0c9eccaa"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Điểm cuối:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="321" width="100" height="20" uuid="f9e9d10f-035a-4f0d-b560-69d326a7ce6a"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TONGTIEN}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="140" y="76" width="100" height="20" uuid="9d7b1aa0-9609-4b54-a405-65305472bb06"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DIEMDAU}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="33" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="113" splitType="Stretch">
+			<staticText>
+				<reportElement x="92" y="82" width="403" height="20" uuid="b00fd9e1-3297-4845-931b-2fa59bf986ee"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[Địa chỉ: 9-9A Tình Duyên, phường Thanh Xuân, TP Hồ Chí Minh]]></text>
+			</staticText>
+			<line>
+				<reportElement x="76" y="6" width="399" height="1" uuid="0b4d9e95-3340-4823-b32f-f15fb10ee70b"/>
+			</line>
+			<staticText>
+				<reportElement x="142" y="62" width="363" height="20" uuid="38b6c548-eb19-4f55-b969-d6ddf7b26629"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[CÔNG TY CỔ PHẦN XE KHÁCH THANH XUÂN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="241" y="35" width="80" height="23" uuid="a75452e9-0359-4e49-9c8a-c281f2b1ae32"/>
+				<textElement>
+					<font fontName="Lora" size="17" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1900 7979]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="357" y="-41" width="192" height="31" uuid="23410c84-2dac-47b2-80d9-22ee7b3bdb9d"/>
+				<textElement>
+					<font fontName="Lora Medium" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHƯA THANH TOÁN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="174" y="16" width="229" height="20" uuid="1cb2521a-858d-4320-b11b-810a6e3ca3cb"/>
+				<textElement>
+					<font fontName="Lora" size="13"/>
+				</textElement>
+				<text><![CDATA[TỔNG ĐÀI CHĂM SÓC KHÁCH HÀNG]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>
